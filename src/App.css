@@ -1,0 +1,25 @@
+html,
+body {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+.footer {
+  flex-shrink: 0;
+  text-align: center;
+  background-color: #1b1b1b;
+}
