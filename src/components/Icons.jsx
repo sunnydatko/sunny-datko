@@ -11,7 +11,7 @@ const skills = [
   },
   {
     icon: "bi bi-robot",
-    header: "Lifelong Learner",
+    header: "Software Engineer",
     text: "Specialized in web-based applications and mobile development",
   },
   {
@@ -50,7 +50,7 @@ const Icons = () => {
             }}
           >
             {skills.map((skill) => (
-              <Box className="col-sm">
+              <Box className="col-sm" key={skill.header}>
                 <i className={skill.icon} />
                 <Typography variant="h4">{skill.header}</Typography>
                 <Typography>{skill.text}</Typography>

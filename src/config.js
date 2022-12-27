@@ -97,21 +97,21 @@ const testimonials = [
     name: "Ryan Fahey",
     title: "Senior Technical Product Manager",
     displayText:
-      "As Sunny's direct manager, Sunny made my job easy. Sunny has outstanding communication skills and a strong passion for technology, particularly front-end web development. During the time she reported to me, I watched Sunny grow her skills tremendously to the point where she was working on some of the most complex parts of our application.",
+      "As Sunny's direct manager, Sunny made my job easy. Sunny has outstanding communication skills and a strong passion for technology, particularly front-end web development. During the time she reported to me, I watched Sunny grow her skills tremendously to the point where she was working on some of the most complex parts of our application. I would be more than happy to work with her on a team again if given the chance.",
     image: fahey,
   },
   {
     name: "Emily Barbenza",
     title: "Senior Software Accessibility Engineer",
     displayText:
-      "I had the pleasure of working with Sunny on numerous occasions. Sunny is a talented front-end developer and a skilled presenter who can command a room. I was personally able to attend one of her talks on CSS and learned some interesting new things about developing web applications from her presentation. Beyond her technical abilities, one of Sunny’s best qualities is her warm and positive personality. She really knows how to make a teammate feel included. Any company looking for an engineer would be lucky to have Sunny on their team.",
+      "I had the pleasure of working with Sunny on numerous occasions. Sunny is a talented front-end developer and a skilled presenter who can command a room. I was personally able to attend one of her talks on CSS and learned some interesting new things about developing web applications from her presentation. Beyond her technical abilities, one of Sunny’s best qualities is her warm and positive personality. Any company looking for an engineer would be lucky to have Sunny on their team.",
     image: emily,
   },
   {
-    name: "Arpita Barbenza",
+    name: "Arpita Parmar",
     title: "Data Science Lead",
     displayText:
-      "Sunny and I worked together in different teams at Innova for 2 years. I found sunny extremely charming and pleasant, tackling all project work with dedication and smile. Her interpersonal skills were exemplary and appreciated by everyone who worked with her. Besides bringing positive energy to team, sunny is a take-charge person who can present creative ideas and most importantly communicate it very effectively. Sunny has passion for innovation when it comes to technology and her work reflects her passion and energy. Sunny was also extraordinarily helpful in other areas of the company such as Tech Talks and other company events. She is super fun to be around! She is motivated worker who is passionate about her work and takes pride in her work. She would be an excellent addition to any team and I wish her best for her future projects.",
+      "Sunny and I worked together in different teams. I found sunny extremely charming and pleasant, tackling all project work with dedication and smile. Her interpersonal skills were exemplary and appreciated by everyone who worked with her. Besides bringing positive energy to team, Sunny is a take-charge person who can present creative ideas and communicate it effectively. She would be an excellent addition to any team and I wish her best for her future projects.",
     image: arpita,
   },
 ];

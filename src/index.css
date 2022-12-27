@@ -112,7 +112,7 @@ a {
 .el-reviews .reviews .review {
   min-height: 400px;
   align-items: flex-end;
-  /* padding: 20px 20px 62px; */
+  padding: 20px 20px 62px;
 }
 
 .el-reviews .reviews .review .quote {
@@ -125,7 +125,6 @@ a {
 }
 
 .el-reviews .reviews .review .dtext {
-  line-height: 36px;
   margin: 32px 0;
   min-height: 144px;
   position: relative;
@@ -200,11 +199,6 @@ a {
     padding-bottom: 30px;
   }
 
-  .reviews .quote .dtext {
-    font-size: 16px;
-    line-height: 25px;
-  }
-
   .reviews .quote .dtext:before {
     top: 0;
     left: 0;
@@ -237,5 +231,11 @@ a {
 
   .el-title .wrap .dtext {
     font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 669px) {
+  .reviews .slide .review {
+    padding: 30px 15px;
   }
 }
