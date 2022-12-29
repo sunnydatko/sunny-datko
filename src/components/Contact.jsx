@@ -12,8 +12,8 @@ const Contact = () => {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
   const sendEmail = (e) => {
+    debugger;
     e.preventDefault();
-    console.log(form.current);
     emailjs
       .sendForm(
         "service_925nrmc",
@@ -68,9 +68,9 @@ const Contact = () => {
                 width: "65%",
               }}
             >
-              <TextField label="Name" name="from_name" />
-              <TextField label="Email" name="reply_to" />
-              <TextField label="Message" multiline name="message" />
+              <TextField label="Name" name="from_name" required />
+              <TextField label="Email" name="reply_to" required />
+              <TextField label="Message" multiline name="message" required />
               <Button
                 size="large"
                 sx={{
