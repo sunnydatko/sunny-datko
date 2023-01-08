@@ -4,7 +4,6 @@ import Container from "@mui/material/Container";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
 import movie from "../assets/iStock-1193269492.mp4";
-import image from "../assets/1566836041.png";
 
 const Hero = () => {
   return (
@@ -17,14 +16,8 @@ const Hero = () => {
     >
       <Box className="modifier">
         <Box className="overlay hero-vid" sx={{ overflow: "hidden" }}>
-          <video
-            className="lazy bg-vid loaded"
-            autoPlay
-            loop
-            muted
-            data-src={image}
-          >
-            <source src={movie} data-src={image} type="video/mp4" />
+          <video className="lazy bg-vid loaded" autoPlay loop muted>
+            <source src={movie} type="video/mp4" />
           </video>
         </Box>
         <Box
