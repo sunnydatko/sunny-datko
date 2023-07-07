@@ -25,44 +25,50 @@ const About = () => {
           <Typography variant="h3" gutterBottom>
             About Me
           </Typography>
-          <Typography gutterBottom sx={{ fontWeight: 700 }}>
-            Where innovation, creativity, and all things technology collide.
+          <Typography paragraph>
+            I am a skilled Remote Front-End React Engineer with a passion for
+            building exceptional digital experiences. With over 10 years of
+            experience, I have honed my expertise in this ever-evolving digital
+            landscape.
           </Typography>
           <Typography paragraph>
-            Pursuing the engineering world on a foundation of authenticity and
-            passion, I am a longstanding Senior Software Engineer with 8+ years
-            of experience accentuating this ever-evolving digital space.
+            My journey began in online marketing and web design, where I
+            cultivated my skills after obtaining a BS in Business Marketing.
+            Combining my marketing and design background with software
+            engineering, I excel at bridging the gap between product
+            requirements and user experiences, creating seamless and intuitive
+            workflows. I firmly believe in the strength of teams and value
+            transparent communication, inspiring technical innovation, and
+            approaching every project with integrity.
           </Typography>
           <Typography paragraph>
-            To date, I hold an extensive background involving front-end software
-            development, web application deployment, and working alongside
-            productive teams. Even more, I enjoy leveraging that history to
-            secure value-based results via humanizing digital interactions,
-            leading by example, and of course, keeping an open mind.
+            In addition to my technical prowess in CSS, HTML, JavaScript, and
+            Responsive Design, I bring a host of soft skills to the table.
+            Creativity is my driving force, allowing me to think outside the box
+            and craft visually stunning interfaces. Effective communication is
+            second nature to me, fostering collaboration and ensuring everyone
+            involved has a positive experience. As a team player, I thrive on
+            working collectively, leveraging diverse perspectives, and achieving
+            shared goals. My growth mindset and problem-solving abilities enable
+            me to adapt quickly to new challenges and find innovative solutions.
           </Typography>
           <Typography paragraph>
-            Prior to engineering, I specialized in online marketing and web
-            design after attaining a BS in Business Marketing. From there, I
-            branched into software engineering for several organizations -
-            blending my experiences in marketing and design to connect product
-            requirements with user experiences and convey complex workflows. But
-            also being someone who firmly believes that strong results stem from
-            strong teams, I value transparent communication, inspiring new
-            technical approaches, and executing every project with a moral
-            compass.
+            Test-driven development and rigorous testing/debugging are
+            fundamental aspects of my workflow, ensuring robust and high-quality
+            code. I am well-versed in Git/Version Control, enabling seamless
+            collaboration and efficient code management.
           </Typography>
           <Typography paragraph>
-            As a solutions-oriented professional, I am passionate about
-            translating front-end goals into tangible realities and doing so
-            while ensuring everyone involved has positive experiences. Overall,
-            connecting the digital world with the human one is my focus, I enjoy
-            collaborating with people FOR people, and every effort that I do as
-            a lifelong learner of this field rests on one cornerstone notion: my
-            passion for both seeing and helping others succeed.
+            Above all, my passion lies in connecting the digital world with
+            human interactions. I am dedicated to leveraging my skills to create
+            impactful digital experiences that truly resonate with users. As a
+            lifelong learner in this field, I am committed to staying up to date
+            with the latest trends and technologies.
           </Typography>
           <Typography paragraph>
-            Free time? Off the clock, you can often find me practicing yoga,
-            cooking, playing the ukulele, and building things for the web.
+            Outside of work, I embrace a balanced lifestyle. You may find me on
+            my yoga mat, experimenting with culinary delights in the kitchen, or
+            building exciting web projects during my downtime.
           </Typography>
         </Container>
       </div>
