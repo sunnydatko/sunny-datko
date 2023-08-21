@@ -14,12 +14,13 @@ const experience = [
     title: "Frontend Software Engineer",
     url: "https://www.instil.io/",
     experience: [
-      "Lead frontend development of new user-focused solutions and features from creating and presenting technical plans to implementation in collaboration with a 7-person development team.",
-      "Build and enhance the UI of a CRM used to manage nonprofit donations, events, and campaigns using React & Material UI.",
-      "Develop and deploy new features to enable donor management, real-time reporting, and data analytics.",
-      "Successfully propose architectural solutions and provide detailed technical feedback during design and code reviews.",
-      "Transformed the product layout and introduced a slide-out navigation system to streamline user flows.",
-      "Migrated Material UI from v4 to v5 and resolved breaking changes to ensure zero downtime and maintain productivity.",
+      "Built and optimized an intuitive and efficient UI for nonprofit CRM, leveraging React & Material UI to manage donations, events, and campaigns.",
+      "Redesigned product layout with a slide-out navigation system, simplifying user experience and workflows.",
+      "Transitioned 9% of the codebase to TypeScript, significantly enhancing type safety and efficiency for key modules used by internal and external users.",
+      "Spearheaded the implementation of an integration testing strategy using Cypress, significantly enhancing feature reliability and overall system robustness.",
+      "Seamlessly migrated Material UI from v4 to v5, ensuring uninterrupted productivity and compatibility.",
+      "Provided architectural insights and technical feedback during design and code reviews, ensuring robust and effective solutions.",
+      "Managed the entire project lifecycle, from technical planning to successful implementation, ensuring seamless collaboration with a 7-person development team.",
     ],
   },
   {
@@ -59,7 +60,7 @@ const experience = [
   {
     company: "Integrated Default Solutions",
     dates: "2014 - 2016",
-    title: "Web Application Developer",
+    title: "Software Engineer",
     url: "https://www.idsolutions-inc.com/",
     experience: [
       "Designed and implemented fullstack web applications linked to firm-wide SQL databases for clients in a mortgage law firm.",
@@ -81,7 +82,7 @@ const communityOutreach = [
   {
     company: "The LEAGUE of Amazing Programmers",
     dates: "2014 - 2016",
-    title: "Java Instructor",
+    title: "Volunteer Instructor",
     url: "https://www.jointheleague.org/",
     experience: [
       "Taught weekly classes on creating and styling websites using HTML and CSS for 5 middle and high school students.",
