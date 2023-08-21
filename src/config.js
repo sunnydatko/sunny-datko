@@ -1,11 +1,16 @@
 import arpita from "./assets/arpita.jpeg";
+import camden from "./assets/camden.jpg";
+import ed from "./assets/ed.jpg";
 import emily from "./assets/emily.jpeg";
 import fahey from "./assets/fahey.jpeg";
+import spencer from "./assets/spencer.jpg";
+
+
 
 const experience = [
   {
     company: "Instil",
-    dates: "2022 - Present",
+    dates: "2022 - 2023",
     title: "Frontend Software Engineer",
     url: "https://www.instil.io/",
     experience: [
@@ -93,6 +98,27 @@ const education = [
 ];
 
 const testimonials = [
+  {
+    name: "Spencer Carney",
+    title: "Senior Software Engineer",
+    displayText:
+      "Dependable, eager, and always willing to learn and grow; that's how I would describe Sunny Datko. Collaborating with her has been an immense pleasure. She is an excellent sounding board when deliberating over decisions. She is always willing to help out with important tasks that others shy away from. When new standards are set, she motivates both herself and her colleagues to embrace them. Watching her take on new challenges without any hesitancy, and then succeed at them, has been one of the recent highlights of my career. Any team that needs a hard-hitting front-end engineer would be remiss to pass up on bringing her onboard.",
+    image: spencer,
+  },
+  {
+    name: "Camden Lee",
+    title: "Senior Software Engineer",
+    displayText:
+      "I had had the privilege to work closely alongside Sunny at Instil. She showed the ability to dive into challenges and find solutions, driving our team towards success. One of Sunny's standout qualities is her self-motivation and proactive nature when it comes to working within a team and solving technical problems. I would jump at the opportunity to work with Sunny again and any organization would be lucky to have her.",
+    image: camden,
+  },
+  {
+    name: "Edward Kim",
+    title: "Head of Data and R&D",
+    displayText:
+      "Sunny has been a great collaborator and a pleasure to work with. I've worked with her as her squad lead, and she has continued to impress me with strong communication, adaptability to changing requirements and strong ownership over both feature implementation and tech debt. Sunny's contributions have been strongly positive both technically and also culturally as a strong collaborator. I'd love to work with Sunny again!",
+    image: ed,
+  },
   {
     name: "Ryan Fahey",
     title: "Senior Technical Product Manager",

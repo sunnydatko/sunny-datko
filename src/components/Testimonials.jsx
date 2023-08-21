@@ -34,11 +34,11 @@ const Testimonials = () => {
   const [intervalId, setIntervalId] = React.useState(0);
 
   const showNextTestimonial = () => {
-    setActive((prevCount) => (prevCount === 2 ? 0 : prevCount + 1));
+    setActive((prevCount) => (prevCount === testimonials.length - 1 ? 0 : prevCount + 1));
   };
 
   const showPreviousTestimonial = () => {
-    setActive((prevCount) => (prevCount === 0 ? 2 : prevCount - 1));
+    setActive((prevCount) => (prevCount === 0 ? testimonials.length - 1 : prevCount - 1));
   };
 
   const handleClick = () => {
@@ -49,7 +49,7 @@ const Testimonials = () => {
 
     const newIntervalId = setInterval(() => {
       showNextTestimonial();
-    }, 7000);
+    }, 15000);
     setIntervalId(newIntervalId);
   };
 
@@ -60,7 +60,7 @@ const Testimonials = () => {
   React.useEffect(() => {
     const intervalId = setInterval(() => {
       showNextTestimonial();
-    }, 7000);
+    }, 15000);
     setIntervalId(intervalId);
 
     return () => clearInterval(intervalId);
