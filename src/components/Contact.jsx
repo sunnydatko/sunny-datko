@@ -63,14 +63,20 @@ const Contact = () => {
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                gap: 2,
+                gap: 3,
                 margin: "0 auto",
-                width: "65%",
+                width: "70%",
               }}
             >
               <TextField label="Name" name="from_name" required />
               <TextField label="Email" name="reply_to" required />
-              <TextField label="Message" multiline name="message" required />
+              <TextField
+                label="Message"
+                name="message"
+                multiline
+                required
+                rows={3}
+              />
               <Button
                 size="large"
                 sx={{

@@ -13,13 +13,11 @@ const experience = [
     title: "Frontend Software Engineer",
     url: "https://www.instil.io/",
     experience: [
-      "Built and optimized an intuitive and efficient UI for nonprofit CRM, leveraging React & Material UI to manage donations, events, and campaigns.",
-      "Redesigned product layout with a slide-out navigation system, simplifying user experience and workflows.",
-      "Transitioned 9% of the codebase to TypeScript, significantly enhancing type safety and efficiency for key modules used by internal and external users.",
-      "Spearheaded the implementation of an integration testing strategy using Cypress, significantly enhancing feature reliability and overall system robustness.",
-      "Seamlessly migrated Material UI from v4 to v5, ensuring uninterrupted productivity and compatibility.",
-      "Provided architectural insights and technical feedback during design and code reviews, ensuring robust and effective solutions.",
-      "Managed the entire project lifecycle, from technical planning to successful implementation, ensuring seamless collaboration with a 7-person development team.",
+      "Led migration of 20% of the React codebase to TypeScript, improving code quality, collaboration, and maintainability via static typing, while optimizing development efficiency with advanced tooling.",
+      "Guided the migration of Material UI from v4 to v5, enhancing mobile responsiveness, refining styling tools, introducing new components, and improving user experience and developer efficiency.",
+      "Spearheaded the implementation of a test-driven development strategy using Cypress and Jest, significantly enhancing feature reliability and overall system robustness.",
+      "Architected and refined an intuitive and efficient UI for a nonprofit CRM, leveraging React & Material UI to empower organizational users in overseeing daily operations, including the management of donations, campaigns, and events.",
+      "Managed the entire project lifecycle, from technical planning to successful implementation, ensuring seamless collaboration and alignment with a 7-person development team, resulting in timely delivery and optimal outcomes.",
     ],
   },
   {
@@ -100,7 +98,7 @@ const education = [
 const testimonials = [
   {
     name: "Spencer Carney",
-    title: "Senior Software Engineer",
+    title: "Engineering Manager",
     displayText:
       "Dependable, eager, and always willing to learn and grow; that's how I would describe Sunny Datko. Collaborating with her has been an immense pleasure. She is an excellent sounding board when deliberating over decisions. She is always willing to help out with important tasks that others shy away from. When new standards are set, she motivates both herself and her colleagues to embrace them. Watching her take on new challenges without any hesitancy, and then succeed at them, has been one of the recent highlights of my career. Any team that needs a hard-hitting front-end engineer would be remiss to pass up on bringing her onboard.",
     image: spencer,
@@ -112,7 +110,7 @@ const testimonials = [
       "I had had the privilege to work closely alongside Sunny at Instil. She showed the ability to dive into challenges and find solutions, driving our team towards success. One of Sunny's standout qualities is her self-motivation and proactive nature when it comes to working within a team and solving technical problems. I would jump at the opportunity to work with Sunny again and any organization would be lucky to have her.",
     image: camden,
   },
-    {
+  {
     name: "Jon Jandoc",
     title: "Software Engineer",
     displayText:
@@ -144,7 +142,7 @@ const testimonials = [
     name: "Arpita Parmar",
     title: "Data Science Lead",
     displayText:
-      "Sunny and I worked together in different teams. I found sunny extremely charming and pleasant, tackling all project work with dedication and smile. Her interpersonal skills were exemplary and appreciated by everyone who worked with her. Besides bringing positive energy to team, Sunny is a take-charge person who can present creative ideas and communicate it effectively. She would be an excellent addition to any team and I wish her best for her future projects.",
+      "Sunny and I worked together in different teams. I found Sunny extremely charming and pleasant, tackling all project work with dedication and smile. Her interpersonal skills were exemplary and appreciated by everyone who worked with her. Besides bringing positive energy to team, Sunny is a take-charge person who can present creative ideas and communicate it effectively. She would be an excellent addition to any team and I wish her best for her future projects.",
     image: arpita,
   },
 ];
