@@ -8,16 +8,21 @@ import spencer from "./assets/spencer.jpg";
 
 const experience = [
   {
+    company: "SafeBase",
+    dates: "2023 - Present",
+    title: "Lead Frontend Software Engineer",
+    url: "https://www.instil.io/",
+    experience: [
+      "Lead frontend software engineering efforts for SafeBase, collaborating with product managers and customers to enhance user experiences.",
+    ],
+  },
+  {
     company: "Instil",
     dates: "2022 - 2023",
     title: "Frontend Software Engineer",
     url: "https://www.instil.io/",
     experience: [
-      "Led migration of 20% of the React codebase to TypeScript, improving code quality, collaboration, and maintainability via static typing, while optimizing development efficiency with advanced tooling.",
-      "Guided the migration of Material UI from v4 to v5, enhancing mobile responsiveness, refining styling tools, introducing new components, and improving user experience and developer efficiency.",
-      "Spearheaded the implementation of a test-driven development strategy using Cypress and Jest, significantly enhancing feature reliability and overall system robustness.",
-      "Architected and refined an intuitive and efficient UI for a nonprofit CRM, leveraging React & Material UI to empower organizational users in overseeing daily operations, including the management of donations, campaigns, and events.",
-      "Managed the entire project lifecycle, from technical planning to successful implementation, ensuring seamless collaboration and alignment with a 7-person development team, resulting in timely delivery and optimal outcomes.",
+      "Architected and refined the UI of a nonprofit CRM used to manage nonprofit donations, events, and campaigns using React & Material UI.",
     ],
   },
   {
@@ -27,8 +32,6 @@ const experience = [
     url: "https://www.eastridge.com/",
     experience: [
       "Rewrote a legacy Ember recruitment application from Ember to React using Material UI, TypeScript, Styled Components, and React Query to optimize navigation and modernize the codebase.",
-      "Led the React Router upgrade from v5 to v6 and the Material UI migration from v4 to v5 to improve customizability.",
-      "Implemented and customized a suite of buttons, tables, and forms to ensure a consistent product and brand experience.",
     ],
   },
   {
@@ -38,9 +41,6 @@ const experience = [
     url: "https://verogen.com/",
     experience: [
       "Designed, developed, and deployed frontend features for a next-generation forensics analysis platform.",
-      "Ported features for an existing project from AngularJS to Angular 2+ while maintaining functionality",
-      "Optimized the user experience by creating interactive displays and improving core interactions and navigation.",
-      "Implemented a central navigation point and optimized result displays to increase user efficiency and productivity.",
     ],
   },
   {
@@ -50,8 +50,6 @@ const experience = [
     url: "https://www.innovasi.com/",
     experience: [
       "Developed a Learning Management system for the US Navy that teachers and students in boot camp used to track training and readiness using AngularJS, TypeScript, SQL, and C#.",
-      "Rewrote an existing application to enable instructors to quickly create and administer scorecards for grading students.",
-      "Consulted with a team of 8 engineering staff to evaluate software interfaces, define technical specifications, and develop performance requirements in alignment with user needs.",
     ],
   },
   {
@@ -61,7 +59,6 @@ const experience = [
     url: "https://www.idsolutions-inc.com/",
     experience: [
       "Designed and implemented fullstack web applications linked to firm-wide SQL databases for clients in a mortgage law firm.",
-      "Built the parent company website to increase lead generation, drive customer acquisition, and expand brand awareness.",
     ],
   },
 ];
