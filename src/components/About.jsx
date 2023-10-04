@@ -26,17 +26,27 @@ const About = () => {
             About Me
           </Typography>
           <Typography paragraph>
-            I'm a skilled remote Front-End React Engineer with over a decade of
-            experience crafting exceptional digital experiences. Starting in
-            online marketing and web design after earning a BS in Business
-            Marketing, I blend marketing, design, and software engineering to
-            bridge product and user needs seamlessly. My creative drive fuels
-            visually stunning interfaces, while my natural communication fosters
-            collaboration. A team player, I thrive on diverse perspectives and
-            tackle challenges with a growth mindset. My workflow includes
-            rigorous testing, Git expertise, and a dedication to impactful
-            digital-human connections. Outside of work, I balance with yoga,
-            cooking experiments, and web projects.
+            I'm a Lead Front-End Software Engineer with more than a decade of
+            experience dedicated to crafting exceptional digital experiences. My
+            journey began in the world of online marketing and web design, and
+            I've continued to evolve and excel in the field. With a BS in
+            Business Marketing, I've seamlessly blended my expertise in
+            marketing, design, and software engineering to connect user needs
+            with product innovation.
+          </Typography>
+          <Typography paragraph>
+            My passion for creativity drives me to create visually stunning
+            interfaces that captivate and engage users. What sets me apart is my
+            innate ability to communicate effectively and foster collaboration
+            across diverse teams. I thrive on embracing various perspectives and
+            relish challenges with a growth mindset, always pushing myself to
+            excel.
+          </Typography>
+          <Typography paragraph>
+            My approach involves rigorous testing, deep Git expertise, and an
+            unwavering commitment to creating meaningful digital-human
+            connections. Outside of my professional life, I maintain balance
+            through yoga, culinary experiments, and personal web projects.
           </Typography>
         </Container>
       </div>
