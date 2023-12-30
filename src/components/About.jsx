@@ -43,10 +43,10 @@ const About = () => {
             excel.
           </Typography>
           <Typography paragraph>
-            My approach involves rigorous testing, deep Git expertise, and an
-            unwavering commitment to creating meaningful digital-human
-            connections. Outside of my professional life, I maintain balance
-            through yoga, culinary experiments, and personal web projects.
+            My approach involves rigorous testing and an unwavering commitment
+            to creating meaningful digital-human connections. Outside of my
+            professional life, I maintain balance through yoga, culinary
+            experiments, and personal web projects.
           </Typography>
         </Container>
       </div>

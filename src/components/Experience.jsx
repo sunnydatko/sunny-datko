@@ -25,7 +25,7 @@ const Experience = () => {
             },
           }}
         >
-          <Typography variant="h3">Professional Experience</Typography>
+          <Typography variant="h3">Experience</Typography>
           <Typography align="center" gutterBottom>
             Get to know where I've proven my skills
           </Typography>

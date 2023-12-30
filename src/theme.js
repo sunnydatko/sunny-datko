@@ -2,27 +2,25 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const color1 = "#00a3d9";
 const color1a = "#48d1ff";
-const color1b = "#e7f4ff";
+// const color1b = "#e7f4ff";
 const color2 = "#1b1b1b";
-const color3 = "#565667";
-const color3a = "#ccc";
-const color4 = "#f8f8f8";
+// const color3 = "#565667";
+// const color3a = "#ccc";
+// const color4 = "#f8f8f8";
 const color5 = "#e9651d";
 
 const theme = createTheme({
   palette: {
     primary: {
       main: color1,
-      light: color2,
+      light: color1a,
     },
     secondary: {
       main: color5,
     },
     grey: {
       100: "rgb(248, 248, 248)",
-      700: color3a,
-      800: color3,
-      900: "#1b1b1b",
+      900: color2,
     },
   },
 
@@ -66,12 +64,7 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         text: {
-          color: "#fff",
           fontFamily: "'Montserrat', sans-serif",
-          "&:hover": {
-            color: "#00a3d9",
-            backgroundColor: "transparent",
-          },
         },
       },
     },

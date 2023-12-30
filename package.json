@@ -9,10 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.4",
-    "@emotion/styled": "^11.10.4",
+    "@emotion/react": "^11.11.13",
+    "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.10.6",
-    "@mui/material": "^5.10.7",
+    "@mui/material": "^5.15.2",
     "emailjs-com": "^3.2.0",
     "helmet": "^6.0.0",
     "notistack": "^2.0.8",
