@@ -2,10 +2,10 @@ import React from "react";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
-import { styled } from "@mui/system";
+import { styled } from "@mui/material/styles";
 
 import stars from "../assets/star-5.svg";
-import { testimonials } from "../config";
+import { testimonials } from "../helpers/config";
 
 const Arrow = styled("div")({
   cursor: "pointer",
@@ -34,11 +34,15 @@ const Testimonials = () => {
   const [intervalId, setIntervalId] = React.useState(0);
 
   const showNextTestimonial = () => {
-    setActive((prevCount) => (prevCount === testimonials.length - 1 ? 0 : prevCount + 1));
+    setActive((prevCount) =>
+      prevCount === testimonials.length - 1 ? 0 : prevCount + 1
+    );
   };
 
   const showPreviousTestimonial = () => {
-    setActive((prevCount) => (prevCount === 0 ? testimonials.length - 1 : prevCount - 1));
+    setActive((prevCount) =>
+      prevCount === 0 ? testimonials.length - 1 : prevCount - 1
+    );
   };
 
   const handleClick = () => {

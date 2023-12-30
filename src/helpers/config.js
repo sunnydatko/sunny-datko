@@ -1,15 +1,15 @@
-import arpita from "./assets/arpita.jpeg";
-import camden from "./assets/camden.jpg";
-import ed from "./assets/ed.jpg";
-import emily from "./assets/emily.jpeg";
-import jon from "./assets/jon.jpg";
-import fahey from "./assets/fahey.jpeg";
-import spencer from "./assets/spencer.jpg";
+import arpita from "../assets/arpita.jpeg";
+import camden from "../assets/camden.jpg";
+import ed from "../assets/ed.jpg";
+import emily from "../assets/emily.jpeg";
+import jon from "../assets/jon.jpg";
+import fahey from "../assets/fahey.jpeg";
+import spencer from "../assets/spencer.jpg";
 
 const experience = [
   {
     company: "SafeBase",
-    dates: "2023 - Present",
+    dates: "September 2023 - Present",
     title: "Lead Frontend Software Engineer",
     url: "https://www.instil.io/",
     experience: [
@@ -18,7 +18,7 @@ const experience = [
   },
   {
     company: "Instil",
-    dates: "2022 - 2023",
+    dates: "February 2022 - August 2023",
     title: "Frontend Software Engineer",
     url: "https://www.instil.io/",
     experience: [
@@ -27,7 +27,7 @@ const experience = [
   },
   {
     company: "Eastridge Workforce Solutions",
-    dates: "2020 - 2022",
+    dates: "March 2020 - January 2022",
     title: "Frontend Engineer",
     url: "https://www.eastridge.com/",
     experience: [
@@ -36,7 +36,7 @@ const experience = [
   },
   {
     company: "Verogen",
-    dates: "2018 - 2019",
+    dates: "January 2018 - December 2019",
     title: "Software Engineer",
     url: "https://verogen.com/",
     experience: [
@@ -45,7 +45,7 @@ const experience = [
   },
   {
     company: "InnovaSystems International, LLC",
-    dates: "2016 - 2018",
+    dates: "June 2016 - January 2018",
     title: "Software Engineer",
     url: "https://www.innovasi.com/",
     experience: [
@@ -54,7 +54,7 @@ const experience = [
   },
   {
     company: "Integrated Default Solutions",
-    dates: "2014 - 2016",
+    dates: "January 2014 - June 2016",
     title: "Software Engineer",
     url: "https://www.idsolutions-inc.com/",
     experience: [

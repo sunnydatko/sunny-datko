@@ -61,7 +61,7 @@ function DrawerAppBar(props) {
         component="nav"
         elevation={0}
         position="fixed"
-        sx={{ backgroundColor: "#212529" }}
+        sx={{ backgroundColor: "grey.900", zIndex: 1000 }}
       >
         <Toolbar>
           <IconButton

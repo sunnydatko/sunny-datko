@@ -9,25 +9,24 @@ import { useSnackbar } from "notistack";
 
 const Contact = () => {
   const form = React.useRef();
-  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+  const { enqueueSnackbar } = useSnackbar();
 
   const sendEmail = (e) => {
-    debugger;
     e.preventDefault();
     emailjs
       .sendForm(
-        "service_925nrmc",
+        "service_g36tuqc",
         "template_h9f3cqa",
         form.current,
         "3qQjX53eMlx5510nE"
       )
       .then(
-        (result) => {
+        () => {
           enqueueSnackbar("Your message was sent.", {
             variant: "success",
           });
         },
-        (error) => {
+        () => {
           enqueueSnackbar("An error occured.", {
             variant: "error",
           });
@@ -65,7 +64,7 @@ const Contact = () => {
                 flexDirection: "column",
                 gap: 3,
                 margin: "0 auto",
-                width: "70%",
+                width: { xs: "100%", sm: "90%", md: "70%" },
               }}
             >
               <TextField label="Name" name="from_name" required />

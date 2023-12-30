@@ -4,7 +4,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import { SnackbarProvider } from "notistack";
 import Router from "./components/Router";
 import Loader from "./components/Loader";
-import theme from "./theme";
+import theme from "./helpers/theme";
 
 const App = () => {
   const [isLoading, setIsLoading] = React.useState(true);

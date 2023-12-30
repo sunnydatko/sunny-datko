@@ -5,7 +5,7 @@ import Link from "@mui/material/Link";
 import List from "@mui/material/List";
 import ListItemText from "@mui/material/ListItemText";
 import Typography from "@mui/material/Typography";
-import { communityOutreach, education, experience } from "../config";
+import { communityOutreach, education, experience } from "../helpers/config";
 
 const Experience = () => {
   return (
