@@ -1,4 +1,4 @@
-import React from "react";
+import { useRef } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
@@ -11,18 +11,24 @@ const fadeInAnimation = keyframes`
   to { opacity: 1; transform: translateY(0); }
 `;
 
-const ChatContactForm = ({ onSubmit }) => {
-  const form = React.useRef();
+type ChatContactFormProps = {
+  onSubmit: () => void;
+};
 
-  const onSendEmail = (e) => {
+const ChatContactForm = ({ onSubmit }: ChatContactFormProps) => {
+  const form = useRef<HTMLFormElement | null>(null);
+
+  const onSendEmail = (e: React.FormEvent) => {
     e.preventDefault();
 
-    emailjs.sendForm(
-      "service_g36tuqc",
-      "template_h9f3cqa",
-      form.current,
-      "3qQjX53eMlx5510nE"
-    );
+    if (form.current) {
+      emailjs.sendForm(
+        "service_g36tuqc",
+        "template_h9f3cqa",
+        form.current,
+        "3qQjX53eMlx5510nE"
+      );
+    }
 
     onSubmit();
   };

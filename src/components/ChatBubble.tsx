@@ -1,4 +1,3 @@
-import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { keyframes } from "@emotion/react";
@@ -16,7 +15,13 @@ const appearAnimation = keyframes`
   to { opacity: 1; transform: translateY(0); }
 `;
 
-const ChatBubble = ({ user, message, isLoading = false }) => {
+type ChatBubbleProps = {
+  user: MessageSource;
+  message: string[];
+  isLoading?: boolean;
+};
+
+const ChatBubble = ({ user, message, isLoading = false }: ChatBubbleProps) => {
   const loadingText = "...".split("");
 
   return (

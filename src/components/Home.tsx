@@ -5,17 +5,15 @@ import Hero from "./Hero";
 import Logos from "./Logos";
 import Testimonials from "./Testimonials";
 
-const Home = () => {
-  return (
-    <>
-      <Hero />
-      <About />
-      <Experience />
-      <Logos />
-      <Testimonials />
-      <Contact />
-    </>
-  );
-};
+const Home = () => (
+  <>
+    <Hero />
+    <About />
+    <Experience />
+    <Logos />
+    <Testimonials />
+    <Contact />
+  </>
+);
 
 export default Home;

@@ -1,4 +1,4 @@
-import React from "react";
+import { useRef } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
@@ -8,30 +8,33 @@ import emailjs from "emailjs-com";
 import { useSnackbar } from "notistack";
 
 const Contact = () => {
-  const form = React.useRef();
+  const form = useRef<HTMLFormElement | null>(null);
   const { enqueueSnackbar } = useSnackbar();
 
-  const sendEmail = (e) => {
+  const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
-    emailjs
-      .sendForm(
-        "service_g36tuqc",
-        "template_h9f3cqa",
-        form.current,
-        "3qQjX53eMlx5510nE"
-      )
-      .then(
-        () => {
-          enqueueSnackbar("Your message was sent.", {
-            variant: "success",
-          });
-        },
-        () => {
-          enqueueSnackbar("An error occured.", {
-            variant: "error",
-          });
-        }
-      );
+
+    if (form.current) {
+      emailjs
+        .sendForm(
+          "service_g36tuqc",
+          "template_h9f3cqa",
+          form.current,
+          "3qQjX53eMlx5510nE"
+        )
+        .then(
+          () => {
+            enqueueSnackbar("Your message was sent.", {
+              variant: "success",
+            });
+          },
+          () => {
+            enqueueSnackbar("An error occured.", {
+              variant: "error",
+            });
+          }
+        );
+    }
   };
 
   return (

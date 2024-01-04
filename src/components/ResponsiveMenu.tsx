@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -24,9 +24,17 @@ const navItems = [
   { name: "Contact", url: "#contact" },
 ];
 
-function DrawerAppBar(props) {
+type ResponsiveMenuProps = {
+  /**
+   * Injected by the documentation to work in an iframe.
+   * You won't need it on your project.
+   */
+  window?: any;
+};
+
+const ResponsiveMenu = (props: ResponsiveMenuProps) => {
   const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -117,14 +125,6 @@ function DrawerAppBar(props) {
       </Box>
     </Box>
   );
-}
-
-DrawerAppBar.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window: PropTypes.func,
 };
 
-export default DrawerAppBar;
+export default ResponsiveMenu;

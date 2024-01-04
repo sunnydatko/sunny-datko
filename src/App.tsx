@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import { ThemeProvider } from "@mui/material/styles";
 import { SnackbarProvider } from "notistack";
@@ -7,9 +7,9 @@ import Loader from "./components/Loader";
 import theme from "./helpers/theme";
 
 const App = () => {
-  const [isLoading, setIsLoading] = React.useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const onPageLoad = () => {
       setIsLoading(false);
     };

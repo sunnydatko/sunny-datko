@@ -1,10 +1,6 @@
-import React from "react";
-import axios from "axios";
-import Avatar from "@mui/material/Avatar";
+import { useState, useRef, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Close from "@mui/icons-material/Close";
 import Replay from "@mui/icons-material/Replay";
 import Chip from "@mui/material/Chip";
 import { useTheme } from "@mui/material/styles";
@@ -12,77 +8,62 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { keyframes } from "@emotion/react";
 
 import ChatBubble from "./ChatBubble";
+import ChatHeader from "./ChatHeader";
 import ChatContactForm from "./ChatContactForm";
 
-import { messages, MessageSource, messageOptions } from "../helpers/messages";
-import sunny from "../assets/sunny.jpg";
+import {
+  messages,
+  MessageSource,
+  messageOptions,
+  MessageOption,
+} from "../helpers/messages";
+// import { mainOptions } from "../helpers/dungeon-riddle";
+import { fetchCatFact, fetchDadJoke } from "../helpers/chat-helpers";
 
 const fadeInAnimation = keyframes`
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 `;
 
-const ChatHeader = ({ onClose }) => {
-  const theme = useTheme();
-
-  return (
-    <Box
-      sx={{
-        display: "flex",
-        padding: theme.spacing(1.2, 2),
-        justifyContent: "space-between",
-        alignItems: "center",
-        borderBottom: `1px solid ${theme.palette.primary.dark}`,
-        backgroundColor: "primary.main",
-        borderTopLeftRadius: "inherit",
-        borderTopRightRadius: "inherit",
-        color: "common.white",
-        zIndex: 1500,
-      }}
-    >
-      <Avatar alt="Sunny" src={sunny} sx={{ marginRight: 2 }} />
-      <Typography sx={{ flexGrow: 1, textAlign: "center", fontWeight: "bold" }}>
-        SunnyBot
-      </Typography>
-      <Close
-        onClick={onClose}
-        sx={{
-          padding: 0.5,
-          borderRadius: "50%",
-          cursor: "pointer",
-          "&:hover": {
-            backgroundColor: "primary.dark",
-          },
-        }}
-      />
-    </Box>
-  );
+type ChatWindowProps = {
+  onClose: () => void;
 };
 
-const ChatWindow = ({ onClose }) => {
-  const [messageLog, setMessageLog] = React.useState([]);
-  const [isLoading, setIsLoading] = React.useState(true);
-  const [options, setOptions] = React.useState({});
-  const [showOptions, setShowOptions] = React.useState({});
-  const [showContactForm, setShowContactForm] = React.useState(false);
-  const [isSunnyBotSpeaking, setIsSunnyBotSpeaking] = React.useState(false);
-  const bottomRef = React.useRef(null);
+type MessageItem = {
+  isLoading?: boolean;
+  user: MessageSource;
+  message: string[];
+};
+
+const ChatWindow = ({ onClose }: ChatWindowProps) => {
+  const [messageLog, setMessageLog] = useState<MessageItem[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [options, setOptions] = useState({});
+  const [showOptions, setShowOptions] = useState({});
+  const [showContactForm, setShowContactForm] = useState(false);
+  const [isSunnyBotSpeaking, setIsSunnyBotSpeaking] = useState(false);
+  // const [isPlayingGame, setIsPlayingGame] = useState(false);
+  // const [gameState, setGameState] = useState({});
+
+  const bottomRef = useRef(null);
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-  React.useEffect(() => {
+  useEffect(() => {
     startNewConversation();
   }, []);
 
-  React.useEffect(() => {
-    // scroll to bottom of window when new messages appear
-    if (bottomRef.current) {
-      bottomRef.current.scrollIntoView({ behavior: "smooth" });
+  useEffect(() => {
+    // Scroll to bottom of window when new messages appear
+    const current = bottomRef.current as HTMLDivElement | null;
+    if (current) {
+      current.scrollIntoView({ behavior: "smooth" });
     }
   }, [messageLog]);
 
-  React.useEffect(() => {
+  useEffect(() => {
+    // Hide main page scrollbar for mobile views
     if (isMobile) {
       document.body.style.overflow = "hidden";
     }
@@ -94,11 +75,34 @@ const ChatWindow = ({ onClose }) => {
     };
   }, [isMobile]);
 
-  const handleOptionClick = async ({ optionKey }) => {
-    // Add user input to log
+  const handleOptionClick = async ({
+    optionKey,
+  }: {
+    optionKey: MessageOption;
+  }) => {
+    // if (optionKey === MessageOption.PlayGame) {
+    //   // Initialize game and set initial state
+    //   setIsPlayingGame(true);
+    //   setGameState({ hasKey: false, hasSword: false, hasAmulet: false });
+    //   addMessagesWithDelay([
+    //     "Welcome to 'A Dungeon's Riddle'!",
+    //     "Choose a wall to begin.",
+    //   ]);
+    //   return;
+    // }
+
+    // if (isPlayingGame) {
+    // Handle game progression
+    //  const gameResponse = processGameOption(gameState, optionKey);
+    // addMessagesWithDelay([gameResponse.text]);
+    //  setGameState(gameResponse.newState);
+    //   return;
+    // }
+
+    // Regular chatbot functionality
     if (messages[optionKey]) {
       setShowOptions(false);
-
+      // Add user input to log
       setMessageLog((prevLog) => [
         ...prevLog,
         {
@@ -109,12 +113,12 @@ const ChatWindow = ({ onClose }) => {
 
       // Add sunnybot input to log
       const messagesToAdd = [];
-      messages[optionKey].forEach((message) => {
+      messages[optionKey].forEach((message: string) => {
         messagesToAdd.push(message);
       });
 
       switch (optionKey) {
-        case "SendMessage":
+        case MessageOption.SendMessage:
           setShowContactForm(true);
           break;
         case "CatFact":
@@ -127,8 +131,8 @@ const ChatWindow = ({ onClose }) => {
           if (dadJoke.includes("?")) {
             const jokeParts = dadJoke
               .split(/\?(.+)/)
-              .map((part) => part.trim())
-              .filter((part) => part);
+              .map((part: string) => part.trim())
+              .filter((part: string) => part);
             messagesToAdd.push(jokeParts[0] + "?");
             if (jokeParts[1]) {
               messagesToAdd.push(jokeParts[1]);
@@ -145,14 +149,14 @@ const ChatWindow = ({ onClose }) => {
 
       // Filter out the selected option
       setOptions((prevOptions) => {
-        const updatedOptions = { ...prevOptions };
+        const updatedOptions: any = { ...prevOptions };
         delete updatedOptions[optionKey];
         return updatedOptions;
       });
     }
   };
 
-  const addMessagesWithDelay = (messagesToAdd) => {
+  const addMessagesWithDelay = (messagesToAdd: string[]) => {
     setIsSunnyBotSpeaking(true);
 
     messagesToAdd.forEach((msg, index) => {
@@ -160,7 +164,7 @@ const ChatWindow = ({ onClose }) => {
       setTimeout(() => {
         setMessageLog((prevLog) => [
           ...prevLog.map((item) => ({ ...item, isLoading: false })), // Set isLoading to false for previous messages
-          { message: msg, user: MessageSource.SUNNYBOT, isLoading: true }, // Add new message with isLoading = true
+          { message: [msg], user: MessageSource.SUNNYBOT, isLoading: true }, // Add new message with isLoading = true
         ]);
 
         // After a short delay, set isLoading to false for the last message
@@ -203,29 +207,11 @@ const ChatWindow = ({ onClose }) => {
     setShowOptions(true);
   };
 
-  const fetchCatFact = async () => {
-    try {
-      const response = await axios.get(
-        "https://catfact.ninja/fact?max_length=140"
-      );
-      return response.data.fact;
-    } catch (error) {
-      console.error("Error fetching cat fact:", error);
-      return "Could not fetch a cat fact at this time.";
-    }
-  };
-
-  const fetchDadJoke = async () => {
-    try {
-      const response = await axios.get("https://icanhazdadjoke.com/", {
-        headers: { Accept: "application/json" },
-      });
-      return response.data.joke;
-    } catch (error) {
-      console.error("Error fetching dad joke:", error);
-      return "Could not fetch a dad joke at this time.";
-    }
-  };
+  // Utility function to handle game logic
+  // const processGameOption = (currentState, optionKey) => {
+  // Define game logic here
+  // Return the new game state and text response
+  // };
 
   return (
     <Box
@@ -233,7 +219,6 @@ const ChatWindow = ({ onClose }) => {
         position: "fixed",
         right: 16,
         bottom: 100,
-        zIndex: 1000,
         height: 500,
         width: 350,
         backgroundColor: "common.white",
@@ -287,12 +272,14 @@ const ChatWindow = ({ onClose }) => {
                 >
                   {Object.entries(options).map(([key, value]) => (
                     <Chip
-                      label={value}
+                      label={value as string}
                       sx={{ margin: 0.5 }}
                       variant="outlined"
                       key={key}
                       onClick={() =>
-                        handleOptionClick({ optionKey: key, value })
+                        handleOptionClick({
+                          optionKey: key as MessageOption,
+                        })
                       }
                     />
                   ))}

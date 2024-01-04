@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
@@ -29,9 +29,9 @@ const Arrow = styled("div")({
 });
 
 const Testimonials = () => {
-  const [active, setActive] = React.useState(0);
-  const [current, setCurrent] = React.useState(testimonials[0]);
-  const [intervalId, setIntervalId] = React.useState(0);
+  const [active, setActive] = useState(0);
+  const [current, setCurrent] = useState(testimonials[0]);
+  const [intervalId, setIntervalId] = useState<number>(0);
 
   const showNextTestimonial = () => {
     setActive((prevCount) =>
@@ -53,18 +53,18 @@ const Testimonials = () => {
 
     const newIntervalId = setInterval(() => {
       showNextTestimonial();
-    }, 15000);
+    }, 15000) as unknown as number;
     setIntervalId(newIntervalId);
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     setCurrent(testimonials[active]);
   }, [active]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const intervalId = setInterval(() => {
       showNextTestimonial();
-    }, 15000);
+    }, 15000) as unknown as number;
     setIntervalId(intervalId);
 
     return () => clearInterval(intervalId);

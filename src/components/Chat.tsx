@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -8,12 +8,12 @@ import Close from "@mui/icons-material/Close";
 import ChatWindow from "./ChatWindow";
 
 const Chat = () => {
-  const [showChatBubble, setShowChatBubble] = React.useState(true);
-  const [showChatWindow, setShowChatWindow] = React.useState(false);
+  const [showChatBubble, setShowChatBubble] = useState(true);
+  const [showChatWindow, setShowChatWindow] = useState(false);
 
-  const onCloseChatBubble = (e) => {
+  const onCloseChatBubble = (e: React.FormEvent) => {
     e.stopPropagation();
-    setShowChatBubble((prevState) => setShowChatBubble(!prevState));
+    setShowChatBubble(false);
   };
 
   const onOpenChatWindow = () => {
