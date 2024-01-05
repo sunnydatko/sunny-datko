@@ -38,6 +38,7 @@ export enum MessageOption {
   CatFact = "CatFact",
   DadJoke = "DadJoke",
   SendMessage = "SendMessage",
+  PlayGame = "PlayGame",
 }
 
 export const messageOptions = {
