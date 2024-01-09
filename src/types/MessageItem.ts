@@ -2,8 +2,8 @@ import { MessageSource } from "../helpers/messages";
 
 type MessageItem = {
   isLoading?: boolean;
+  message: string;
   user: MessageSource;
-  message: string[];
 };
 
 export default MessageItem;

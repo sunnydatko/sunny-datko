@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import Tooltip from "@mui/material/Tooltip";
 import Replay from "@mui/icons-material/Replay";
 import Chip from "@mui/material/Chip";
 import { useTheme } from "@mui/material/styles";
@@ -12,7 +13,11 @@ import ChatContactForm from "./ChatContactForm";
 import ChatContext from "./ChatContext";
 import ChatHeader from "./ChatHeader";
 
-import { messages, MessageSource, MessageOption } from "../helpers/messages";
+import {
+  MainMessageOption,
+  messages,
+  MessageSource,
+} from "../helpers/messages";
 
 const fadeInAnimation = keyframes`
   from { opacity: 0; transform: translateY(20px); }
@@ -36,13 +41,9 @@ const ChatWindow = ({ onClose }: ChatWindowProps) => {
     showOptions,
     messageLog,
     onRestartConversation,
+    onStartNewConversation,
     showContactForm,
-    startNewConversation,
   } = useContext(ChatContext);
-
-  useEffect(() => {
-    startNewConversation();
-  }, []);
 
   useEffect(() => {
     // Hide main page scrollbar for mobile views
@@ -56,6 +57,11 @@ const ChatWindow = ({ onClose }: ChatWindowProps) => {
       }
     };
   }, [isMobile]);
+
+  const onCloseWindow = () => {
+    onClose();
+    onStartNewConversation();
+  };
 
   return (
     <Box
@@ -83,7 +89,7 @@ const ChatWindow = ({ onClose }: ChatWindowProps) => {
         },
       }}
     >
-      <ChatHeader onClose={onClose} />
+      <ChatHeader onClose={onCloseWindow} />
       <Box
         sx={{
           flex: 1,
@@ -114,18 +120,27 @@ const ChatWindow = ({ onClose }: ChatWindowProps) => {
                     opacity: 0,
                   }}
                 >
-                  {Object.entries(options).map(([key, value]) => (
-                    <Chip
-                      label={value as string}
-                      sx={{ margin: 0.5 }}
-                      variant="outlined"
-                      key={key}
-                      onClick={() =>
-                        handleOptionClick({
-                          optionKey: key as MessageOption,
-                        })
-                      }
-                    />
+                  {Object.entries(options).map(([key, option]) => (
+                    <Tooltip
+                      title={option.disabled ? "Work in Progress 🚧" : ""}
+                      arrow
+                    >
+                      <span>
+                        <Chip
+                          label={option.label}
+                          color={option.color || "default"}
+                          variant={option.color ? "filled" : "outlined"}
+                          key={key}
+                          disabled={option.disabled}
+                          onClick={() =>
+                            handleOptionClick({
+                              optionKey: key as MainMessageOption,
+                            })
+                          }
+                          sx={{ margin: 0.5 }}
+                        />
+                      </span>
+                    </Tooltip>
                   ))}
                 </Box>
               )}

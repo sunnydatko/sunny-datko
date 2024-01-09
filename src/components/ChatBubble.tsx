@@ -17,7 +17,7 @@ const appearAnimation = keyframes`
 
 type ChatBubbleProps = {
   user: MessageSource;
-  message: string[];
+  message: string;
   isLoading?: boolean;
 };
 

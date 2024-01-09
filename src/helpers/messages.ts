@@ -20,32 +20,88 @@ export const messages = {
   ThanksMessage: ["Thanks for the message.", "I'll get back to you soon!"],
   CatFact: ["Curious about cats, huh?", "Let me fetch a cat fact for you..."],
   DadJoke: ["Switching gears to a bit of humor!", "Here's a dad joke for you."],
-  PlayGame: [
-    "Brace yourself for 'The Dungeon's Riddle'!",
-    "You're trapped in a dungeon and need to find your way out.",
-    "Which wall will you explore first?",
-  ],
+  PlayGame: null,
+};
+
+export enum MainMessageOption {
+  TellMeAboutYourself = "TellMeAboutYourself",
+  AnyHobbies = "AnyHobbies",
+  CatFact = "CatFact",
+  DadJoke = "DadJoke",
+  PlayGame = "PlayGame",
+  SendMessage = "SendMessage",
+}
+
+export const mainMessageOptions = {
+  [MainMessageOption.TellMeAboutYourself]: {
+    label: "Tell me about yourself 💬",
+  },
+  [MainMessageOption.AnyHobbies]: { label: "Any hobbies? 🏕️" },
+  [MainMessageOption.CatFact]: { label: "Cat fact 🐈" },
+  [MainMessageOption.DadJoke]: { label: "Dad joke 😜" },
+  [MainMessageOption.PlayGame]: { label: "Play a game 🎮" },
+  [MainMessageOption.SendMessage]: { label: "Send a message 📧" },
+};
+
+export enum GameOption {
+  DungeonsRiddle = "DungeonsRiddle",
+  HauntedMansion = "HauntedMansion",
+  NorthWall = "NorthWall",
+  SouthWall = "SouthWall",
+  WestWall = "WestWall",
+  EastWall = "EastWall",
+  InspectDoor = "InspectDoor",
+  UnlockDoor = "UnlockDoor",
+  UseAmulet = "UseAmulet",
+  InspectShelf = "InspectShelf",
+  ReadBook = "ReadBook",
+  InspectToolSet = "InspectToolSet",
+  AttackGoblin = "AttackGoblin",
+  AttackTroll = "AttackTroll",
+  ActivateSwitch = "ActivateSwitch",
+  AnswerRiddle = "AnswerRiddle",
+  AnswerIce = "AnswerIce",
+  AnswerFire = "AnswerFire",
+  AnswerShadow = "AnswerShadow",
+  AnswerTree = "AnswerTree",
+  RunAway = "RunAway",
+  GoBackToCenter = "GoBackToCenter",
+  RollAgainstTroll = "RollAgainstTroll",
+  RollAgainstGoblin = "RollAgainstGoblin",
+  StartNewGame = "StartNewGame",
+  InspectEastWall = "InspectEastWall",
+}
+
+export const gameOptions = {
+  [GameOption.DungeonsRiddle]: "The Dungeon's Riddle 🏰",
+  [GameOption.HauntedMansion]: "Haunted Mansion",
+  [GameOption.NorthWall]: "North Wall ⬆️",
+  [GameOption.SouthWall]: "South Wall ⬇️",
+  [GameOption.WestWall]: "West Wall ⬅️",
+  [GameOption.EastWall]: "East Wall ➡️",
+  [GameOption.InspectDoor]: "Inspect Door 🔍",
+  [GameOption.UnlockDoor]: "Unlock Door 🗝️",
+  [GameOption.UseAmulet]: "Use Amulet 📿",
+  [GameOption.InspectShelf]: "Inspect Shelf 📚",
+  [GameOption.ReadBook]: "Read Diary 📕",
+  [GameOption.InspectToolSet]: "Inspect Tool Set ⚒️",
+  [GameOption.AttackGoblin]: "Attack Goblin 👊",
+  [GameOption.AttackTroll]: "Attack Troll 👊",
+  [GameOption.ActivateSwitch]: "Activate Switch 🕹",
+  [GameOption.AnswerRiddle]: "Solve Riddle ❓",
+  [GameOption.RunAway]: "Run Away",
+  [GameOption.GoBackToCenter]: "Go Back To Center",
+  [GameOption.RollAgainstTroll]: "Roll Dice 🎲",
+  [GameOption.RollAgainstGoblin]: "Roll Dice 🎲",
+  [GameOption.StartNewGame]: "Play Again",
+  [GameOption.InspectEastWall]: "Inspect Wall 🔍",
+  [GameOption.AnswerFire]: "Fire 🔥",
+  [GameOption.AnswerTree]: "Tree 🌲",
+  [GameOption.AnswerShadow]: "Shadow 👥",
+  [GameOption.AnswerIce]: "Ice 🧊",
 };
 
 export enum MessageSource {
   USER = "user",
   SUNNYBOT = "sunnybot",
 }
-
-export enum MessageOption {
-  TellMeAboutYourself = "TellMeAboutYourself",
-  AnyHobbies = "AnyHobbies",
-  CatFact = "CatFact",
-  DadJoke = "DadJoke",
-  SendMessage = "SendMessage",
-  PlayGame = "PlayGame",
-}
-
-export const messageOptions = {
-  [MessageOption.TellMeAboutYourself]: ["Tell me about yourself 💬"],
-  [MessageOption.AnyHobbies]: ["Any hobbies? 🏕️"],
-  [MessageOption.CatFact]: ["Cat fact 🐈"],
-  [MessageOption.DadJoke]: ["Dad joke 😜"],
-  [MessageOption.SendMessage]: ["Send a message 📧"],
-  // [MessageOption.PlayGame]: ["Play a game 🎮"],
-};

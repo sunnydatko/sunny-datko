@@ -2,6 +2,7 @@ import Box from "@mui/material/Box";
 import Footer from "./Footer";
 import ResponsiveMenu from "./ResponsiveMenu";
 import Chat from "./Chat";
+import ChatProvider from "./ChatProvider";
 
 const Layout = ({ children }: { children: React.ReactNode }) => (
   <>
@@ -10,7 +11,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => (
       {children}
     </Box>
     <Footer />
-    <Chat />
+    <ChatProvider>
+      <Chat />
+    </ChatProvider>
   </>
 );
 

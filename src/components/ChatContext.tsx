@@ -1,23 +1,39 @@
 import React from "react";
 
-import { MessageOption } from "../helpers/messages";
+import { MessageOptions } from "../types/MessageOption";
 import MessageItem from "../types/MessageItem";
+import { MainMessageOption } from "../helpers/messages";
 
-const ChatContext = React.createContext({
-  addMessagesWithDelay: (messagesToAdd: string[]) => {},
-  bottomRef: { current: null } as React.RefObject<HTMLDivElement>,
+type ChatContextType = {
+  addMessagesWithDelay: (messagesToAdd: string[]) => void;
+  bottomRef: React.RefObject<HTMLDivElement>;
+  handleFormSubmit: () => void;
+  handleOptionClick: ({ optionKey }: { optionKey: MainMessageOption }) => void;
+  isSunnyBotSpeaking: boolean;
+  messageLog: MessageItem[];
+  onRestartConversation: () => void;
+  onStartNewConversation: () => void;
+  options: MessageOptions;
+  setMessageLog: (messageItem: MessageItem[]) => void;
+  setShowContactForm: (showForm: boolean) => void;
+  showContactForm: boolean;
+  showOptions: boolean;
+};
+
+const ChatContext = React.createContext<ChatContextType>({
+  addMessagesWithDelay: () => {},
+  bottomRef: React.createRef<HTMLDivElement>(),
   handleFormSubmit: () => {},
-  handleOptionClick: ({ optionKey }: { optionKey: MessageOption }) => {},
+  handleOptionClick: () => {},
   isSunnyBotSpeaking: false,
-  messageLog: [] as MessageItem[],
+  messageLog: [],
   onRestartConversation: () => {},
+  onStartNewConversation: () => {},
   options: {},
-  setMessageLog: (messageItem: MessageItem[]) => {},
-  // setShowOptions: (showOption: boolean) => {},
-  setShowContactForm: (showForm: boolean) => {},
+  setMessageLog: () => {},
+  setShowContactForm: () => {},
   showContactForm: false,
   showOptions: true,
-  startNewConversation: () => {},
 });
 
 export default ChatContext;

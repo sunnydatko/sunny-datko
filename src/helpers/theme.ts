@@ -74,11 +74,18 @@ const theme = createTheme({
       },
       styleOverrides: {
         root: {
-          color: "#fff",
+          color: "#ffffff",
           fontSize: "40px",
           "&:hover": {
             color: "#48d1ff",
           },
+        },
+      },
+    },
+    MuiChip: {
+      styleOverrides: {
+        filled: {
+          color: "#ffffff",
         },
       },
     },
