@@ -70,6 +70,7 @@ export enum GameOption {
   RollAgainstGoblin = "RollAgainstGoblin",
   StartNewGame = "StartNewGame",
   InspectEastWall = "InspectEastWall",
+  RunAwayRoll = "RunAwayRoll",
 }
 
 export const gameOptions = {
@@ -99,6 +100,7 @@ export const gameOptions = {
   [GameOption.AnswerTree]: "Tree 🌲",
   [GameOption.AnswerShadow]: "Shadow 👥",
   [GameOption.AnswerIce]: "Ice 🧊",
+  [GameOption.RunAwayRoll]: "Roll Dice 🎲",
 };
 
 export enum MessageSource {

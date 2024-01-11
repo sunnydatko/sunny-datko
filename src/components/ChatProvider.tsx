@@ -266,7 +266,7 @@ const ChatProvider = ({ children }: ChatProviderProps) => {
       case GameOption.ActivateSwitch: {
         addMessagesWithDelay([
           "As you activate the switch, a part of the wall retracts, uncovering an alcove.",
-          "Inside lies an amulet, glowing softly, its runes offering the power to communicate with trolls.",
+          "Inside, you find an amulet, glowing softly with runes that now grant you the power to communicate with trolls.",
         ]);
         const options = {
           [GameOption.GoBackToCenter]: {
@@ -349,6 +349,46 @@ const ChatProvider = ({ children }: ChatProviderProps) => {
         setOptions(options);
         break;
       }
+      case GameOption.RunAway: {
+        addMessagesWithDelay([
+          "You attempt to run away from the troll boss, but it swiftly closes in.",
+          "To successfully escape, roll a six-sided die.",
+          "You'll need a 5 or higher.",
+        ]);
+        const options = {
+          [GameOption.RunAwayRoll]: {
+            label: gameOptions[GameOption.RunAwayRoll],
+          },
+        };
+        setOptions(options);
+        break;
+      }
+      case GameOption.RunAwayRoll: {
+        const roll = rollDice();
+
+        if (roll >= 5) {
+          addMessagesWithDelay([
+            `You rolled at ${roll}.`,
+            "With a burst of speed, you manage to outpace the troll boss, leaving it far behind.",
+            "You escape to safety, breathing heavily but victorious.",
+            "Well done, adventurer!",
+          ]);
+        } else {
+          addMessagesWithDelay([
+            `You rolled at ${roll}.`,
+            "Despite your best efforts, the troll boss catches up to you and delivers a devastating blow with its club.",
+            "Darkness engulfs your vision, marking the end of your adventure.",
+          ]);
+        }
+
+        const options = {
+          [GameOption.StartNewGame]: {
+            label: gameOptions[GameOption.StartNewGame],
+          },
+        };
+        setOptions(options);
+        break;
+      }
       case GameOption.UseAmulet: {
         addMessagesWithDelay([
           "Holding the amulet, you feel its ancient power.",
@@ -405,7 +445,7 @@ const ChatProvider = ({ children }: ChatProviderProps) => {
           // success
           addMessagesWithDelay([
             `You rolled a ${roll}.`,
-            "Your attack against the goblin boss is successful, and he flees in defeat, leaving his sword behind.",
+            "Your successful attack against the goblin boss forces him to retreat in defeat, dropping his sword in the process, which you now acquire.",
           ]);
 
           const options = {
