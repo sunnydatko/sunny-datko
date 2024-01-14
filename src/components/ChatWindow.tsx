@@ -150,7 +150,7 @@ const ChatWindow = ({ onClose }: ChatWindowProps) => {
               {showOptions && messageLog.length > messages.IntroText.length && (
                 <Button
                   onClick={onRestartConversation}
-                  startIcon={
+                  endIcon={
                     <Replay
                       sx={{
                         transition: "transform 0.5s ease-in-out",

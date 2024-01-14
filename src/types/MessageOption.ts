@@ -1,4 +1,4 @@
-export type MessageOption = {
+type MessageOption = {
   label: string;
   disabled?: boolean;
   color?: "default" | "primary" | "secondary";

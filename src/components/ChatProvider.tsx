@@ -2,27 +2,24 @@ import { useEffect, useRef, useState } from "react";
 
 import ChatContext from "./ChatContext";
 
-import { fetchCatFact, fetchDadJoke } from "../helpers/chat-helpers";
+import { fetchCatFact, fetchJoke } from "../helpers/chat-helpers";
 import {
   messages,
   MessageSource,
   mainMessageOptions,
   MainMessageOption,
+} from "../helpers/messages";
+import {
   GameOption,
   gameOptions,
-} from "../helpers/messages";
+  NewGameOptions,
+} from "../helpers/dungeons-riddle";
+
 import MessageItem from "../types/MessageItem";
-import { MessageOption, MessageOptions } from "../types/MessageOption";
+import { MessageOptions } from "../types/MessageOption";
 
 type ChatProviderProps = {
   children: React.ReactNode;
-};
-
-const NewGameOptions = {
-  [GameOption.NorthWall]: { label: gameOptions[GameOption.NorthWall] },
-  [GameOption.EastWall]: { label: gameOptions[GameOption.EastWall] },
-  [GameOption.SouthWall]: { label: gameOptions[GameOption.SouthWall] },
-  [GameOption.WestWall]: { label: gameOptions[GameOption.WestWall] },
 };
 
 const rollDice = (): number => {
@@ -34,7 +31,6 @@ const ChatProvider = ({ children }: ChatProviderProps) => {
   const [options, setOptions] = useState<MessageOptions>({});
   const [showOptions, setShowOptions] = useState(true);
   const [isSunnyBotSpeaking, setIsSunnyBotSpeaking] = useState(false);
-  const [isPlayingGame, setIsPlayingGame] = useState(false);
   const [showContactForm, setShowContactForm] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const bottomRef = useRef(null);
@@ -650,14 +646,18 @@ const ChatProvider = ({ children }: ChatProviderProps) => {
     }
   };
 
+  // Type guard to check if the option is a GameOption
+  const isGameOption = (option: any): option is GameOption => {
+    return Object.values(GameOption).includes(option);
+  };
+
   const handleOptionClick = async ({
     optionKey,
   }: {
-    optionKey: MainMessageOption;
+    optionKey: MainMessageOption | GameOption;
   }) => {
-    if (isPlayingGame) {
-      // @ts-expect-error type mismatch
-      handleGameOptionClick(optionKey);
+    if (isGameOption(optionKey)) {
+      handleGameOptionClick(optionKey as GameOption);
       return;
     }
 
@@ -685,10 +685,10 @@ const ChatProvider = ({ children }: ChatProviderProps) => {
         const catFact = await fetchCatFact();
         messagesToAdd.push(catFact);
         break;
-      case MainMessageOption.DadJoke:
-        const dadJoke = await fetchDadJoke();
-        if (dadJoke.includes("?")) {
-          const jokeParts = dadJoke
+      case MainMessageOption.Joke:
+        const joke = await fetchJoke();
+        if (joke.includes("?")) {
+          const jokeParts = joke
             .split(/\?(.+)/)
             .map((part: string) => part.trim())
             .filter((part: string) => part);
@@ -697,11 +697,10 @@ const ChatProvider = ({ children }: ChatProviderProps) => {
             messagesToAdd.push(jokeParts[1]);
           }
         } else {
-          messagesToAdd.push(dadJoke);
+          messagesToAdd.push(joke);
         }
         break;
       case MainMessageOption.PlayGame:
-        setIsPlayingGame(true);
         selectNewGame();
         break;
       default:
@@ -739,7 +738,6 @@ const ChatProvider = ({ children }: ChatProviderProps) => {
     setShowOptions(true);
     addMessagesWithDelay(messages.IntroText);
     setShowContactForm(false);
-    setIsPlayingGame(false);
     resetGame();
   };
 
@@ -751,16 +749,13 @@ const ChatProvider = ({ children }: ChatProviderProps) => {
   return (
     <ChatContext.Provider
       value={{
-        addMessagesWithDelay,
         bottomRef,
         handleOptionClick,
         handleFormSubmit,
         isSunnyBotSpeaking,
         messageLog,
         options,
-        setMessageLog,
         showContactForm,
-        setShowContactForm,
         showOptions,
         onRestartConversation,
         onStartNewConversation,

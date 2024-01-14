@@ -12,14 +12,14 @@ export const fetchCatFact = async () => {
   }
 };
 
-export const fetchDadJoke = async () => {
+export const fetchJoke = async () => {
   try {
     const response = await axios.get("https://icanhazdadjoke.com/", {
       headers: { Accept: "application/json" },
     });
     return response.data.joke;
   } catch (error) {
-    console.error("Error fetching dad joke:", error);
-    return "Could not fetch a dad joke at this time.";
+    console.error("Error fetching joke:", error);
+    return "Could not fetch a joke at this time.";
   }
 };
