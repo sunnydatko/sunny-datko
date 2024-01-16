@@ -17,6 +17,7 @@ import {
 
 import MessageItem from "../types/MessageItem";
 import { MessageOptions } from "../types/MessageOption";
+import "../fireworks.scss";
 
 type ChatProviderProps = {
   children: React.ReactNode;
@@ -49,7 +50,10 @@ const ChatProvider = ({ children }: ChatProviderProps) => {
     }
   }, [messageLog]);
 
-  const addMessagesWithDelay = (messagesToAdd: string[]) => {
+  const addMessagesWithDelay = (
+    messagesToAdd: string[],
+    showFireworks?: boolean
+  ) => {
     setIsSunnyBotSpeaking(true);
 
     messagesToAdd.forEach((msg, index) => {
@@ -57,7 +61,11 @@ const ChatProvider = ({ children }: ChatProviderProps) => {
       setTimeout(() => {
         setMessageLog((prevLog) => [
           ...prevLog.map((item) => ({ ...item, isLoading: false })), // Set isLoading to false for previous messages
-          { message: msg, user: MessageSource.SUNNYBOT, isLoading: true }, // Add new message with isLoading = true
+          {
+            message: msg,
+            user: MessageSource.SUNNYBOT,
+            isLoading: true,
+          }, // Add new message with isLoading = true
         ]);
 
         // After a short delay, set isLoading to false for the last message
@@ -66,7 +74,7 @@ const ChatProvider = ({ children }: ChatProviderProps) => {
             setMessageLog((prevLog) =>
               prevLog.map((item, idx) =>
                 idx === prevLog.length - 1
-                  ? { ...item, isLoading: false }
+                  ? { ...item, isLoading: false, showFireworks: showFireworks }
                   : item
               )
             );
@@ -473,12 +481,15 @@ const ChatProvider = ({ children }: ChatProviderProps) => {
         if (hasSword) {
           if (roll + 2 >= 4) {
             // success
-            addMessagesWithDelay([
-              `You rolled a ${roll + 2}.`,
-              "With a surge of bravery, your sword arcs through the air, striking the troll with a decisive blow that echoes through the dungeon, sealing your hard-earned victory.",
-              "Freedom awaits as you emerge into the light, triumphant.",
-              "Dungeon conquered. Well done, adventurer!",
-            ]);
+            addMessagesWithDelay(
+              [
+                `You rolled a ${roll + 2}.`,
+                "With a surge of bravery, your sword arcs through the air, striking the troll with a decisive blow that echoes through the dungeon, sealing your hard-earned victory.",
+                "Freedom awaits as you emerge into the light, triumphant.",
+                "Dungeon conquered. Well done, adventurer!",
+              ],
+              true
+            );
           } else {
             // fail
             addMessagesWithDelay([
@@ -491,12 +502,15 @@ const ChatProvider = ({ children }: ChatProviderProps) => {
         } else {
           if (roll >= 5) {
             // success
-            addMessagesWithDelay([
-              `You rolled a ${roll}.`,
-              "Outwitting the troll with agility, you dash past its grasp.",
-              "Breathless and triumphant, you escape the dungeon's depths.",
-              "Your tale of bravery echoes as a testament to survival.",
-            ]);
+            addMessagesWithDelay(
+              [
+                `You rolled a ${roll}.`,
+                "Outwitting the troll with agility, you dash past its grasp.",
+                "Breathless and triumphant, you escape the dungeon's depths.",
+                "Your tale of bravery echoes as a testament to survival.",
+              ],
+              true
+            );
           } else {
             // fail
             addMessagesWithDelay([
@@ -538,12 +552,15 @@ const ChatProvider = ({ children }: ChatProviderProps) => {
         break;
       }
       case GameOption.AnswerFire: {
-        addMessagesWithDelay([
-          "The troll nods in respect, a deep rumble of approval echoing in the chamber,",
-          "'Correct, Fire 🔥. The way is clear.'",
-          "Triumphantly, you step out of the dungeon, a victor of wits.",
-          "Well done, adventurer!",
-        ]);
+        addMessagesWithDelay(
+          [
+            "The troll nods in respect, a deep rumble of approval echoing in the chamber,",
+            "'Correct, Fire 🔥. The way is clear.'",
+            "Triumphantly, you step out of the dungeon, a victor of wits.",
+            "Well done, adventurer!",
+          ],
+          true
+        );
 
         const options = {
           [GameOption.StartNewGame]: {
@@ -651,6 +668,7 @@ const ChatProvider = ({ children }: ChatProviderProps) => {
     return Object.values(GameOption).includes(option);
   };
 
+  // Handle click options
   const handleOptionClick = async ({
     optionKey,
   }: {

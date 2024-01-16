@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
@@ -31,6 +31,7 @@ type ChatWindowProps = {
 const ChatWindow = ({ onClose }: ChatWindowProps) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const [showFireworks, setShowFireworks] = useState(false);
 
   const {
     bottomRef,
@@ -57,6 +58,19 @@ const ChatWindow = ({ onClose }: ChatWindowProps) => {
       }
     };
   }, [isMobile]);
+
+  useEffect(() => {
+    // Show fireworks when the most recent message in messageLog has 'showFireworks: true'
+    if (
+      messageLog.length > 0 &&
+      messageLog[messageLog.length - 1].showFireworks
+    ) {
+      setShowFireworks(true);
+
+      // Hide fireworks after a set time
+      setTimeout(() => setShowFireworks(false), 5000);
+    }
+  }, [messageLog]);
 
   const onCloseWindow = () => {
     onClose();
@@ -89,6 +103,12 @@ const ChatWindow = ({ onClose }: ChatWindowProps) => {
         },
       }}
     >
+      {showFireworks && (
+        <div className="pyro">
+          <div className="before"></div>
+          <div className="after"></div>
+        </div>
+      )}
       <ChatHeader onClose={onCloseWindow} />
       <Box
         sx={{
