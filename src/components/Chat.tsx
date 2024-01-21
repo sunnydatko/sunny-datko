@@ -12,7 +12,7 @@ const Chat = () => {
   const [showChatBubble, setShowChatBubble] = useState(true);
   const [showChatWindow, setShowChatWindow] = useState(false);
 
-  const { onRestartConversation } = useContext(ChatContext);
+  const { onStartNewConversation } = useContext(ChatContext);
 
   const onCloseChatBubble = (e: React.FormEvent) => {
     e.stopPropagation();
@@ -22,7 +22,7 @@ const Chat = () => {
   const onOpenChatWindow = () => {
     setShowChatBubble(false);
     setShowChatWindow(true);
-    onRestartConversation();
+    onStartNewConversation();
   };
 
   const onCloseChatWindow = () => {

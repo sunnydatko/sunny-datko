@@ -41,7 +41,6 @@ const ChatWindow = ({ onClose }: ChatWindowProps) => {
     options,
     showOptions,
     messageLog,
-    onRestartConversation,
     onStartNewConversation,
     showContactForm,
   } = useContext(ChatContext);
@@ -169,7 +168,7 @@ const ChatWindow = ({ onClose }: ChatWindowProps) => {
               )}
               {showOptions && messageLog.length > messages.IntroText.length && (
                 <Button
-                  onClick={onRestartConversation}
+                  onClick={onStartNewConversation}
                   endIcon={
                     <Replay
                       sx={{

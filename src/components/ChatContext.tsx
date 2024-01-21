@@ -10,7 +10,6 @@ type ChatContextType = {
   handleOptionClick: ({ optionKey }: { optionKey: MainMessageOption }) => void;
   isSunnyBotSpeaking: boolean;
   messageLog: MessageItem[];
-  onRestartConversation: () => void;
   onStartNewConversation: () => void;
   options: MessageOptions;
   showContactForm: boolean;
@@ -23,7 +22,6 @@ const ChatContext = React.createContext<ChatContextType>({
   handleOptionClick: () => {},
   isSunnyBotSpeaking: false,
   messageLog: [],
-  onRestartConversation: () => {},
   onStartNewConversation: () => {},
   options: {},
   showContactForm: false,

@@ -751,17 +751,13 @@ const ChatProvider = ({ children }: ChatProviderProps) => {
   };
 
   const onStartNewConversation = () => {
+    setMessageLog([]);
     setLoadingTimer();
     setOptions(mainMessageOptions);
     setShowOptions(true);
     addMessagesWithDelay(messages.IntroText);
     setShowContactForm(false);
     resetGame();
-  };
-
-  const onRestartConversation = () => {
-    setMessageLog([]);
-    onStartNewConversation();
   };
 
   return (
@@ -775,7 +771,6 @@ const ChatProvider = ({ children }: ChatProviderProps) => {
         options,
         showContactForm,
         showOptions,
-        onRestartConversation,
         onStartNewConversation,
       }}
     >
