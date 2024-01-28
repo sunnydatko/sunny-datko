@@ -73,7 +73,6 @@ const ChatWindow = ({ onClose }: ChatWindowProps) => {
 
   const onCloseWindow = () => {
     onClose();
-    onStartNewConversation();
   };
 
   return (
