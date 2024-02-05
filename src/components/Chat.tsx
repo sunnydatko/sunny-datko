@@ -61,7 +61,10 @@ const Chat = () => {
             gap: 1,
           }}
         >
-          <Typography>👋 Hello! Want to chat?</Typography>
+          <Typography>
+            👋 Hello! Want to chat <br />
+            with SunnyBot?
+          </Typography>
           <Close
             onClick={onCloseChatBubble}
             sx={{

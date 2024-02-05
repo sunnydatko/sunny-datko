@@ -1,16 +1,12 @@
+![alt text](https://sunnydatko.com/assets/logo-black-59b8ed60.svg)
+
 # Sunny Datko's Personal Portfolio
 
-Welcome to the repository for [Sunny Datko's Personal Portfolio](https://www.sunnydatko.com), a showcase of my professional accomplishments, projects, and skills. This portfolio is built using React, Vite, and Material UI, reflecting modern web development practices and a sleek user interface.
+Welcome to the repository for [Sunny Datko's Personal Portfolio](https://www.sunnydatko.com), a showcase of my professional accomplishments, projects, and skills. This portfolio is built using React, Vite, TypeScript, and Material UI.
 
 ## Overview
 
 This portfolio site serves as a comprehensive display of my expertise in web development, particularly in front-end technologies. It is designed to be responsive, accessible, and visually appealing.
-
-### Features
-
-- **Responsive Design**: Ensures a seamless experience across various devices and screen sizes.
-- **Interactive UI**: Utilizes Material UI components for an engaging and intuitive user interface.
-- **Dynamic Content**: Showcases projects and skills dynamically using React.
 
 ## Installation
 
