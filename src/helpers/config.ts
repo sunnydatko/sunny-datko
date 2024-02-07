@@ -5,6 +5,7 @@ import emily from "../assets/emily.jpeg";
 import jon from "../assets/jon.jpg";
 import fahey from "../assets/fahey.jpeg";
 import spencer from "../assets/spencer.jpg";
+import orel from "../assets/orel.jpg";
 
 const experience = [
   {
@@ -141,6 +142,13 @@ const testimonials = [
     displayText:
       "Sunny and I worked together in different teams. I found Sunny extremely charming and pleasant, tackling all project work with dedication and smile. Her interpersonal skills were exemplary and appreciated by everyone who worked with her. Besides bringing positive energy to team, Sunny is a take-charge person who can present creative ideas and communicate it effectively. She would be an excellent addition to any team and I wish her best for her future projects.",
     image: arpita,
+  },
+  {
+    name: "Orel Regev",
+    title: "Senior Product Manager",
+    displayText:
+      "Working with Sunny has been a wonderful experience, and her leadership and ownership skills significantly contribute to our team's success. She effectively identifies areas for improvement and fearlessly leads necessary changes, addressing even the most challenging tech and design debts. Sunny's clear communication fosters a collaborative atmosphere, making our work together a pleasure. I value her dedication and the genuine impact she brings to our team.",
+    image: orel,
   },
 ];
 
