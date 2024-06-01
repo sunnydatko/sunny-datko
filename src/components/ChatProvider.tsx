@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from "react";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 import ChatContext from "./ChatContext";
 import { useGameOptions } from "./useGameOptions";
@@ -29,6 +31,9 @@ const ChatProvider = ({ children }: ChatProviderProps) => {
   const [isLoading, setIsLoading] = useState(true);
   const bottomRef = useRef(null);
 
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
   useEffect(() => {
     // Scroll to bottom of window when new messages appear
     const current = bottomRef.current as HTMLDivElement | null;
@@ -36,6 +41,19 @@ const ChatProvider = ({ children }: ChatProviderProps) => {
       current.scrollIntoView({ behavior: "smooth" });
     }
   }, [messageLog]);
+
+  useEffect(() => {
+    debugger;
+    if (isMobile) {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      if (isMobile) {
+        document.body.style.overflow = "hidden";
+      }
+    };
+  }, [isMobile]);
 
   const addMessagesWithDelay = (
     messagesToAdd: string[],

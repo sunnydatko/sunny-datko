@@ -1,4 +1,4 @@
-import React from "react";
+import { createContext, createRef } from "react";
 
 import { MessageOptions } from "../types/MessageOption";
 import MessageItem from "../types/MessageItem";
@@ -16,8 +16,8 @@ type ChatContextType = {
   showOptions: boolean;
 };
 
-const ChatContext = React.createContext<ChatContextType>({
-  bottomRef: React.createRef<HTMLDivElement>(),
+const ChatContext = createContext<ChatContextType>({
+  bottomRef: createRef<HTMLDivElement>(),
   handleFormSubmit: () => {},
   handleOptionClick: () => {},
   isSunnyBotSpeaking: false,
