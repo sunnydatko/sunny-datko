@@ -12,7 +12,7 @@ const experience = [
     company: "SafeBase",
     dates: "September 2023 - Present",
     title: "Lead Frontend Software Engineer",
-    url: "https://www.instil.io/",
+    url: "https://safebase.io/",
     experience: [
       "Lead frontend software engineering efforts for SafeBase, collaborating with product managers and customers to enhance user experiences.",
     ],
