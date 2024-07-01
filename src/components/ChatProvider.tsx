@@ -43,7 +43,6 @@ const ChatProvider = ({ children }: ChatProviderProps) => {
   }, [messageLog]);
 
   useEffect(() => {
-    debugger;
     if (isMobile) {
       document.body.style.overflow = "";
     }

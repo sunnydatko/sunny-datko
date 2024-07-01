@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
 
-import loader from "../assets/Preloader_2.gif";
+import loader from "../assets/loader.gif";
 
 const Loader = () => (
   <Box
