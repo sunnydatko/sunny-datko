@@ -1,26 +1,28 @@
 import { useState } from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Divider from "@mui/material/Divider";
-import Drawer from "@mui/material/Drawer";
-import IconButton from "@mui/material/IconButton";
-import Link from "@mui/material/Link";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
+import {
+  AppBar,
+  Box,
+  Button,
+  Divider,
+  Drawer,
+  IconButton,
+  Link,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  Toolbar,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import Toolbar from "@mui/material/Toolbar";
-import Button from "@mui/material/Button";
 
 import logoWhite from "../assets/logo.svg";
 import logo from "../assets/logo-black.svg";
 
 const drawerWidth = 320;
 const navItems = [
-  { name: "About", url: "#about" },
-  { name: "Experience", url: "#experience" },
-  { name: "Contact", url: "#contact" },
+  { name: "About", url: "/about" },
+  { name: "Experience", url: "/experience" },
+  { name: "Contact", url: "/contact" },
 ];
 
 type ResponsiveMenuProps = {

@@ -1,11 +1,13 @@
 import { useContext, useEffect, useState } from "react";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
+import {
+  Box,
+  Button,
+  Chip,
+  Tooltip,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import Replay from "@mui/icons-material/Replay";
-import Chip from "@mui/material/Chip";
-import { useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import { keyframes } from "@emotion/react";
 
 import ChatBubble from "./ChatBubble";
