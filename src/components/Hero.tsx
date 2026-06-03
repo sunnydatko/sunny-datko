@@ -97,8 +97,8 @@ const Hero = () => (
             mb: { xs: 4, md: 5 },
           }}
         >
-          I design and build frontend systems that are scalable, accessible, and
-          a joy to use. Currently focused on trust, security, and design system experiences at Drata.
+          I build frontend systems, design architecture, and user experiences that scale.
+          Currently focused on trust, security, and design system experiences at Drata.
         </Typography>
 
         {/* CTAs */}

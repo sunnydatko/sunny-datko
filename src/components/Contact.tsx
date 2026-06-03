@@ -65,7 +65,7 @@ const Contact = () => {
             variant="h3"
             sx={{  mt: 2, mb: 4 }}
           >
-            Let's Chat
+            I'd love to connect
           </Typography>
           <form ref={form} onSubmit={sendEmail}>
             <Box

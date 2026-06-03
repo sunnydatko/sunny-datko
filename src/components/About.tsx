@@ -40,7 +40,7 @@ const About = () => {
           >
             About Me
           </Typography>
-          <Typography variant="h3" sx={{  mt: 2, mb: 4 }}>
+          <Typography variant="h3" sx={{ mt: 2, mb: 4 }}>
             Connecting product strategy with frontend craft.
           </Typography>
 
@@ -60,13 +60,7 @@ const About = () => {
           </Box>
 
           <Typography paragraph sx={{ color: "grey.200", lineHeight: 1.7 }}>
-            I am a Staff Frontend Engineer with a passion for building scalable
-            interfaces, thoughtful design systems, and user experiences that
-            feel effortless to use. My multidisciplinary background in marketing,
-            design, and engineering helps me connect product strategy with
-            frontend architecture. Whether I'm leading a design-system overhaul
-            or mentoring the engineers around me, I care most about shipping work
-            that raises the bar for the whole team and stands the test of scale.
+            I'm a Staff Frontend Engineer focused on scalable interfaces, thoughtful design systems, and user experiences that feel effortless to use. My background in marketing, design, and engineering helps me bridge product strategy with frontend architecture.
           </Typography>
         </Container>
       </div>
