@@ -6,81 +6,109 @@ import jon from "../assets/jon.jpg";
 import fahey from "../assets/fahey.jpeg";
 import spencer from "../assets/spencer.jpg";
 import orel from "../assets/orel.jpg";
+import adar from "../assets/adar.png";
 
 const experience = [
   {
+    company: "Drata",
+    note: "acquired SafeBase",
+    url: "https://drata.com/",
+    roles: [
+      {
+        title: "Staff Software Engineer",
+        dates: "August 2025 - Present",
+        points: [
+          "Modernized SafeBase's web application by replacing legacy Bootstrap and SCSS implementations with a unified Material UI design system, establishing a scalable foundation for theming, dark mode, branding, and reusable UI patterns.",
+          "Expanded shared frontend systems across the Trust Center platform, improving developer velocity, accessibility, responsiveness, and visual consistency while enabling faster delivery of customer-facing features.",
+        ],
+      },
+    ],
+  },
+  {
     company: "SafeBase",
-    dates: "September 2023 - Present",
-    title: "Lead Frontend Software Engineer",
     url: "https://safebase.io/",
-    experience: [
-      "Lead frontend software engineering efforts for SafeBase, collaborating with product managers and customers to enhance user experiences.",
+    roles: [
+      {
+        title: "Principal Software Engineer",
+        dates: "February 2025 - August 2025",
+        points: [
+          "Drove frontend architecture and design system initiatives across the Trust Center experience, establishing patterns that improved consistency, maintainability, and long-term scalability.",
+          "Partnered closely with product and design teams to translate complex security workflows into intuitive user experiences.",
+        ],
+      },
+      {
+        title: "Lead Frontend Engineer",
+        dates: "September 2023 - February 2025",
+        points: [
+          "Led frontend engineering initiatives for the Trust Center platform, helping define technical standards, UI architecture, and shared component strategies across the application.",
+          "Drove adoption of Material UI and modern frontend practices, improving developer productivity, accessibility, and visual consistency while creating a foundation for future theming and branding capabilities.",
+        ],
+      },
     ],
   },
   {
     company: "Instil",
-    dates: "February 2022 - August 2023",
-    title: "Frontend Software Engineer",
     url: "https://www.instil.io/",
-    experience: [
-      "Architected and refined the UI of a nonprofit CRM used to manage nonprofit donations, events, and campaigns using React & Material UI.",
+    roles: [
+      {
+        title: "Frontend Software Engineer",
+        dates: "February 2022 - August 2023",
+        points: [
+          "Architected and refined the UI of a nonprofit CRM used to manage nonprofit donations, events, and campaigns using React & Material UI.",
+        ],
+      },
     ],
   },
   {
     company: "Eastridge Workforce Solutions",
-    dates: "March 2020 - January 2022",
-    title: "Frontend Engineer",
     url: "https://www.eastridge.com/",
-    experience: [
-      "Rewrote a legacy Ember recruitment application from Ember to React using Material UI, TypeScript, Styled Components, and React Query to optimize navigation and modernize the codebase.",
+    roles: [
+      {
+        title: "Frontend Engineer",
+        dates: "March 2020 - January 2022",
+        points: [
+          "Rewrote a legacy Ember recruitment application from Ember to React using Material UI, TypeScript, Styled Components, and React Query to optimize navigation and modernize the codebase.",
+        ],
+      },
     ],
   },
   {
     company: "Verogen",
-    dates: "January 2018 - December 2019",
-    title: "Software Engineer",
     url: "https://verogen.com/",
-    experience: [
-      "Designed, developed, and deployed frontend features for a next-generation forensics analysis platform.",
+    roles: [
+      {
+        title: "Software Engineer",
+        dates: "January 2018 - December 2019",
+        points: [
+          "Designed and developed frontend features for a next-generation forensics analysis platform.",
+        ],
+      },
     ],
   },
   {
     company: "InnovaSystems International, LLC",
-    dates: "June 2016 - January 2018",
-    title: "Software Engineer",
     url: "https://www.innovasi.com/",
-    experience: [
-      "Developed a Learning Management system for the US Navy that teachers and students in boot camp used to track training and readiness using AngularJS, TypeScript, SQL, and C#.",
+    roles: [
+      {
+        title: "Software Engineer",
+        dates: "June 2016 - January 2018",
+        points: [
+          "Developed a Learning Management System (LMS) for the US Navy that teachers and students in boot camp used to track training and readiness using AngularJS, TypeScript, SQL, and C#.",
+        ],
+      },
     ],
   },
   {
     company: "Integrated Default Solutions",
-    dates: "January 2014 - June 2016",
-    title: "Software Engineer",
     url: "https://www.idsolutions-inc.com/",
-    experience: [
-      "Designed and implemented fullstack web applications linked to firm-wide SQL databases for clients in a mortgage law firm.",
-    ],
-  },
-];
-
-const communityOutreach = [
-  {
-    company: "Girl Develop It",
-    dates: "2014 - 2016",
-    title: "Instructor",
-    url: "https://girldevelopit.com/",
-    experience: [
-      "Led bi-weekly workshops on front-end web development, spanning HTML, CSS, JavaScript, and jQuery, for up to 50 women transitioning to careers in web programming.",
-    ],
-  },
-  {
-    company: "The LEAGUE of Amazing Programmers",
-    dates: "2014 - 2016",
-    title: "Volunteer Instructor",
-    url: "https://www.jointheleague.org/",
-    experience: [
-      "Taught weekly classes on creating and styling websites using HTML and CSS for 5 middle and high school students.",
+    roles: [
+      {
+        title: "Software Engineer",
+        dates: "January 2014 - June 2016",
+        points: [
+          "Designed and implemented fullstack web applications linked to firm-wide SQL databases for clients in a mortgage law firm.",
+        ],
+      },
     ],
   },
 ];
@@ -95,6 +123,21 @@ const education = [
 
 const testimonials = [
   {
+    name: "Adar Arnon",
+    title: "Co-founder & CTO",
+    displayText:
+      "Sunny is the kind of engineer who elevates everyone around her. As our lead frontend engineer, she prove better practices and conventions across the team, dramatically improved our Ux, and built the foundation that enabled the rest of engineering to ship with high velocity. She combines strong technical judgment with a real eye for user experience — a rare and valuable combination.",
+    image: adar,
+  },
+  {
+    name: "Orel Regev",
+    title: "Senior Product Manager",
+    displayText:
+      "Working with Sunny has been a wonderful experience, and her leadership and ownership skills significantly contribute to our team's success. She effectively identifies areas for improvement and fearlessly leads necessary changes, addressing even the most challenging tech and design debts. Sunny's clear communication fosters a collaborative atmosphere, making our work together a pleasure. I value her dedication and the genuine impact she brings to our team.",
+    image: orel,
+  },
+
+  {
     name: "Spencer Carney",
     title: "Engineering Manager",
     displayText:
@@ -105,7 +148,7 @@ const testimonials = [
     name: "Camden Lee",
     title: "Senior Software Engineer",
     displayText:
-      "I had had the privilege to work closely alongside Sunny at Instil. She showed the ability to dive into challenges and find solutions, driving our team towards success. One of Sunny's standout qualities is her self-motivation and proactive nature when it comes to working within a team and solving technical problems. I would jump at the opportunity to work with Sunny again and any organization would be lucky to have her.",
+      "I had the privilege to work closely alongside Sunny at Instil. She showed the ability to dive into challenges and find solutions, driving our team towards success. One of Sunny's standout qualities is her self-motivation and proactive nature when it comes to working within a team and solving technical problems. I would jump at the opportunity to work with Sunny again and any organization would be lucky to have her.",
     image: camden,
   },
   {
@@ -143,13 +186,6 @@ const testimonials = [
       "Sunny and I worked together in different teams. I found Sunny extremely charming and pleasant, tackling all project work with dedication and smile. Her interpersonal skills were exemplary and appreciated by everyone who worked with her. Besides bringing positive energy to team, Sunny is a take-charge person who can present creative ideas and communicate it effectively. She would be an excellent addition to any team and I wish her best for her future projects.",
     image: arpita,
   },
-  {
-    name: "Orel Regev",
-    title: "Senior Product Manager",
-    displayText:
-      "Working with Sunny has been a wonderful experience, and her leadership and ownership skills significantly contribute to our team's success. She effectively identifies areas for improvement and fearlessly leads necessary changes, addressing even the most challenging tech and design debts. Sunny's clear communication fosters a collaborative atmosphere, making our work together a pleasure. I value her dedication and the genuine impact she brings to our team.",
-    image: orel,
-  },
 ];
 
-export { communityOutreach, education, experience, testimonials };
+export { education, experience, testimonials };

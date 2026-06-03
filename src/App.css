@@ -6,12 +6,15 @@ body {
 
 body {
   margin: 0;
+  background-color: #141211;
 }
 
 #root {
   display: flex;
   flex-direction: column;
   height: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 .content {
@@ -21,5 +24,187 @@ body {
 .footer {
   flex-shrink: 0;
   text-align: center;
-  background-color: #1b1b1b;
+  background-color: transparent;
+}
+
+/* ---------------------------------------------------------------------------
+   Ambient cinematic layers
+   --------------------------------------------------------------------------- */
+
+/* slow-drifting plum / olive auras behind everything */
+.ambient-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.ambient-aura {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.5;
+  will-change: transform;
+}
+
+.ambient-aura.plum {
+  width: 46vw;
+  height: 46vw;
+  top: -10vw;
+  left: -8vw;
+  background: radial-gradient(
+    circle at center,
+    rgba(167, 138, 178, 0.45),
+    rgba(167, 138, 178, 0) 70%
+  );
+  animation: auraDriftA 26s ease-in-out infinite alternate;
+}
+
+.ambient-aura.olive {
+  width: 40vw;
+  height: 40vw;
+  bottom: -12vw;
+  right: -6vw;
+  background: radial-gradient(
+    circle at center,
+    rgba(152, 162, 135, 0.32),
+    rgba(152, 162, 135, 0) 70%
+  );
+  animation: auraDriftB 32s ease-in-out infinite alternate;
+}
+
+.ambient-aura.plum-deep {
+  width: 34vw;
+  height: 34vw;
+  top: 40%;
+  left: 55%;
+  background: radial-gradient(
+    circle at center,
+    rgba(83, 59, 94, 0.4),
+    rgba(83, 59, 94, 0) 70%
+  );
+  animation: auraDriftC 38s ease-in-out infinite alternate;
+}
+
+/* soft film-grain noise overlay */
+.ambient-noise {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* plum glow that trails the cursor */
+.ambient-cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 540px;
+  height: 540px;
+  margin: -270px 0 0 -270px;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    rgba(167, 138, 178, 0.16),
+    rgba(167, 138, 178, 0) 65%
+  );
+  mix-blend-mode: screen;
+  will-change: transform;
+  transition: opacity 0.4s ease;
+}
+
+/* particle / constellation canvas */
+.ambient-particles {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* botanical sway — applied to decorative sprigs */
+.sway {
+  transform-origin: bottom center;
+  animation: sway 7s ease-in-out infinite alternate;
+}
+.sway-slow {
+  animation-duration: 11s;
+}
+
+/* frosted glass surface used for cards */
+.glass {
+  background: rgba(245, 241, 236, 0.035);
+  border: 1px solid rgba(245, 241, 236, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 18px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(245, 241, 236, 0.05);
+}
+
+/* reveal-on-scroll helper */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes auraDriftA {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(6vw, 5vh, 0) scale(1.12);
+  }
+}
+@keyframes auraDriftB {
+  from {
+    transform: translate3d(0, 0, 0) scale(1.05);
+  }
+  to {
+    transform: translate3d(-5vw, -4vh, 0) scale(1);
+  }
+}
+@keyframes auraDriftC {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(-4vw, 6vh, 0) scale(1.18);
+  }
+}
+@keyframes sway {
+  from {
+    transform: rotate(-2.2deg);
+  }
+  to {
+    transform: rotate(2.2deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html,
+  body {
+    scroll-behavior: auto;
+  }
+  .ambient-aura,
+  .sway,
+  .ambient-cursor-glow {
+    animation: none !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

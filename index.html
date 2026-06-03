@@ -4,17 +4,17 @@
     <meta charset="UTF-8" />
     <meta
       name="description"
-      content="Sunny Datko is a Lead Frontend Software Engineer with over a decade of experience driving the design, development, and deployment of innovative web applications for mid-size companies and technology startups."
+      content="Staff Software Engineer building beautiful, scalable frontend systems and intuitive user experiences for modern web applications."
     />
-    <link rel="apple-touch-icon" sizes="96x96" href="/React-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/React-icon.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/React-icon.png" />
+    <link rel="apple-touch-icon" sizes="96x96" href="/favicon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sunny Datko | Lead Frontend Software Engineer</title>
+    <title>Sunny Datko | Staff Software Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;700&family=Montserrat:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link
@@ -29,13 +29,76 @@
         width: 100%;
         height: 100%;
         z-index: 9999;
-        background: url(/loader.gif) center no-repeat #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #141211;
+      }
+      #se-pre-con .glow {
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(167, 138, 178, 0.28),
+          rgba(167, 138, 178, 0) 70%
+        );
+        animation: prePulse 1.8s ease-in-out infinite;
+      }
+      #se-pre-con .star {
+        width: 46px;
+        height: 46px;
+        animation: preSpin 6s linear infinite;
+      }
+      @keyframes preSpin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes prePulse {
+        0%,
+        100% {
+          opacity: 0.35;
+          transform: scale(0.9);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.12);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #se-pre-con .glow,
+        #se-pre-con .star {
+          animation: none;
+        }
       }
     </style>
   </head>
   <body>
     <div id="root">
-      <div id="se-pre-con"></div>
+      <div id="se-pre-con">
+        <div class="glow"></div>
+        <svg
+          class="star"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#C9A961"
+          stroke-width="1.25"
+          stroke-linecap="round"
+          aria-hidden="true"
+        >
+          <circle cx="12" cy="12" r="3.1" />
+          <line x1="12" y1="1.5" x2="12" y2="5" />
+          <line x1="12" y1="19" x2="12" y2="22.5" />
+          <line x1="1.5" y1="12" x2="5" y2="12" />
+          <line x1="19" y1="12" x2="22.5" y2="12" />
+          <line x1="4.6" y1="4.6" x2="6.9" y2="6.9" />
+          <line x1="17.1" y1="17.1" x2="19.4" y2="19.4" />
+          <line x1="4.6" y1="19.4" x2="6.9" y2="17.1" />
+          <line x1="17.1" y1="6.9" x2="19.4" y2="4.6" />
+        </svg>
+      </div>
     </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

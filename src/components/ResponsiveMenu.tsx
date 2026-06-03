@@ -15,14 +15,13 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 
-import logoWhite from "../assets/logo.svg";
-import logo from "../assets/logo-black.svg";
+import BrandMark from "./BrandMark";
 
 const drawerWidth = 320;
 const navItems = [
-  { name: "About", url: "/about" },
-  { name: "Experience", url: "/experience" },
-  { name: "Contact", url: "/contact" },
+  { name: "About", url: "#about" },
+  { name: "Experience", url: "#experience" },
+  { name: "Contact", url: "#contact" },
 ];
 
 type ResponsiveMenuProps = {
@@ -47,7 +46,9 @@ const ResponsiveMenu = (props: ResponsiveMenuProps) => {
       onClick={handleDrawerToggle}
       sx={{ textAlign: "center", paddingTop: 1 }}
     >
-      <img alt="Sunny Datko logo" src={logo} style={{ width: 300 }} />
+      <Box sx={{ display: "flex", justifyContent: "center", py: 2 }}>
+        <BrandMark starSize={20} fontSize={15} />
+      </Box>
       <Divider />
       <List>
         {navItems.map((item) => (
@@ -70,7 +71,13 @@ const ResponsiveMenu = (props: ResponsiveMenuProps) => {
         component="nav"
         elevation={0}
         position="fixed"
-        sx={{ backgroundColor: "grey.900", zIndex: 1000 }}
+        sx={{
+          backgroundColor: "rgba(20,18,17,0.65)",
+          backdropFilter: "blur(14px)",
+          WebkitBackdropFilter: "blur(14px)",
+          borderBottom: "1px solid rgba(245,241,236,0.08)",
+          zIndex: 1100,
+        }}
       >
         <Toolbar>
           <IconButton
@@ -81,19 +88,14 @@ const ResponsiveMenu = (props: ResponsiveMenuProps) => {
           >
             <MenuIcon />
           </IconButton>
-          <Box sx={{ marginRight: 2, paddingTop: 0.3 }}>
-            <Link href="http://www.sunnydatko.com">
-              <img
-                alt="Sunny Datko logo"
-                src={logoWhite}
-                style={{ height: "25px" }}
-              />
+          <Box sx={{ marginRight: 2 }}>
+            <Link href="/" aria-label="Sunny Datko — home">
+              <BrandMark starSize={22} fontSize={16} />
             </Link>
           </Box>
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>
+          <Box sx={{ display: { xs: "none", sm: "block" }, ml: "auto" }}>
             {navItems.map(({ name, url }) => (
               <Button
-                disableRipple
                 href={url}
                 key={name}
                 sx={{ textTransform: "capitalize" }}

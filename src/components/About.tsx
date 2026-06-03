@@ -1,4 +1,12 @@
-import { Box, Button, Chip, Container, Typography } from "@mui/material";
+import { Box, Chip, Container, Typography } from "@mui/material";
+
+const skills = [
+  "React",
+  "JavaScript",
+  "TypeScript",
+  "Material UI",
+  "UI/UX Design",
+];
 
 const About = () => {
   return (
@@ -6,52 +14,60 @@ const About = () => {
       component="section"
       className="el-title"
       id="about"
-      sx={{
-        backgroundColor: "grey.100",
-        position: "relative",
-        paddingBottom: 1,
-      }}
+      sx={{ position: "relative" }}
     >
       <div className="wrap">
         <Container
+          className="reveal"
           sx={{
             textAlign: "center",
+            maxWidth: "860px !important",
             ".MuiTypography-body1": {
-              fontSize: { xs: "16px", md: "20px" },
+              fontSize: { xs: "17px", md: "21px" },
             },
           }}
         >
-          <Typography variant="h3" gutterBottom>
+          <Typography
+            component="span"
+            sx={{
+              color: "secondary.main",
+              fontFamily: "'Inter', sans-serif",
+              fontWeight: 600,
+              fontSize: { xs: 12.5, md: 14 },
+              letterSpacing: "0.28em",
+              textTransform: "uppercase",
+            }}
+          >
             About Me
           </Typography>
-          {/* Key Skills as Chips */}
+          <Typography variant="h3" sx={{  mt: 2, mb: 4 }}>
+            Connecting product strategy with frontend craft.
+          </Typography>
+
+          {/* Key skills */}
           <Box
             sx={{
               display: "flex",
               flexWrap: "wrap",
-              gap: 1,
-              marginBottom: 2,
+              gap: 1.25,
+              mb: 4,
               justifyContent: "center",
             }}
           >
-            <Chip label="React" variant="outlined" />
-            <Chip label="Material UI" variant="outlined" />
-            <Chip label="JavaScript" variant="outlined" />
-            <Chip label="TypeScript" variant="outlined" />
-            <Chip label="UI/UX Design" variant="outlined" />
+            {skills.map((skill) => (
+              <Chip key={skill} label={skill} variant="outlined" />
+            ))}
           </Box>
-          <Typography paragraph>
-            I am a Lead Front-End Software Engineer with more than a decade of
-            experience dedicated to crafting exceptional digital experiences. My
-            journey began in the world of online marketing and web design, and
-            I've continued to evolve and excel in the field. With a BS in
-            Business Marketing, I've seamlessly blended my expertise in
-            marketing, design, and software engineering to connect user needs
-            with product innovation.
+
+          <Typography paragraph sx={{ color: "grey.200", lineHeight: 1.7 }}>
+            I am a Staff Frontend Engineer with a passion for building scalable
+            interfaces, thoughtful design systems, and user experiences that
+            feel effortless to use. My multidisciplinary background in marketing,
+            design, and engineering helps me connect product strategy with
+            frontend architecture. Whether I'm leading a design-system overhaul
+            or mentoring the engineers around me, I care most about shipping work
+            that raises the bar for the whole team and stands the test of scale.
           </Typography>
-          <Button href="/about" disableRipple>
-            Learn More
-          </Button>
         </Container>
       </div>
     </Box>

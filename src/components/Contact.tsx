@@ -20,7 +20,7 @@ const Contact = () => {
           "service_g36tuqc",
           "template_h9f3cqa",
           form.current,
-          "3qQjX53eMlx5510nE"
+          "3qQjX53eMlx5510nE",
         )
         .then(
           () => {
@@ -32,7 +32,7 @@ const Contact = () => {
             enqueueSnackbar("An error occured.", {
               variant: "error",
             });
-          }
+          },
         );
     }
   };
@@ -41,25 +41,32 @@ const Contact = () => {
     <Box
       component="section"
       id="contact"
-      sx={{
-        backgroundColor: "grey.100",
-        padding: "48px 0",
-        position: "relative",
-      }}
+      sx={{ padding: "72px 0", position: "relative" }}
     >
       <Box className="wrap">
-        <Container>
+        <Container className="reveal" sx={{ maxWidth: "760px !important" }}>
           <Typography
-            gutterBottom
-            sx={{ fontSize: "2rem", fontWeight: 700 }}
+            component="span"
+            align="center"
+            sx={{
+              display: "block",
+              color: "secondary.main",
+              fontFamily: "'Inter', sans-serif",
+              fontWeight: 600,
+              fontSize: { xs: 12.5, md: 14 },
+              letterSpacing: "0.28em",
+              textTransform: "uppercase",
+            }}
+          >
+            Get In Touch
+          </Typography>
+          <Typography
+            align="center"
             variant="h3"
+            sx={{  mt: 2, mb: 4 }}
           >
             Let's Chat
           </Typography>
-          <Typography align="center" sx={{ marginBottom: 4 }}>
-            Together we can make it happen
-          </Typography>
-
           <form ref={form} onSubmit={sendEmail}>
             <Box
               sx={{
@@ -81,13 +88,13 @@ const Contact = () => {
               />
               <Button
                 size="large"
+                type="submit"
                 sx={{
                   alignSelf: "center",
                   marginTop: 1,
                   width: { xs: "100%", md: "300px" },
+                  py: 1.4,
                 }}
-                type="submit"
-                variant="outlined"
               >
                 Send Email
               </Button>

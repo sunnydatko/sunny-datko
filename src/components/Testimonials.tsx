@@ -4,27 +4,31 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
 
-import stars from "../assets/star-5.svg";
 import { testimonials } from "../helpers/config";
 
 const Arrow = styled("div")({
   cursor: "pointer",
-  height: "36px",
+  height: "44px",
+  width: "44px",
   position: "absolute",
-  top: "calc(50% - 18px)",
-  width: "36px",
-  border: "1px solid lightgrey",
+  top: "50%",
+  transform: "translateY(-50%)",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  border: "1px solid rgba(167,138,178,0.5)",
   borderRadius: "50%",
-  textAlign: "center",
-  lineHeight: "2.3em",
+  color: "#F5F1EC",
+  transition: "border-color .3s, background-color .3s",
+  zIndex: 2,
+  "&:hover": {
+    borderColor: "#A78AB2",
+    backgroundColor: "rgba(167,138,178,0.12)",
+  },
 
   i: {
     fontSize: "1.1em",
-    transition: ".3s",
-    opacity: 0.7,
-    "&:hover": {
-      color: "#00a3d9",
-    },
+    opacity: 0.85,
   },
 });
 
@@ -78,32 +82,81 @@ const Testimonials = () => {
     >
       <Box className="wrap">
         <Container>
-          <Typography gutterBottom variant="h3">
-            Testimonials
-          </Typography>
+          <Box sx={{ textAlign: "center", mb: 5 }} className="reveal">
+            <Typography
+              component="span"
+              sx={{
+                color: "secondary.main",
+                fontFamily: "'Inter', sans-serif",
+                fontWeight: 600,
+                fontSize: { xs: 12.5, md: 14 },
+                letterSpacing: "0.28em",
+                textTransform: "uppercase",
+              }}
+            >
+              Kind Words
+            </Typography>
+            <Typography variant="h3" sx={{ mt: 2 }}>
+              Testimonials
+            </Typography>
+          </Box>
           <Box
-            className="reviews"
+            className="reviews reveal"
             sx={{ minHeight: { xs: "565px", sm: "614px", md: "542px" } }}
           >
             <div className="review dflex-center">
               <div className="quote">
+                <Box
+                  aria-hidden
+                  sx={{
+                    fontFamily: "'DM Serif Display', serif",
+                    color: "primary.main",
+                    opacity: 0.45,
+                    fontSize: { xs: 70, sm: 96 },
+                    lineHeight: 0.5,
+                    height: { xs: 32, sm: 44 },
+                  }}
+                >
+                  &ldquo;
+                </Box>
                 <Typography
                   align="center"
                   className="dtext"
                   sx={{
-                    fontSize: { xs: 16, sm: 20 },
+                    color: "grey.200",
+                    fontSize: { xs: 16, sm: 21 },
                     fontWeight: { xs: 300, sm: 400 },
-                    lineHeight: { xs: "25px", sm: "36px" },
+                    lineHeight: { xs: "26px", sm: "38px" },
                   }}
                 >
                   {current.displayText}
                 </Typography>
                 <Box
+                  aria-label="5 out of 5 stars"
                   sx={{
                     display: "flex",
                     justifyContent: "center",
-                    paddingY: 4,
-                    gap: 3,
+                    gap: 0.75,
+                    mt: 1,
+                    color: "primary.light",
+                  }}
+                >
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Box
+                      key={i}
+                      component="i"
+                      className="bi bi-star-fill"
+                      sx={{ fontSize: { xs: 15, sm: 17 } }}
+                    />
+                  ))}
+                </Box>
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    pt: 3,
+                    gap: 2,
                   }}
                 >
                   <Box
@@ -112,35 +165,31 @@ const Testimonials = () => {
                       backgroundImage: `url(${current.image})`,
                       borderRadius: "100%",
                       boxShadow: "0 0 10px rgb(0 0 0 / 10%)",
-                      height: "80px",
-                      marginRight: 1,
-                      width: "80px",
+                      height: "72px",
+                      width: "72px",
+                      flexShrink: 0,
                     }}
                   />
                   <Box sx={{ textAlign: "left" }}>
                     <Typography
                       sx={{
+                        color: "text.primary",
                         fontSize: "17px",
                         fontWeight: 700,
+                        lineHeight: 1.3,
                       }}
                     >
                       {current.name}
                     </Typography>
                     <Typography
                       sx={{
+                        color: "text.secondary",
                         fontSize: "15px",
-                        lineHeight: "normal",
-                        marginBottom: 1,
+                        lineHeight: 1.3,
                       }}
                     >
                       {current.title}
                     </Typography>
-                    <Box
-                      className="stars star-5"
-                      sx={{
-                        backgroundImage: `url(${stars})`,
-                      }}
-                    ></Box>
                   </Box>
                 </Box>
               </div>
