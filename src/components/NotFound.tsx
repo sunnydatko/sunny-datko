@@ -159,6 +159,7 @@ const NotFound = () => {
                 lineHeight: 1.6,
                 mt: { xs: 2, md: 3 },
                 maxWidth: 460,
+                mx: "auto",
               }}
             >
               The page you're looking for doesn't exist, or may have moved elsewhere.
