@@ -22,7 +22,7 @@ const Footer = () => (
             "&:hover": { color: "primary.main", backgroundColor: "transparent" },
           }}
         >
-          Designed &amp; Built by Sunny Datko 💜
+          Made with &lt;3 by Sunny Datko
         </Button>
       </Container>
     </Box>
