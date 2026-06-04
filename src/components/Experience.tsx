@@ -1,11 +1,8 @@
-import { Fragment } from "react";
 import Link from "@mui/material/Link";
 import {
   Box,
   Button,
   Container,
-  List,
-  ListItemText,
   Typography,
 } from "@mui/material";
 
@@ -76,55 +73,38 @@ const Experience = () => (
               )}
             </Typography>
 
-            {company.roles.map((role) => (
-              <Fragment key={role.title}>
-                <Typography
-                  sx={{
-                    color: "grey.100",
-                    fontFamily: "'Inter', sans-serif",
-                    fontWeight: 600,
-                    fontSize: { xs: 16, md: 18 },
-                    mt: 2,
-                  }}
-                >
-                  {role.title}
-                </Typography>
-                <Typography
-                  sx={{
-                    color: "secondary.main",
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: { xs: 13, md: 14 },
-                    letterSpacing: "0.04em",
-                  }}
-                >
-                  {role.dates}
-                </Typography>
-                <List
-                  sx={{
-                    listStyleType: "disc",
-                    pl: 3,
-                    py: 0.5,
-                    "& .MuiListItemText-root": {
-                      "&::marker": { color: "secondary.main" },
-                    },
-                    "& .MuiTypography-root, & .MuiListItemText-primary": {
-                      color: "grey.300",
-                      fontSize: { xs: 15, md: 16 },
-                      lineHeight: 1.65,
-                    },
-                  }}
-                >
-                  {role.points.map((point) => (
-                    <ListItemText
-                      key={point}
-                      sx={{ display: "list-item", my: 0.75 }}
-                    >
-                      {point}
-                    </ListItemText>
-                  ))}
-                </List>
-              </Fragment>
-            ))}
+            <Typography
+              sx={{
+                color: "grey.100",
+                fontFamily: "'Inter', sans-serif",
+                fontWeight: 600,
+                fontSize: { xs: 16, md: 18 },
+                mt: 2,
+              }}
+            >
+              {company.title}
+            </Typography>
+            <Typography
+              sx={{
+                color: "secondary.main",
+                fontFamily: "'Inter', sans-serif",
+                fontSize: { xs: 13, md: 14 },
+                letterSpacing: "0.04em",
+              }}
+            >
+              {company.dates}
+            </Typography>
+            <Typography
+              sx={{
+                color: "grey.300",
+                fontFamily: "'Inter', sans-serif",
+                fontSize: { xs: 15, md: 16 },
+                lineHeight: 1.65,
+                mt: 1,
+              }}
+            >
+              {company.points[0]}
+            </Typography>
           </Box>
         ))}
 

@@ -147,7 +147,7 @@ const NotFound = () => {
                 maxWidth: 640,
               }}
             >
-              Looks like you've wandered off the path.
+              Looks like you've wandered off the trail.
             </Typography>
 
             {/* subtext */}

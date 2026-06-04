@@ -13,102 +13,64 @@ const experience = [
     company: "Drata",
     note: "acquired SafeBase",
     url: "https://drata.com/",
-    roles: [
-      {
-        title: "Staff Software Engineer",
-        dates: "August 2025 - Present",
-        points: [
-          "Replaced SafeBase's legacy Bootstrap/SCSS with a unified Material UI design system — a scalable foundation for theming, dark mode, and reusable UI patterns.",
-          "Expanded shared frontend systems across the Trust Center platform, improving developer velocity, accessibility, and visual consistency.",
-        ],
-      },
+    title: "Staff Software Engineer",
+    dates: "August 2025 - Present",
+    points: [
+      "Built and scaled a shared Material UI design system, replacing legacy Bootstrap/SCSS and improving developer velocity, accessibility, theming, and visual consistency across the Trust Center platform",
     ],
   },
   {
     company: "SafeBase",
     url: "https://safebase.io/",
-    roles: [
-      {
-        title: "Principal Software Engineer",
-        dates: "February 2025 - August 2025",
-        points: [
-          "Drove frontend architecture and design-system initiatives across the Trust Center, establishing patterns for consistency, maintainability, and scalability.",
-          "Partnered with product and design to translate complex security workflows into intuitive user experiences.",
-        ],
-      },
-      {
-        title: "Lead Frontend Engineer",
-        dates: "September 2023 - February 2025",
-        points: [
-          "Led frontend engineering for the Trust Center, defining technical standards, UI architecture, and shared component strategy.",
-          "Drove adoption of Material UI and modern frontend practices, improving productivity, accessibility, and visual consistency.",
-        ],
-      },
+    title: "Principal / Lead Frontend Engineer",
+    dates: "September 2023 - February 2025",
+    points: [
+      "Drove frontend architecture and design system initiatives across the Trust Center platform, creating shared foundations that improved consistency, accessibility, and engineering velocity",
     ],
   },
   {
     company: "Instil",
     url: "https://www.instil.io/",
-    roles: [
-      {
-        title: "Frontend Software Engineer",
-        dates: "February 2022 - August 2023",
-        points: [
-          "Architected and refined the UI of a nonprofit CRM used to manage nonprofit donations, events, and campaigns using React & Material UI.",
-        ],
-      },
+    title: "Frontend Software Engineer",
+    dates: "February 2022 - August 2023",
+    points: [
+      "Architected and refined the UI of a nonprofit CRM used to manage nonprofit donations, events, and campaigns using React & Material UI",
     ],
   },
   {
     company: "Eastridge Workforce Solutions",
     url: "https://www.eastridge.com/",
-    roles: [
-      {
-        title: "Frontend Engineer",
-        dates: "March 2020 - January 2022",
-        points: [
-          "Rewrote a legacy Ember recruitment application from Ember to React using Material UI, TypeScript, Styled Components, and React Query to optimize navigation and modernize the codebase.",
-        ],
-      },
+    title: "Frontend Engineer",
+    dates: "March 2020 - January 2022",
+    points: [
+      "Rewrote a legacy Ember recruitment application from Ember to React using Material UI, TypeScript, Styled Components, and React Query to optimize navigation and modernize the codebase",
     ],
   },
   {
     company: "Verogen",
     url: "https://verogen.com/",
-    roles: [
-      {
-        title: "Software Engineer",
-        dates: "January 2018 - December 2019",
-        points: [
-          "Designed and developed frontend features for a next-generation forensics analysis platform.",
-        ],
-      },
+    title: "Software Engineer",
+    dates: "January 2018 - December 2019",
+    points: [
+      "Designed and developed frontend features for a next-generation forensics analysis platform",
     ],
   },
   {
     company: "InnovaSystems International, LLC",
     url: "https://www.innovasi.com/",
-    roles: [
-      {
-        title: "Software Engineer",
-        dates: "June 2016 - January 2018",
-        points: [
-          "Developed a Learning Management System (LMS) for the US Navy that teachers and students in boot camp used to track training and readiness using AngularJS, TypeScript, SQL, and C#.",
-        ],
-      },
+    title: "Software Engineer",
+    dates: "June 2016 - January 2018",
+    points: [
+      "Developed a Learning Management System (LMS) for the US Navy that teachers and students in boot camp used to track training and readiness using AngularJS, TypeScript, SQL, and C#.",
     ],
   },
   {
     company: "Integrated Default Solutions",
     url: "https://www.idsolutions-inc.com/",
-    roles: [
-      {
-        title: "Software Engineer",
-        dates: "January 2014 - June 2016",
-        points: [
-          "Designed and implemented fullstack web applications linked to firm-wide SQL databases for clients in a mortgage law firm.",
-        ],
-      },
+    title: "Software Engineer",
+    dates: "January 2014 - June 2016",
+    points: [
+      "Designed and implemented fullstack web applications linked to firm-wide SQL databases for clients in a mortgage law firm.",
     ],
   },
 ];
