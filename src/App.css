@@ -192,6 +192,20 @@ body {
   }
 }
 
+/* gently floating sun used on the 404 page */
+.float-sun {
+  animation: floatSun 6.5s ease-in-out infinite alternate;
+  will-change: transform;
+}
+@keyframes floatSun {
+  from {
+    transform: translateY(-6px);
+  }
+  to {
+    transform: translateY(6px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html,
   body {
@@ -199,6 +213,7 @@ body {
   }
   .ambient-aura,
   .sway,
+  .float-sun,
   .ambient-cursor-glow {
     animation: none !important;
   }

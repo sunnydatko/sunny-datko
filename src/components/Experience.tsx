@@ -104,13 +104,21 @@ const Experience = () => (
                     listStyleType: "disc",
                     pl: 3,
                     py: 0.5,
+                    "& .MuiListItemText-root": {
+                      "&::marker": { color: "secondary.main" },
+                    },
                     "& .MuiTypography-root, & .MuiListItemText-primary": {
                       color: "grey.300",
+                      fontSize: { xs: 15, md: 16 },
+                      lineHeight: 1.65,
                     },
                   }}
                 >
                   {role.points.map((point) => (
-                    <ListItemText key={point} sx={{ display: "list-item" }}>
+                    <ListItemText
+                      key={point}
+                      sx={{ display: "list-item", my: 0.75 }}
+                    >
                       {point}
                     </ListItemText>
                   ))}

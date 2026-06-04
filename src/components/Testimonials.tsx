@@ -82,7 +82,7 @@ const Testimonials = () => {
     >
       <Box className="wrap">
         <Container>
-          <Box sx={{ textAlign: "center", mb: 5 }} className="reveal">
+          <Box sx={{ textAlign: "center", mb: { xs: 3, md: 4 } }} className="reveal">
             <Typography
               component="span"
               sx={{
@@ -102,7 +102,7 @@ const Testimonials = () => {
           </Box>
           <Box
             className="reviews reveal"
-            sx={{ minHeight: { xs: "565px", sm: "614px", md: "542px" } }}
+            sx={{ minHeight: { xs: "440px", sm: "470px", md: "400px" } }}
           >
             <div className="review dflex-center">
               <div className="quote">
@@ -112,9 +112,9 @@ const Testimonials = () => {
                     fontFamily: "'DM Serif Display', serif",
                     color: "primary.main",
                     opacity: 0.45,
-                    fontSize: { xs: 70, sm: 96 },
+                    fontSize: { xs: 52, sm: 68 },
                     lineHeight: 0.5,
-                    height: { xs: 32, sm: 44 },
+                    height: { xs: 24, sm: 32 },
                   }}
                 >
                   &ldquo;
@@ -124,9 +124,9 @@ const Testimonials = () => {
                   className="dtext"
                   sx={{
                     color: "grey.200",
-                    fontSize: { xs: 16, sm: 21 },
+                    fontSize: { xs: 15, sm: 18 },
                     fontWeight: { xs: 300, sm: 400 },
-                    lineHeight: { xs: "26px", sm: "38px" },
+                    lineHeight: { xs: "24px", sm: "30px" },
                   }}
                 >
                   {current.displayText}
@@ -136,8 +136,8 @@ const Testimonials = () => {
                   sx={{
                     display: "flex",
                     justifyContent: "center",
-                    gap: 0.75,
-                    mt: 1,
+                    gap: 0.5,
+                    mt: 0.5,
                     color: "primary.light",
                   }}
                 >
@@ -146,7 +146,7 @@ const Testimonials = () => {
                       key={i}
                       component="i"
                       className="bi bi-star-fill"
-                      sx={{ fontSize: { xs: 15, sm: 17 } }}
+                      sx={{ fontSize: { xs: 13, sm: 15 } }}
                     />
                   ))}
                 </Box>
@@ -155,8 +155,8 @@ const Testimonials = () => {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    pt: 3,
-                    gap: 2,
+                    pt: 2.5,
+                    gap: 1.5,
                   }}
                 >
                   <Box
@@ -165,8 +165,8 @@ const Testimonials = () => {
                       backgroundImage: `url(${current.image})`,
                       borderRadius: "100%",
                       boxShadow: "0 0 10px rgb(0 0 0 / 10%)",
-                      height: "72px",
-                      width: "72px",
+                      height: "54px",
+                      width: "54px",
                       flexShrink: 0,
                     }}
                   />
@@ -174,7 +174,7 @@ const Testimonials = () => {
                     <Typography
                       sx={{
                         color: "text.primary",
-                        fontSize: "17px",
+                        fontSize: "15px",
                         fontWeight: 700,
                         lineHeight: 1.3,
                       }}
@@ -184,7 +184,7 @@ const Testimonials = () => {
                     <Typography
                       sx={{
                         color: "text.secondary",
-                        fontSize: "15px",
+                        fontSize: "13.5px",
                         lineHeight: 1.3,
                       }}
                     >

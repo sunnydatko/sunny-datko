@@ -18,8 +18,8 @@ const experience = [
         title: "Staff Software Engineer",
         dates: "August 2025 - Present",
         points: [
-          "Modernized SafeBase's web application by replacing legacy Bootstrap and SCSS implementations with a unified Material UI design system, establishing a scalable foundation for theming, dark mode, branding, and reusable UI patterns.",
-          "Expanded shared frontend systems across the Trust Center platform, improving developer velocity, accessibility, responsiveness, and visual consistency while enabling faster delivery of customer-facing features.",
+          "Replaced SafeBase's legacy Bootstrap/SCSS with a unified Material UI design system — a scalable foundation for theming, dark mode, and reusable UI patterns.",
+          "Expanded shared frontend systems across the Trust Center platform, improving developer velocity, accessibility, and visual consistency.",
         ],
       },
     ],
@@ -32,16 +32,16 @@ const experience = [
         title: "Principal Software Engineer",
         dates: "February 2025 - August 2025",
         points: [
-          "Drove frontend architecture and design system initiatives across the Trust Center experience, establishing patterns that improved consistency, maintainability, and long-term scalability.",
-          "Partnered closely with product and design teams to translate complex security workflows into intuitive user experiences.",
+          "Drove frontend architecture and design-system initiatives across the Trust Center, establishing patterns for consistency, maintainability, and scalability.",
+          "Partnered with product and design to translate complex security workflows into intuitive user experiences.",
         ],
       },
       {
         title: "Lead Frontend Engineer",
         dates: "September 2023 - February 2025",
         points: [
-          "Led frontend engineering initiatives for the Trust Center platform, helping define technical standards, UI architecture, and shared component strategies across the application.",
-          "Drove adoption of Material UI and modern frontend practices, improving developer productivity, accessibility, and visual consistency while creating a foundation for future theming and branding capabilities.",
+          "Led frontend engineering for the Trust Center, defining technical standards, UI architecture, and shared component strategy.",
+          "Drove adoption of Material UI and modern frontend practices, improving productivity, accessibility, and visual consistency.",
         ],
       },
     ],

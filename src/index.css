@@ -40,9 +40,12 @@ a {
   padding: 0px 0 70px;
 }
 
-.el-title .wrap,
-.el-reviews .wrap {
+.el-title .wrap {
   padding: 72px 0;
+}
+
+.el-reviews .wrap {
+  padding: 48px 0;
 }
 
 /* reviews */
@@ -60,9 +63,9 @@ a {
 }
 
 .el-reviews .reviews .review {
-  min-height: 400px;
+  min-height: 300px;
   align-items: center;
-  padding: 48px 72px;
+  padding: 36px 64px;
 }
 
 .el-reviews .reviews .review .quote {
@@ -74,8 +77,8 @@ a {
 }
 
 .el-reviews .reviews .review .dtext {
-  margin: 24px 0 16px;
-  min-height: 144px;
+  margin: 16px 0 12px;
+  min-height: 110px;
   position: relative;
   flex-direction: column;
 }
