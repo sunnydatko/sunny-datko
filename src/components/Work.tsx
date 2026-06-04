@@ -19,7 +19,7 @@ const caseStudies = [
     image: themeImg,
     imagePosition: "center center",
     imageTint: "linear-gradient(180deg, rgba(20,18,17,0) 50%, rgba(20,18,17,0.55) 100%)",
-    overline: "Platform",
+    overline: "Theming",
     title: "Building a Theme-Driven Platform",
     subtitle: "Enabling white labeling and dark mode at scale with design tokens",
     tags: ["Design Tokens", "White Labeling", "Dark Mode"],

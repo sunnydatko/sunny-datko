@@ -97,8 +97,7 @@ const Hero = () => (
             mb: { xs: 4, md: 5 },
           }}
         >
-          Building interfaces, design systems, and frontend architecture that help complex
-          products feel intuitive.
+          Connecting product strategy, design systems, and frontend architecture to create intuitive user experiences.
         </Typography>
 
         {/* CTAs */}

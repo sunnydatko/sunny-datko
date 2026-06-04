@@ -5,6 +5,7 @@ import { SnackbarProvider } from "notistack";
 import Router from "./components/Router";
 import Loader from "./components/Loader";
 import getTheme from "./helpers/theme";
+import CustomSnackbar from "./components/CustomSnackbar";
 
 const theme = getTheme("dark");
 
@@ -32,7 +33,11 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <SnackbarProvider maxSnack={3}>
+      <SnackbarProvider
+          maxSnack={3}
+          anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+          Components={{ success: CustomSnackbar, error: CustomSnackbar }}
+        >
         <Router />
       </SnackbarProvider>
     </ThemeProvider>
