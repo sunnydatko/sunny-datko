@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
@@ -5,8 +6,24 @@ import Typography from "@mui/material/Typography";
 
 import lavender from "../assets/lavender.png";
 
-const Hero = () => (
+const Hero = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const bgRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current || !bgRef.current) return;
+      const progress = Math.min(window.scrollY / sectionRef.current.offsetHeight, 1);
+      bgRef.current.style.transform = `scale(${1 + progress * 0.08})`;
+      bgRef.current.style.opacity = String(1 - progress * 0.4);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
   <Box
+    ref={sectionRef}
     component="section"
     className="el-hero"
     sx={{
@@ -20,6 +37,7 @@ const Hero = () => (
   >
     {/* sunset photo — kept to the right where the light falls */}
     <Box
+      ref={bgRef}
       aria-hidden
       sx={{
         position: "absolute",
@@ -27,6 +45,8 @@ const Hero = () => (
         backgroundImage: `url(${lavender})`,
         backgroundSize: "cover",
         backgroundPosition: { xs: "center", md: "right center" },
+        willChange: "transform, opacity",
+        transformOrigin: "center center",
       }}
     />
     {/* gradient: solid charcoal on the left fading to the photo on the right
@@ -154,6 +174,7 @@ const Hero = () => (
       </Box>
     </Container>
   </Box>
-);
+  );
+};
 
 export default Hero;
