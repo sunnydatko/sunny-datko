@@ -37,8 +37,8 @@ const Hero = () => (
         position: "absolute",
         inset: 0,
         background: {
-          xs: "linear-gradient(180deg, rgba(21,19,19,0.86) 0%, rgba(21,19,19,0.7) 45%, rgba(21,19,19,0.85) 100%)",
-          md: "linear-gradient(90deg, rgba(21,19,19,0.97) 0%, rgba(21,19,19,0.9) 32%, rgba(21,19,19,0.55) 58%, rgba(21,19,19,0.12) 100%)",
+          xs: "linear-gradient(180deg, rgba(21,19,19,0.92) 0%, rgba(21,19,19,0.85) 45%, rgba(21,19,19,0.92) 100%)",
+          md: "linear-gradient(90deg, rgba(21,19,19,0.97) 0%, rgba(21,19,19,0.9) 32%, rgba(21,19,19,0.70) 58%, rgba(21,19,19,0.30) 100%)",
         },
       }}
     />
@@ -97,8 +97,8 @@ const Hero = () => (
             mb: { xs: 4, md: 5 },
           }}
         >
-          I build frontend systems, design architecture, and user experiences that scale.
-          Currently focused on trust, security, and design system experiences at Drata.
+          Building interfaces, design systems, and frontend architecture that help complex
+          products feel intuitive.
         </Typography>
 
         {/* CTAs */}
@@ -149,7 +149,7 @@ const Hero = () => (
               },
             }}
           >
-            Read my story
+            About Me
           </Box>
         </Box>
       </Box>

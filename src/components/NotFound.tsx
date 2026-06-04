@@ -32,7 +32,7 @@ const NotFound = () => (
         backgroundImage: `url(${botanical})`,
         backgroundSize: "cover",
         backgroundPosition: "center bottom",
-        opacity: 0.55,
+        opacity: 0.75,
         zIndex: 0,
       }}
     />
@@ -43,7 +43,7 @@ const NotFound = () => (
         position: "absolute",
         inset: 0,
         background:
-          "radial-gradient(ellipse at center, rgba(20,18,17,0.2) 0%, rgba(20,18,17,0.78) 70%, rgba(20,18,17,0.95) 100%)",
+          "radial-gradient(ellipse at center, rgba(20,18,17,0.1) 0%, rgba(20,18,17,0.5) 70%, rgba(20,18,17,0.72) 100%)",
         zIndex: 0,
       }}
     />
