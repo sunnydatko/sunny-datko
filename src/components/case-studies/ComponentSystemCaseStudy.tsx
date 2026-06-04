@@ -4,8 +4,6 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
 import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
-import LaptopOutlinedIcon from "@mui/icons-material/LaptopOutlined";
-import CodeOutlinedIcon from "@mui/icons-material/CodeOutlined";
 import ReportProblemOutlinedIcon from "@mui/icons-material/ReportProblemOutlined";
 import FlagOutlinedIcon from "@mui/icons-material/FlagOutlined";
 import GridViewOutlinedIcon from "@mui/icons-material/GridViewOutlined";
@@ -13,7 +11,7 @@ import PaletteOutlinedIcon from "@mui/icons-material/PaletteOutlined";
 import ImportContactsOutlinedIcon from "@mui/icons-material/ImportContactsOutlined";
 import TrendingUpOutlinedIcon from "@mui/icons-material/TrendingUpOutlined";
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
-import uiBg from "../assets/ui-bg.png";
+import uiBg from "../../assets/ui-bg.png";
 
 const sections = [
   {
@@ -64,12 +62,10 @@ const tags = [
   "Collaboration",
 ];
 
-const meta = [
-  { icon: <PersonOutlinedIcon />, label: "Role", value: "Staff Frontend Engineer" },
-  { icon: <GroupsOutlinedIcon />, label: "Team", value: "Design, Product, Engineering" },
+const stats = [
   { icon: <AccessTimeOutlinedIcon />, label: "Duration", value: "Jan 2023 – Aug 2025" },
-  { icon: <LaptopOutlinedIcon />, label: "Platform", value: "Trust Center Platform" },
-  { icon: <CodeOutlinedIcon />, label: "Tools & Tech", value: "React, TypeScript, MUI, Storybook, Styled System, Figma" },
+  { icon: <PersonOutlinedIcon />, label: "My Role", value: "Staff Frontend Engineer" },
+  { icon: <GroupsOutlinedIcon />, label: "Team", value: "Design, Product, Engineering" },
 ];
 
 const ComponentSystemCaseStudy = () => {
@@ -147,134 +143,120 @@ const ComponentSystemCaseStudy = () => {
           <ArrowBackIcon /> Back to Work
         </Box>
 
-        {/* Hero header + meta two-column */}
-        <Box
-          sx={{
-            display: { xs: "block", md: "flex" },
-            gap: { md: 6 },
-            alignItems: "flex-start",
-            mb: { xs: 5, md: 7 },
-          }}
-        >
-          {/* Left: title block */}
-          <Box sx={{ flex: "1 1 0", minWidth: 0, mb: { xs: 4, md: 0 } }}>
-            <Typography
-              component="span"
-              sx={{
-                display: "block",
-                color: "secondary.main",
-                fontFamily: "'Inter', sans-serif",
-                fontWeight: 600,
-                fontSize: { xs: 12, md: 13 },
-                letterSpacing: "0.28em",
-                textTransform: "uppercase",
-                mb: 2,
-              }}
-            >
-              Case Study
-            </Typography>
-
-            <Typography
-              variant="h2"
-              sx={{
-                fontSize: { xs: "28px", sm: "38px", md: "48px" },
-                color: "grey.100",
-                mb: 2,
-                lineHeight: 1.15,
-              }}
-            >
-              Building the Bridge Between Design and Engineering
-            </Typography>
-
-            <Typography
-              sx={{
-                fontFamily: "'DM Serif Display', serif",
-                fontSize: { xs: "16px", sm: "18px", md: "21px" },
-                color: "primary.light",
-                mb: 3,
-                lineHeight: 1.45,
-              }}
-            >
-              Creating a shared component system that transformed design
-              decisions into scalable frontend architecture.
-            </Typography>
-
-            <Typography
-              sx={{
-                color: "grey.200",
-                fontFamily: "'Inter', sans-serif",
-                fontSize: { xs: 15, md: 17 },
-                lineHeight: 1.75,
-              }}
-            >
-              Bootstrap components were hard to customize and led to
-              inconsistency, duplication, and confusion. We built a shared
-              component system that connected design intent with
-              implementation—making it easier for teams to build the right UI,
-              the right way.
-            </Typography>
-          </Box>
-
-          {/* Right: meta card */}
-          <Box
-            className="glass"
+        {/* Title block */}
+        <Box sx={{ mb: 4 }}>
+          <Typography
+            component="span"
             sx={{
-              width: { xs: "100%", md: 280 },
-              flexShrink: 0,
-              p: { xs: 2.5, md: 3 },
+              display: "block",
+              color: "secondary.main",
+              fontFamily: "'Inter', sans-serif",
+              fontWeight: 600,
+              fontSize: { xs: 12, md: 13 },
+              letterSpacing: "0.28em",
+              textTransform: "uppercase",
+              mb: 2,
             }}
           >
-            {meta.map((item, i) => (
-              <Box
-                key={item.label}
-                sx={{
-                  display: "flex",
-                  gap: 1.5,
-                  alignItems: "flex-start",
-                  pt: i > 0 ? 2 : 0,
-                  mt: i > 0 ? 2 : 0,
-                  borderTop: i > 0 ? "1px solid" : "none",
-                  borderColor: "divider",
-                }}
-              >
-                <Box
+            Case Study
+          </Typography>
+
+          <Typography
+            variant="h2"
+            sx={{
+              fontSize: { xs: "28px", sm: "38px", md: "52px" },
+              color: "grey.100",
+              mb: 2,
+              lineHeight: 1.15,
+            }}
+          >
+            Building the Bridge Between Design and Engineering
+          </Typography>
+
+          <Typography
+            sx={{
+              fontFamily: "'DM Serif Display', serif",
+              fontSize: { xs: "16px", sm: "18px", md: "22px" },
+              color: "primary.light",
+              mb: 3,
+              lineHeight: 1.45,
+            }}
+          >
+            Creating a shared component system that transformed design
+            decisions into scalable frontend architecture.
+          </Typography>
+
+          <Typography
+            sx={{
+              color: "grey.200",
+              fontFamily: "'Inter', sans-serif",
+              fontSize: { xs: 16, md: 18 },
+              lineHeight: 1.7,
+            }}
+          >
+            Bootstrap components were hard to customize and led to
+            inconsistency, duplication, and confusion. We built a shared
+            component system that connected design intent with
+            implementation—making it easier for teams to build the right UI,
+            the right way.
+          </Typography>
+        </Box>
+
+        {/* Stats bar */}
+        <Box
+          className="glass"
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", sm: "row" },
+            mb: 6,
+            p: { xs: 2, md: 3 },
+          }}
+        >
+          {stats.map((stat, i) => (
+            <Box
+              key={stat.label}
+              sx={{
+                flex: { sm: "1 1 0" },
+                display: "flex",
+                alignItems: "flex-start",
+                gap: 1.5,
+                px: { xs: 1, sm: 2, md: 2.5 },
+                py: { xs: 1.5, sm: 1 },
+                borderLeft: { sm: i > 0 ? "1px solid" : "none" },
+                borderTop: { xs: i > 0 ? "1px solid" : "none", sm: "none" },
+                borderColor: "divider",
+              }}
+            >
+              <Box sx={{ color: "secondary.main", pt: "2px", "& svg": { fontSize: 20 } }}>
+                {stat.icon}
+              </Box>
+              <Box>
+                <Typography
                   sx={{
-                    color: "secondary.main",
-                    flexShrink: 0,
-                    pt: "2px",
-                    "& svg": { fontSize: 18 },
+                    fontFamily: "'Inter', sans-serif",
+                    fontSize: 11,
+                    fontWeight: 600,
+                    letterSpacing: "0.18em",
+                    textTransform: "uppercase",
+                    color: "grey.400",
+                    mb: 0.25,
                   }}
                 >
-                  {item.icon}
-                </Box>
-                <Box>
-                  <Typography
-                    sx={{
-                      fontFamily: "'Inter', sans-serif",
-                      fontSize: 10,
-                      fontWeight: 600,
-                      letterSpacing: "0.2em",
-                      textTransform: "uppercase",
-                      color: "grey.500",
-                      mb: 0.3,
-                    }}
-                  >
-                    {item.label}
-                  </Typography>
-                  <Typography
-                    sx={{
-                      fontFamily: "'Inter', sans-serif",
-                      fontSize: { xs: 13, md: 14 },
-                      color: "grey.200",
-                      lineHeight: 1.5,
-                    }}
-                  >
-                    {item.value}
-                  </Typography>
-                </Box>
+                  {stat.label}
+                </Typography>
+                <Typography
+                  sx={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontSize: { xs: 14, md: 15 },
+                    fontWeight: 500,
+                    color: "grey.100",
+                  }}
+                >
+                  {stat.value}
+                </Typography>
               </Box>
-            ))}
-          </Box>
+            </Box>
+          ))}
         </Box>
 
         <Divider sx={{ mb: { xs: 5, md: 6 }, borderColor: "divider" }} />

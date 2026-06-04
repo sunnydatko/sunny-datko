@@ -4,9 +4,9 @@ import Layout from "./Layout";
 import Loader from "./Loader";
 
 const Home = lazy(() => import("./Home"));
-const MuiCaseStudy = lazy(() => import("./MuiCaseStudy"));
-const ThemingCaseStudy = lazy(() => import("./ThemingCaseStudy"));
-const ComponentSystemCaseStudy = lazy(() => import("./ComponentSystemCaseStudy"));
+const MuiCaseStudy = lazy(() => import("./case-studies/MuiCaseStudy"));
+const ThemingCaseStudy = lazy(() => import("./case-studies/ThemingCaseStudy"));
+const ComponentSystemCaseStudy = lazy(() => import("./case-studies/ComponentSystemCaseStudy"));
 const NotFound = lazy(() => import("./NotFound"));
 
 const Router = () => (
