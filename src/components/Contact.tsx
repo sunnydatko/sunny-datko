@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
@@ -35,7 +35,6 @@ const validate = (fields: Fields): Errors => {
 const EMPTY: Fields = { from_name: "", reply_to: "", message: "" };
 
 const Contact = () => {
-  const form = useRef<HTMLFormElement | null>(null);
   const { enqueueSnackbar } = useSnackbar();
   const [fields, setFields] = useState<Fields>(EMPTY);
   const [errors, setErrors] = useState<Errors>({});
@@ -64,26 +63,25 @@ const Contact = () => {
     setErrors(validationErrors);
     if (Object.keys(validationErrors).length > 0) return;
 
-    if (form.current) {
-      emailjs
-        .sendForm(
-          "service_g36tuqc",
-          "template_h9f3cqa",
-          form.current,
-          "NdM8NyR0F77gTL9mL",
-        )
-        .then(
-          () => {
-            enqueueSnackbar("Your message was sent.", { variant: "success" });
-            setFields(EMPTY);
-            setErrors({});
-            setTouched({});
-          },
-          () => {
-            enqueueSnackbar("An error occured.", { variant: "error" });
-          },
-        );
-    }
+    emailjs
+      .send(
+        "service_g36tuqc",
+        "template_h9f3cqa",
+        { from_name: fields.from_name, reply_to: fields.reply_to, message: fields.message },
+        "NdM8NyR0F77gTL9mL",
+      )
+      .then(
+        () => {
+          enqueueSnackbar("Your message was sent.", { variant: "success" });
+          setFields(EMPTY);
+          setErrors({});
+          setTouched({});
+        },
+        (err) => {
+          console.error("EmailJS error:", err);
+          enqueueSnackbar("An error occured.", { variant: "error" });
+        },
+      );
   };
 
   return (
@@ -116,7 +114,7 @@ const Contact = () => {
           >
             Let's connect
           </Typography>
-          <form ref={form} onSubmit={sendEmail} noValidate>
+          <form onSubmit={sendEmail} noValidate>
             <Box
               sx={{
                 display: "flex",
