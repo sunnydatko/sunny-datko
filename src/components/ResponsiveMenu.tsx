@@ -19,9 +19,9 @@ import BrandMark from "./BrandMark";
 
 const drawerWidth = 320;
 const navItems = [
-  { name: "About", url: "#about" },
-  { name: "Experience", url: "#experience" },
-  { name: "Contact", url: "#contact" },
+  { name: "ABOUT", url: "https://sunnydatko.com/#about" },
+  { name: "EXPERIENCE", url: "https://sunnydatko.com/#experience" },
+  { name: "CONTACT", url: "https://sunnydatko.com/#contact" },
 ];
 
 type ResponsiveMenuProps = {
