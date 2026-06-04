@@ -11,7 +11,6 @@ import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import PaletteOutlinedIcon from "@mui/icons-material/PaletteOutlined";
 import StyleOutlinedIcon from "@mui/icons-material/StyleOutlined";
 import DashboardCustomizeOutlinedIcon from "@mui/icons-material/DashboardCustomizeOutlined";
-import MenuBookOutlinedIcon from "@mui/icons-material/MenuBookOutlined";
 import LocalOfferOutlinedIcon from "@mui/icons-material/LocalOfferOutlined";
 import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
 import LayersOutlinedIcon from "@mui/icons-material/LayersOutlined";
@@ -24,7 +23,7 @@ const approachItems = [
   {
     icon: <PaletteOutlinedIcon />,
     title: "Design Tokens",
-    body: "Centralized tokens for colors, typography, spacing, and more.",
+    body: "A single source of truth for colors, typography, and spacing.",
   },
   {
     icon: <StyleOutlinedIcon />,
@@ -34,12 +33,7 @@ const approachItems = [
   {
     icon: <DashboardCustomizeOutlinedIcon />,
     title: "Multiple Themes",
-    body: "Easily create and manage themes for different products and customers.",
-  },
-  {
-    icon: <MenuBookOutlinedIcon />,
-    title: "Documentation",
-    body: "Storybook documented patterns and tokens for consistency at scale.",
+    body: "Create and manage themes for different products and customers.",
   },
 ];
 
@@ -361,8 +355,8 @@ const ThemingCaseStudy = () => {
                     color: "grey.300",
                     fontFamily: "'Inter', sans-serif",
                     fontSize: { xs: 15, md: 16 },
-                    lineHeight: 1.7,
-                    mb: 1.25,
+                    lineHeight: 1.5,
+                    mb: 0.4,
                     "&::marker": { color: "secondary.main" },
                   },
                 }}
@@ -397,7 +391,7 @@ const ThemingCaseStudy = () => {
               <Box
                 sx={{
                   display: "grid",
-                  gridTemplateColumns: { xs: "1fr 1fr", sm: "repeat(4, 1fr)" },
+                  gridTemplateColumns: { xs: "1fr", sm: "repeat(3, 1fr)" },
                   gap: 3,
                   mb: 4,
                 }}
@@ -419,6 +413,7 @@ const ThemingCaseStudy = () => {
                         fontWeight: 600,
                         fontSize: { xs: 13, md: 14 },
                         color: "grey.100",
+                        lineHeight: 1.3,
                         mb: 0.75,
                       }}
                     >
@@ -438,77 +433,6 @@ const ThemingCaseStudy = () => {
                 ))}
               </Box>
 
-              {/* Highlight callout */}
-              <Box
-                sx={{
-                  background: "rgba(167,138,178,0.06)",
-                  border: "1px solid rgba(167,138,178,0.18)",
-                  borderRadius: "12px",
-                  p: { xs: 2.5, md: 3 },
-                  display: "flex",
-                  flexDirection: { xs: "column", sm: "row" },
-                  gap: 2.5,
-                  alignItems: { sm: "center" },
-                }}
-              >
-                <Box sx={{ flex: 1 }}>
-                  <Typography
-                    sx={{
-                      fontFamily: "'Inter', sans-serif",
-                      fontWeight: 600,
-                      fontSize: { xs: 14, md: 15 },
-                      color: "#C9A961",
-                      mb: 0.75,
-                    }}
-                  >
-                    One component. Many experiences.
-                  </Typography>
-                  <Typography
-                    sx={{
-                      fontFamily: "'Inter', sans-serif",
-                      fontSize: { xs: 13, md: 14 },
-                      color: "grey.400",
-                      lineHeight: 1.6,
-                    }}
-                  >
-                    The same Button component renders differently based on the
-                    active theme, not the product.
-                  </Typography>
-                </Box>
-                <Box
-                  sx={{
-                    display: "flex",
-                    gap: 1,
-                    flexShrink: 0,
-                  }}
-                >
-                  {["Light", "Dark", "Customer"].map((label, i) => (
-                    <Box
-                      key={label}
-                      sx={{
-                        px: 1.75,
-                        py: 0.6,
-                        borderRadius: "6px",
-                        fontFamily: "'Inter', sans-serif",
-                        fontSize: 13,
-                        fontWeight: 500,
-                        backgroundColor:
-                          i === 2
-                            ? "rgba(167,138,178,0.25)"
-                            : "rgba(245,241,236,0.06)",
-                        color: i === 2 ? "primary.light" : "grey.400",
-                        border: "1px solid",
-                        borderColor:
-                          i === 2
-                            ? "rgba(167,138,178,0.35)"
-                            : "rgba(245,241,236,0.1)",
-                      }}
-                    >
-                      {label}
-                    </Box>
-                  ))}
-                </Box>
-              </Box>
             </Box>
           </Box>
 

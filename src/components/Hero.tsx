@@ -21,6 +21,22 @@ const anim = (delay: string) => ({
 const Hero = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
+  const mouseOverlayRef = useRef<HTMLDivElement>(null);
+
+  const NEUTRAL = "radial-gradient(ellipse 70% 80% at 50% 50%, transparent 0%, rgba(21,19,19,0.38) 100%)";
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!mouseOverlayRef.current || !sectionRef.current) return;
+    const rect = sectionRef.current.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    mouseOverlayRef.current.style.background =
+      `radial-gradient(ellipse 70% 80% at ${x}% ${y}%, transparent 0%, rgba(21,19,19,0.38) 100%)`;
+  };
+
+  const handleMouseLeave = () => {
+    if (mouseOverlayRef.current) mouseOverlayRef.current.style.background = NEUTRAL;
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,6 +54,8 @@ const Hero = () => {
     ref={sectionRef}
     component="section"
     className="el-hero"
+    onMouseMove={handleMouseMove}
+    onMouseLeave={handleMouseLeave}
     sx={{
       position: "relative",
       display: "flex",
@@ -72,6 +90,19 @@ const Hero = () => {
           xs: "linear-gradient(180deg, rgba(21,19,19,0.92) 0%, rgba(21,19,19,0.85) 45%, rgba(21,19,19,0.92) 100%)",
           md: "linear-gradient(90deg, rgba(21,19,19,0.97) 0%, rgba(21,19,19,0.9) 32%, rgba(21,19,19,0.70) 58%, rgba(21,19,19,0.30) 100%)",
         },
+      }}
+    />
+    {/* cursor-tracked radial overlay — desktop only, no mobile */}
+    <Box
+      ref={mouseOverlayRef}
+      aria-hidden
+      sx={{
+        position: "absolute",
+        inset: 0,
+        background: NEUTRAL,
+        transition: "background 0.18s ease",
+        display: { xs: "none", md: "block" },
+        pointerEvents: "none",
       }}
     />
 
