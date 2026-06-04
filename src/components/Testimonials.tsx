@@ -188,7 +188,7 @@ const Testimonials = () => {
                         lineHeight: 1.3,
                       }}
                     >
-                      {current.title}
+                      {current.title} · {current.company}
                     </Typography>
                   </Box>
                 </Box>
