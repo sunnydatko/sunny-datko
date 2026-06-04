@@ -1,10 +1,22 @@
 import { useEffect, useRef } from "react";
+import { keyframes } from "@emotion/react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 
 import lavender from "../assets/lavender.png";
+
+const fadeUp = keyframes`
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+`;
+
+const anim = (delay: string) => ({
+  animation: `${fadeUp} 0.7s ease-out ${delay} forwards`,
+  opacity: 0,
+  "@media (prefers-reduced-motion: reduce)": { animation: "none", opacity: 1 },
+});
 
 const Hero = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -68,6 +80,7 @@ const Hero = () => {
         {/* role */}
         <Typography
           sx={{
+            ...anim("0.1s"),
             color: "secondary.main",
             fontFamily: "'Inter', sans-serif",
             fontWeight: 600,
@@ -84,6 +97,7 @@ const Hero = () => {
         <Typography
           variant="h1"
           sx={{
+            ...anim("0.3s"),
             fontSize: { xs: "42px", sm: "60px", md: "82px" },
             lineHeight: 1.02,
             mb: { xs: 3, md: 4 },
@@ -98,6 +112,7 @@ const Hero = () => {
         {/* accent rule */}
         <Box
           sx={{
+            ...anim("0.5s"),
             width: 64,
             height: 3,
             borderRadius: 2,
@@ -109,6 +124,7 @@ const Hero = () => {
         {/* intro */}
         <Typography
           sx={{
+            ...anim("0.65s"),
             color: "grey.200",
             fontFamily: "'Inter', sans-serif",
             fontSize: { xs: 16, md: 19 },
@@ -123,6 +139,7 @@ const Hero = () => {
         {/* CTAs */}
         <Box
           sx={{
+            ...anim("0.85s"),
             display: "flex",
             flexWrap: "wrap",
             alignItems: "center",
