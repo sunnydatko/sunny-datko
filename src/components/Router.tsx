@@ -6,6 +6,7 @@ import Loader from "./Loader";
 const Home = lazy(() => import("./Home"));
 const MuiCaseStudy = lazy(() => import("./MuiCaseStudy"));
 const ThemingCaseStudy = lazy(() => import("./ThemingCaseStudy"));
+const ComponentSystemCaseStudy = lazy(() => import("./ComponentSystemCaseStudy"));
 const NotFound = lazy(() => import("./NotFound"));
 
 const Router = () => (
@@ -16,6 +17,7 @@ const Router = () => (
           <Route element={<Home />} path="/" />
           <Route element={<MuiCaseStudy />} path="/case-study/mui-design-system" />
           <Route element={<ThemingCaseStudy />} path="/case-study/theming-platform" />
+          <Route element={<ComponentSystemCaseStudy />} path="/case-study/component-system" />
           <Route element={<NotFound />} path="*" />
         </Routes>
       </Suspense>
