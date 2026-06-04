@@ -26,7 +26,7 @@ const caseStudies = [
   {
     image: uiBg,
     imagePosition: "center center",
-    overline: "Design System",
+    overline: "Shared Components",
     title: "Building the Bridge Between Design and Engineering",
     subtitle: "Creating a shared component system that transformed design decisions into scalable frontend architecture",
     tags: ["Component Architecture", "Storybook", "Collaboration"],

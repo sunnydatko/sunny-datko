@@ -17,7 +17,7 @@ const sections = [
   {
     icon: <ReportProblemOutlinedIcon />,
     title: "The Problem",
-    body: "Bootstrap gave us a common starting point, but not a common language. Teams created wrappers, added styling props, and built their own variations. By the time we evaluated the system, there were ~30 different button styles.",
+    body: "Bootstrap gave us a common starting point, but not a common language. Teams wrapped Bootstrap components in styled-components, introduced styling props like $isBold, and created page-specific variations. By the time we evaluated the system, there were roughly 30 different button implementations across the application.",
   },
   {
     icon: <FlagOutlinedIcon />,
@@ -27,30 +27,42 @@ const sections = [
   {
     icon: <GridViewOutlinedIcon />,
     title: "Creating a Shared Language",
-    body: "We defined a small set of core patterns—Text, Contained, and Outlined—and supported permutations for icons, colors, sizes, and states. A clear, predictable system for both design and engineering.",
+    body: "We established a small set of core component patterns and moved visual customization into the theme layer. The same buttons, forms, tabs, and inputs could support internal experiences, light and dark mode, and customer-specific branding requirements without requiring separate component implementations.",
   },
   {
     icon: <PaletteOutlinedIcon />,
     title: "Moving Decisions Into the Theme",
-    body: "We moved styling rules from individual components into the theme, turning design tokens into reusable, consistent building blocks that work across products.",
+    body: "We moved styling decisions from individual components into the theme layer, allowing the same components to support internal applications, customer-branded Trust Centers, and light/dark mode experiences without requiring separate implementations.",
   },
   {
     icon: <ImportContactsOutlinedIcon />,
     title: "Adoption Matters",
-    body: "We built Storybook, documented usage, introduced light and dark mode, and partnered with engineers to migrate and adopt the new system.",
+    body: "We built Storybook with light and dark mode previews, documented component usage, and partnered with engineers to migrate existing experiences onto the shared system.",
   },
   {
     icon: <TrendingUpOutlinedIcon />,
     title: "The Outcome",
-    body: "A shared component foundation that connects design decisions directly to implementation—consistent, flexible, and built to scale.",
+    body: "A shared component foundation that powers internal tools, customer-branded experiences, and light/dark mode from a single source of truth.",
   },
 ];
 
 const outcomes = [
-  { stat: "30+", label: "Button variations reduced to a standardized set" },
-  { stat: "Consistent", label: "UI across the platform and products" },
-  { stat: "Faster", label: "Development with less duplication and fewer regressions" },
-  { stat: "Scalable", label: "System that grows with the product and the team" },
+  {
+    stat: "30+",
+    label: "Button variations consolidated into a standardized system",
+  },
+  {
+    stat: "Shared",
+    label: "Component APIs used across products and experiences",
+  },
+  {
+    stat: "Theme-Aware",
+    label: "Light mode, dark mode, and customer branding built in",
+  },
+  {
+    stat: "Scalable",
+    label: "One foundation powering internal and customer-facing experiences",
+  },
 ];
 
 const tags = [
@@ -194,11 +206,7 @@ const ComponentSystemCaseStudy = () => {
               lineHeight: 1.7,
             }}
           >
-            Bootstrap components were hard to customize and led to
-            inconsistency, duplication, and confusion. We built a shared
-            component system that connected design intent with
-            implementation—making it easier for teams to build the right UI,
-            the right way.
+            Bootstrap components were difficult to customize, leading to inconsistent implementations, duplicated patterns, and growing maintenance costs. We built a shared component system that connected design intent with implementation while supporting light mode, dark mode, and customer-specific branding from a single foundation.
           </Typography>
         </Box>
 
