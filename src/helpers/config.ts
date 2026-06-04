@@ -131,7 +131,7 @@ const testimonials = [
   },
   {
     name: "Orel Regev",
-    title: "Senior Product Manager",
+    title: "Technical Product Lead",
     displayText:
       "Working with Sunny has been a wonderful experience, and her leadership and ownership skills significantly contribute to our team's success. She effectively identifies areas for improvement and fearlessly leads necessary changes, addressing even the most challenging tech and design debts. Sunny's clear communication fosters a collaborative atmosphere, making our work together a pleasure. I value her dedication and the genuine impact she brings to our team.",
     image: orel,
