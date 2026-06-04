@@ -3,7 +3,7 @@ import camden from "../assets/camden.jpg";
 import ed from "../assets/ed.jpg";
 import emily from "../assets/emily.jpeg";
 import jon from "../assets/jon.jpg";
-import fahey from "../assets/fahey.jpeg";
+import fahey from "../assets/fahey.png";
 import spencer from "../assets/spencer.jpg";
 import orel from "../assets/orel.jpg";
 import adar from "../assets/adar.png";
@@ -153,14 +153,14 @@ const testimonials = [
   },
   {
     name: "Jon Jandoc",
-    title: "Software Engineer",
+    title: "Senior Software Engineer",
     displayText:
       "Sunny has the chops to take on whatever frontend challenges you throw at her. What makes her special is her ability to identify a technical challenge, collaborate on a direction forward, and then dive in with an upbeat and infectious enthusiasm. Every interaction was always a joy and I'd eagerly jump at an opportunity to work with her again in the future.",
     image: jon,
   },
   {
     name: "Edward Kim",
-    title: "Head of Data and R&D",
+    title: "Vice President of Software Engineering",
     displayText:
       "Sunny has been a great collaborator and a pleasure to work with. I've worked with her as her squad lead, and she has continued to impress me with strong communication, adaptability to changing requirements and strong ownership over both feature implementation and tech debt. Sunny's contributions have been strongly positive both technically and also culturally as a strong collaborator. I'd love to work with Sunny again!",
     image: ed,
