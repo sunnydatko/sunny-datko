@@ -23,6 +23,11 @@ const getTheme = (mode: PaletteMode) =>
         main: mode === "dark" ? "#A78AB2" : "#7A5C87",
         dark: "#533B5E",
       },
+      error: {
+        main: "#C8682A",
+        light: "#D9845A",
+        dark: "#A0521F",
+      },
       // sage / olive
       secondary: {
         light: "#98A287",
