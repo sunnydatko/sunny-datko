@@ -60,8 +60,7 @@ const About = () => {
           </Box>
 
           <Typography paragraph sx={{ color: "grey.200", lineHeight: 1.7 }}>
-            I'm a Staff Frontend Engineer focused on scalable interfaces, thoughtful design systems, and user experiences that feel effortless to use. My background in marketing, design, and engineering helps me bridge product strategy with frontend architecture.
-          </Typography>
+            With a background spanning marketing, design, and engineering, I specialize in turning complex product requirements into intuitive frontend systems. I build design systems, platform foundations, and user experiences that help teams move faster while keeping products effortless to use.          </Typography>
         </Container>
       </div>
     </Box>

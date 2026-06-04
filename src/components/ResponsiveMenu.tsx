@@ -21,6 +21,7 @@ const drawerWidth = 320;
 const navItems = [
   { name: "ABOUT", url: "https://sunnydatko.com/#about" },
   { name: "EXPERIENCE", url: "https://sunnydatko.com/#experience" },
+  { name: "WORK", url: "https://sunnydatko.com/#work" },
   { name: "CONTACT", url: "https://sunnydatko.com/#contact" },
 ];
 
