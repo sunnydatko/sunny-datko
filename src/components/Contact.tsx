@@ -105,14 +105,14 @@ const Contact = () => {
               textTransform: "uppercase",
             }}
           >
-            Get In Touch
+            Let's connect
           </Typography>
           <Typography
             align="center"
             variant="h3"
             sx={{  mt: 2, mb: 4 }}
           >
-            Let's connect
+            Contact
           </Typography>
           <form onSubmit={sendEmail} noValidate>
             <Box
