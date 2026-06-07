@@ -97,7 +97,7 @@ const Testimonials = () => {
               Kind Words
             </Typography>
             <Typography variant="h3" sx={{ mt: 2 }}>
-              Testimonials
+              Recommendations
             </Typography>
           </Box>
           <Box
