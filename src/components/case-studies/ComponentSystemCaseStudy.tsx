@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Box, Chip, Divider, Grid, Typography } from "@mui/material";
+import ReadingProgressBar from "../ReadingProgressBar";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
@@ -87,6 +88,7 @@ const ComponentSystemCaseStudy = () => {
 
   return (
     <Box sx={{ minHeight: "100vh", overflowX: "hidden" }}>
+      <ReadingProgressBar />
       {/* Hero image */}
       <Box
         sx={{

@@ -1,4 +1,4 @@
-import { Box, Chip, Container, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import trustImg from "../assets/trust.png";
 import themeImg from "../assets/theme.png";
@@ -98,7 +98,7 @@ const Work = () => (
                   width: { xs: "100%", md: "44%" },
                   flexShrink: 0,
                   height: { xs: 220, md: "auto" },
-                  minHeight: { md: 300 },
+                  minHeight: { md: 220 },
                   overflow: "hidden",
                   position: "relative",
                 }}
@@ -139,7 +139,7 @@ const Work = () => (
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "center",
-                  p: { xs: 3, md: 5 },
+                  p: { xs: 2.5, md: 3.5 },
                   gap: 0,
                 }}
               >
@@ -189,18 +189,12 @@ const Work = () => (
                     fontSize: { xs: 14, md: 15 },
                     color: "grey.400",
                     lineHeight: 1.6,
-                    mb: 3,
+                    mb: 2,
                     maxWidth: 480,
                   }}
                 >
                   {cs.subtitle}
                 </Typography>
-
-                <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.75, mb: 3 }}>
-                  {cs.tags.map((tag) => (
-                    <Chip key={tag} label={tag} variant="outlined" size="small" />
-                  ))}
-                </Box>
 
                 <Box
                   sx={{
