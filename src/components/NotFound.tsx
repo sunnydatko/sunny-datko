@@ -95,6 +95,19 @@ const NotFound = () => {
         }}
       />
 
+      {/* warm golden spotlight behind the 404 */}
+      <Box
+        aria-hidden
+        sx={{
+          position: "absolute",
+          inset: 0,
+          background:
+            "radial-gradient(circle, rgba(255,210,120,0.08), transparent 60%)",
+          zIndex: 1,
+          pointerEvents: "none",
+        }}
+      />
+
       <Container sx={{ position: "relative", zIndex: 2 }}>
         <Box
           className="reveal is-visible"
@@ -147,7 +160,7 @@ const NotFound = () => {
                 maxWidth: 640,
               }}
             >
-              Looks like you've wandered off the trail.
+              Looks like you've wandered beyond the horizon.
             </Typography>
 
             {/* subtext */}
@@ -173,24 +186,26 @@ const NotFound = () => {
               disableElevation
               sx={{
                 mt: { xs: 4, md: 5 },
-                px: 4,
-                py: 1.5,
+                px: { xs: 4, md: 5 },
+                py: { xs: 1.5, md: 1.75 },
                 borderRadius: 10,
                 fontFamily: "'Inter', sans-serif",
                 fontWeight: 600,
                 fontSize: { xs: 13, md: 14 },
-                letterSpacing: "0.12em",
+                letterSpacing: "0.1em",
                 textTransform: "uppercase",
                 color: "grey.900",
-                bgcolor: "primary.light",
-                boxShadow: "0 12px 36px rgba(167,138,178,0.4)",
-                transition: "0.3s",
-                "& .arrow": { ml: 1.5, transition: "transform 0.3s" },
+                bgcolor: "rgba(255,210,120,0.88)",
+                boxShadow: "0 8px 32px rgba(255,200,80,0.25)",
+                transition: "background-color 0.25s, box-shadow 0.25s, transform 0.25s",
+                "& .arrow": { ml: 1.5, transition: "transform 0.25s" },
                 "&:hover": {
-                  bgcolor: "primary.light",
-                  boxShadow: "0 14px 44px rgba(167,138,178,0.55)",
+                  bgcolor: "rgba(255,210,120,1)",
+                  boxShadow: "0 12px 40px rgba(255,200,80,0.4)",
+                  transform: "translateY(-2px)",
                 },
                 "&:hover .arrow": { transform: "translateX(4px)" },
+                "&:active": { transform: "translateY(0)" },
               }}
             >
               Return Home
