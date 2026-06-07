@@ -97,6 +97,7 @@ const ComponentSystemCaseStudy = () => {
           overflow: "hidden",
           position: "relative",
           backgroundColor: "#1a1826",
+          "&:hover img": { transform: "scale(1.08)" },
         }}
       >
         <Box
@@ -109,6 +110,7 @@ const ComponentSystemCaseStudy = () => {
             objectFit: "cover",
             objectPosition: "center center",
             display: "block",
+            transition: "transform 0.6s ease",
           }}
         />
         <Box

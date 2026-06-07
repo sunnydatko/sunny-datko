@@ -141,6 +141,7 @@ const ThemingCaseStudy = () => {
           height: { xs: 220, sm: 300, md: 400 },
           overflow: "hidden",
           position: "relative",
+          "&:hover img": { transform: "scale(1.08)" },
         }}
       >
         <Box
@@ -153,6 +154,7 @@ const ThemingCaseStudy = () => {
             objectFit: "cover",
             objectPosition: "center center",
             display: "block",
+            transition: "transform 0.6s ease",
           }}
         />
         <Box

@@ -1,5 +1,6 @@
 import { useEffect, useRef, type CSSProperties } from "react";
 import { createPortal } from "react-dom";
+import { useLocation } from "react-router-dom";
 
 const prefersReducedMotion = () =>
   typeof window !== "undefined" &&
@@ -282,18 +283,21 @@ const ScrollReveal = () => {
 
 /* ------------------------------------------------------------------ */
 const Ambient = () => {
+  const { pathname } = useLocation();
+  const isCaseStudy = pathname.startsWith("/case-study/");
   if (typeof document === "undefined") return null;
   return (
     <>
-      {createPortal(
-        <>
-          <GradientAura />
-          <ParticleField />
-          <CursorGlow />
-          <div className="ambient-noise" aria-hidden />
-        </>,
-        document.body
-      )}
+      {!isCaseStudy &&
+        createPortal(
+          <>
+            <GradientAura />
+            <ParticleField />
+            <CursorGlow />
+            <div className="ambient-noise" aria-hidden />
+          </>,
+          document.body
+        )}
       <ScrollReveal />
     </>
   );

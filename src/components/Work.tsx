@@ -82,13 +82,12 @@ const Work = () => (
                 backdropFilter: "blur(10px)",
                 WebkitBackdropFilter: "blur(10px)",
                 boxShadow: "0 24px 60px rgba(0,0,0,0.45), inset 0 1px 0 rgba(245,241,236,0.05)",
-                transition: "border-color 0.3s, transform 0.3s, box-shadow 0.3s",
+                transition: "border-color 0.3s, box-shadow 0.3s",
                 "&:hover": {
                   borderColor: "rgba(167,138,178,0.35)",
-                  transform: "translateY(-4px)",
                   boxShadow: "0 32px 72px rgba(0,0,0,0.55), 0 0 0 1px rgba(167,138,178,0.2)",
                 },
-                "&:hover .cs-img": { transform: "scale(1.04)" },
+                "&:hover .cs-img": { transform: "scale(1.08)" },
                 "&:hover .cs-arrow": { transform: "translateX(4px)" },
               }}
             >
