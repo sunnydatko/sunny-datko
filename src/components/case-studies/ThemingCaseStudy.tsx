@@ -163,7 +163,7 @@ const ThemingCaseStudy = () => {
             position: "absolute",
             inset: 0,
             background:
-              "linear-gradient(180deg, rgba(20,18,17,0.3) 0%, rgba(20,18,17,0.0) 40%, rgba(20,18,17,0.6) 100%)",
+              "linear-gradient(180deg, rgba(20,18,17,0.5) 0%, rgba(20,18,17,0.0) 35%, rgba(20,18,17,0.7) 65%, rgba(20,18,17,1.0) 100%)",
           }}
         />
       </Box>
