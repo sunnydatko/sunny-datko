@@ -7,7 +7,7 @@ import { Link as RouterLink } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
 import sun from "../assets/sun.png";
-import botanical from "../assets/botanical-bg.png";
+import botanical from "../assets/botanical-bg.jpg";
 
 const prefersReducedMotion = () =>
   typeof window !== "undefined" &&

@@ -1,8 +1,8 @@
 import { Box, Container, Typography } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import trustImg from "../assets/trust.png";
-import themeImg from "../assets/theme.png";
-import uiBg from "../assets/ui-bg.png";
+import trustImg from "../assets/trust.jpg";
+import themeImg from "../assets/theme.jpg";
+import uiBg from "../assets/ui-bg.jpg";
 
 const caseStudies = [
   {

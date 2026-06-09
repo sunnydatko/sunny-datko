@@ -12,7 +12,7 @@ import PaletteOutlinedIcon from "@mui/icons-material/PaletteOutlined";
 import ImportContactsOutlinedIcon from "@mui/icons-material/ImportContactsOutlined";
 import TrendingUpOutlinedIcon from "@mui/icons-material/TrendingUpOutlined";
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
-import uiBg from "../../assets/ui-bg.png";
+import uiBg from "../../assets/ui-bg.jpg";
 
 const sections = [
   {

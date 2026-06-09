@@ -5,7 +5,7 @@ import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 
-import lavender from "../assets/lavender.png";
+import lavender from "../assets/lavender.jpg";
 
 const fadeUp = keyframes`
   from { opacity: 0; transform: translateY(22px); }
