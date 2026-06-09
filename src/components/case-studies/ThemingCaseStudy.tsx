@@ -18,7 +18,7 @@ import LayersOutlinedIcon from "@mui/icons-material/LayersOutlined";
 import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
 import BoltOutlinedIcon from "@mui/icons-material/BoltOutlined";
 import NightlightOutlinedIcon from "@mui/icons-material/NightlightOutlined";
-import themeImg from "../../assets/theme.png";
+import themeImg from "../../assets/theme.jpg";
 
 const approachItems = [
   {

@@ -18,7 +18,7 @@ import LayersOutlinedIcon from "@mui/icons-material/LayersOutlined";
 import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
 import GridViewOutlinedIcon from "@mui/icons-material/GridViewOutlined";
 import BoltOutlinedIcon from "@mui/icons-material/BoltOutlined";
-import trustImg from "../../assets/trust.png";
+import trustImg from "../../assets/trust.jpg";
 
 const approachSteps = [
   {
