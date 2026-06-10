@@ -63,6 +63,7 @@ const Hero = () => {
       minHeight: { xs: "100svh", md: "100vh" },
       overflow: "hidden",
       backgroundColor: "#151313",
+      mt: { xs: 0, md: -8 },
     }}
   >
     {/* sunset photo — kept to the right where the light falls */}
@@ -103,6 +104,21 @@ const Hero = () => {
         transition: "background 0.18s ease",
         display: { xs: "none", md: "block" },
         pointerEvents: "none",
+      }}
+    />
+
+    {/* top gradient veil — gives transparent nav links a dark ledge over the photo on the right */}
+    <Box
+      aria-hidden
+      sx={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        right: 0,
+        height: 120,
+        background: "linear-gradient(to bottom, rgba(21,19,19,0.72) 0%, transparent 100%)",
+        pointerEvents: "none",
+        zIndex: 1,
       }}
     />
 

@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import {
   AppBar,
   Box,
@@ -36,6 +37,22 @@ type ResponsiveMenuProps = {
 const ResponsiveMenu = (props: ResponsiveMenuProps) => {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { pathname } = useLocation();
+  const isHome = pathname === "/";
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    if (!isHome) {
+      setScrolled(false);
+      return;
+    }
+    const onScroll = () => setScrolled(globalThis.scrollY > 20);
+    onScroll();
+    globalThis.addEventListener("scroll", onScroll, { passive: true });
+    return () => globalThis.removeEventListener("scroll", onScroll);
+  }, [isHome]);
+
+  const transparent = isHome && !scrolled;
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -73,10 +90,13 @@ const ResponsiveMenu = (props: ResponsiveMenuProps) => {
         elevation={0}
         position="fixed"
         sx={{
-          backgroundColor: "rgba(20,18,17,0.65)",
-          backdropFilter: "blur(14px)",
-          WebkitBackdropFilter: "blur(14px)",
-          borderBottom: "1px solid rgba(245,241,236,0.08)",
+          backgroundColor: transparent ? "transparent" : "rgba(20,18,17,0.65)",
+          backdropFilter: transparent ? "none" : "blur(14px)",
+          WebkitBackdropFilter: transparent ? "none" : "blur(14px)",
+          borderBottom: transparent
+            ? "1px solid transparent"
+            : "1px solid rgba(245,241,236,0.08)",
+          transition: "background-color 0.4s ease, border-color 0.4s ease",
           zIndex: 1100,
         }}
       >
