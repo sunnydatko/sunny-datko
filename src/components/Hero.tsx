@@ -195,10 +195,13 @@ const Hero = () => {
         >
           <Button
             href="#experience"
+            variant="outlined"
             sx={{
               fontSize: { xs: 15, md: 16 },
               px: 3.5,
               py: 1.4,
+              boxShadow: "none",
+              "&:hover": { boxShadow: "none" },
               "& .arrow": {
                 ml: 1.5,
                 transition: "transform 0.3s",
