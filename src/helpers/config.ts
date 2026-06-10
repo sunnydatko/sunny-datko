@@ -106,7 +106,7 @@ const testimonials = [
     title: "Engineering Manager",
     company: "Instil",
     displayText:
-      "Dependable, eager, and always willing to learn and grow; that's how I would describe Sunny Datko. Collaborating with her has been an immense pleasure. She is an excellent sounding board when deliberating over decisions. She is always willing to help out with important tasks that others shy away from. When new standards are set, she motivates both herself and her colleagues to embrace them. Watching her take on new challenges without any hesitancy, and then succeed at them, has been one of the recent highlights of my career. Any team that needs a hard-hitting front-end engineer would be remiss to pass up on bringing her onboard.",
+      "Dependable, eager, and always willing to learn and grow; that's how I would describe Sunny Datko. Collaborating with her has been an immense pleasure. She is an excellent sounding board when deliberating over decisions. Watching her take on new challenges without any hesitancy, and then succeed at them, has been one of the recent highlights of my career. Any team that needs a hard-hitting front-end engineer would be remiss to pass up on bringing her onboard.",
     image: spencer,
   },
   {
