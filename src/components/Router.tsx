@@ -3,11 +3,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./Layout";
 import Loader from "./Loader";
 
-const Home = lazy(() => import("./Home"));
-const MuiCaseStudy = lazy(() => import("./case-studies/MuiCaseStudy"));
-const ThemingCaseStudy = lazy(() => import("./case-studies/ThemingCaseStudy"));
-const ComponentSystemCaseStudy = lazy(() => import("./case-studies/ComponentSystemCaseStudy"));
-const NotFound = lazy(() => import("./NotFound"));
+const Home = lazy(() => import("../pages/Home"));
+const MuiCaseStudy = lazy(() => import("../pages/case-studies/MuiCaseStudy"));
+const ThemingCaseStudy = lazy(() => import("../pages/case-studies/ThemingCaseStudy"));
+const ComponentSystemCaseStudy = lazy(() => import("../pages/case-studies/ComponentSystemCaseStudy"));
+const NotFound = lazy(() => import("../pages/NotFound"));
 
 const Router = () => (
   <BrowserRouter>

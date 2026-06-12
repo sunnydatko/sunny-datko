@@ -4,7 +4,7 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
 
-import { testimonials } from "../helpers/config";
+import { testimonials } from "../helpers/data";
 
 const Arrow = styled("div")({
   cursor: "pointer",

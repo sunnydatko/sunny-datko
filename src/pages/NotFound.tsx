@@ -27,7 +27,6 @@ const NotFound = () => {
     let y = 0;
 
     const onMove = (e: MouseEvent) => {
-      // normalize to -1..1 relative to viewport center
       targetX = (e.clientX / window.innerWidth - 0.5) * 2;
       targetY = (e.clientY / window.innerHeight - 0.5) * 2;
     };
@@ -68,7 +67,6 @@ const NotFound = () => {
     >
       <Helmet title="Page Not Found" />
 
-      {/* botanical / constellation backdrop — parallax deep layer */}
       <Box
         ref={bgRef}
         aria-hidden
@@ -83,7 +81,6 @@ const NotFound = () => {
           willChange: "transform",
         }}
       />
-      {/* soft wash so the copy stays legible over the backdrop */}
       <Box
         aria-hidden
         sx={{
@@ -94,8 +91,6 @@ const NotFound = () => {
           zIndex: 0,
         }}
       />
-
-      {/* warm golden spotlight behind the 404 */}
       <Box
         aria-hidden
         sx={{
@@ -119,7 +114,6 @@ const NotFound = () => {
             py: { xs: 8, md: 10 },
           }}
         >
-          {/* radiant sun — mid parallax layer */}
           <Box
             ref={sunRef}
             component="img"
@@ -137,9 +131,7 @@ const NotFound = () => {
             }}
           />
 
-          {/* text content — shallow parallax layer */}
           <Box ref={contentRef} sx={{ willChange: "transform" }}>
-            {/* 404 */}
             <Typography
               variant="h1"
               sx={{
@@ -151,7 +143,6 @@ const NotFound = () => {
               404
             </Typography>
 
-            {/* headline */}
             <Typography
               variant="h4"
               sx={{
@@ -163,7 +154,6 @@ const NotFound = () => {
               Looks like you've wandered beyond the horizon.
             </Typography>
 
-            {/* subtext */}
             <Typography
               sx={{
                 color: "grey.300",
@@ -178,7 +168,6 @@ const NotFound = () => {
               The page you're looking for doesn't exist, or may have moved elsewhere.
             </Typography>
 
-            {/* CTA */}
             <Button
               component={RouterLink}
               to="/"

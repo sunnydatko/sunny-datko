@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { Box, Chip, Divider, Grid, Typography } from "@mui/material";
-import ReadingProgressBar from "../ReadingProgressBar";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ReadingProgressBar from "../../components/ReadingProgressBar";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
 import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
@@ -13,6 +12,10 @@ import ImportContactsOutlinedIcon from "@mui/icons-material/ImportContactsOutlin
 import TrendingUpOutlinedIcon from "@mui/icons-material/TrendingUpOutlined";
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
 import uiBg from "../../assets/ui-bg.jpg";
+import SectionHeader from "../../components/case-studies/SectionHeader";
+import CaseStudyHero from "../../components/case-studies/CaseStudyHero";
+import StatsBar from "../../components/case-studies/StatsBar";
+import BackLink from "../../components/case-studies/BackLink";
 
 const sections = [
   {
@@ -66,6 +69,12 @@ const outcomes = [
   },
 ];
 
+const stats = [
+  { icon: <AccessTimeOutlinedIcon />, label: "Duration", value: "Jan 2023 – Aug 2025" },
+  { icon: <PersonOutlinedIcon />, label: "My Role", value: "Staff Frontend Engineer" },
+  { icon: <GroupsOutlinedIcon />, label: "Team", value: "Design, Product, Engineering" },
+];
+
 const tags = [
   "Design Systems",
   "Component Architecture",
@@ -73,12 +82,6 @@ const tags = [
   "Storybook",
   "Theming",
   "Collaboration",
-];
-
-const stats = [
-  { icon: <AccessTimeOutlinedIcon />, label: "Duration", value: "Jan 2023 – Aug 2025" },
-  { icon: <PersonOutlinedIcon />, label: "My Role", value: "Staff Frontend Engineer" },
-  { icon: <GroupsOutlinedIcon />, label: "Team", value: "Design, Product, Engineering" },
 ];
 
 const ComponentSystemCaseStudy = () => {
@@ -89,42 +92,8 @@ const ComponentSystemCaseStudy = () => {
   return (
     <Box sx={{ minHeight: "100vh", overflowX: "hidden" }}>
       <ReadingProgressBar />
-      {/* Hero image */}
-      <Box
-        sx={{
-          width: "100%",
-          height: { xs: 220, sm: 300, md: 400 },
-          overflow: "hidden",
-          position: "relative",
-          backgroundColor: "#1a1826",
-          "&:hover img": { transform: "scale(1.08)" },
-        }}
-      >
-        <Box
-          component="img"
-          src={uiBg}
-          alt="Component system UI"
-          sx={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            objectPosition: "center center",
-            display: "block",
-            transition: "transform 0.6s ease",
-          }}
-        />
-        <Box
-          aria-hidden
-          sx={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "linear-gradient(180deg, rgba(20,18,17,0.5) 0%, rgba(20,18,17,0.0) 35%, rgba(20,18,17,0.7) 65%, rgba(20,18,17,1.0) 100%)",
-          }}
-        />
-      </Box>
+      <CaseStudyHero src={uiBg} alt="Component system UI" backgroundColor="#1a1826" />
 
-      {/* Content */}
       <Box
         sx={{
           maxWidth: 960,
@@ -135,29 +104,7 @@ const ComponentSystemCaseStudy = () => {
           width: "100%",
         }}
       >
-        {/* Back link */}
-        <Box
-          component="a"
-          href="/#work"
-          sx={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 0.75,
-            color: "grey.300",
-            fontFamily: "'Inter', sans-serif",
-            fontSize: 14,
-            fontWeight: 500,
-            letterSpacing: "0.06em",
-            textTransform: "uppercase",
-            mb: 4,
-            transition: "color 0.3s",
-            textDecoration: "none",
-            "&:hover": { color: "grey.100" },
-            "& svg": { fontSize: 16 },
-          }}
-        >
-          <ArrowBackIcon /> Back to Work
-        </Box>
+        <BackLink />
 
         {/* Title block */}
         <Box sx={{ mb: 4 }}>
@@ -214,62 +161,7 @@ const ComponentSystemCaseStudy = () => {
           </Typography>
         </Box>
 
-        {/* Stats bar */}
-        <Box
-          className="glass"
-          sx={{
-            display: "flex",
-            flexDirection: { xs: "column", sm: "row" },
-            mb: 6,
-            p: { xs: 2, md: 3 },
-          }}
-        >
-          {stats.map((stat, i) => (
-            <Box
-              key={stat.label}
-              sx={{
-                flex: { sm: "1 1 0" },
-                display: "flex",
-                alignItems: "flex-start",
-                gap: 1.5,
-                px: { xs: 1, sm: 2, md: 2.5 },
-                py: { xs: 1.5, sm: 1 },
-                borderLeft: { sm: i > 0 ? "1px solid" : "none" },
-                borderTop: { xs: i > 0 ? "1px solid" : "none", sm: "none" },
-                borderColor: "divider",
-              }}
-            >
-              <Box sx={{ color: "secondary.main", pt: "2px", "& svg": { fontSize: 20 } }}>
-                {stat.icon}
-              </Box>
-              <Box>
-                <Typography
-                  sx={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: 11,
-                    fontWeight: 600,
-                    letterSpacing: "0.18em",
-                    textTransform: "uppercase",
-                    color: "grey.400",
-                    mb: 0.25,
-                  }}
-                >
-                  {stat.label}
-                </Typography>
-                <Typography
-                  sx={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: { xs: 14, md: 15 },
-                    fontWeight: 500,
-                    color: "grey.100",
-                  }}
-                >
-                  {stat.value}
-                </Typography>
-              </Box>
-            </Box>
-          ))}
-        </Box>
+        <StatsBar stats={stats} />
 
         <Divider sx={{ mb: { xs: 5, md: 6 }, borderColor: "divider" }} />
 
@@ -285,7 +177,6 @@ const ComponentSystemCaseStudy = () => {
                   py: { xs: 3.5, md: 4 },
                 }}
               >
-                {/* Icon + title */}
                 <Box
                   sx={{
                     display: "flex",
@@ -326,7 +217,6 @@ const ComponentSystemCaseStudy = () => {
                   </Typography>
                 </Box>
 
-                {/* Body */}
                 <Typography
                   sx={{
                     color: "grey.300",
@@ -392,38 +282,7 @@ const ComponentSystemCaseStudy = () => {
 
         {/* Impact */}
         <Box sx={{ mb: 7, pt: 6 }}>
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              gap: { xs: 1.5, md: 2 },
-              mb: { xs: 3, md: 4 },
-            }}
-          >
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                width: { xs: 40, md: 48 },
-                height: { xs: 40, md: 48 },
-                borderRadius: "50%",
-                backgroundColor: "rgba(167,138,178,0.12)",
-                border: "1px solid rgba(167,138,178,0.25)",
-                color: "primary.light",
-                flexShrink: 0,
-                "& svg": { fontSize: { xs: 18, md: 22 } },
-              }}
-            >
-              <StarOutlineIcon />
-            </Box>
-            <Typography
-              variant="h4"
-              sx={{ fontSize: { xs: "22px", sm: "26px", md: "32px" }, color: "grey.100", m: 0 }}
-            >
-              Impact
-            </Typography>
-          </Box>
+          <SectionHeader icon={<StarOutlineIcon />} title="Impact" />
           <Typography
             sx={{
               color: "grey.200",
@@ -446,29 +305,7 @@ const ComponentSystemCaseStudy = () => {
 
         <Divider sx={{ mb: 5, borderColor: "divider" }} />
 
-        {/* Back link bottom */}
-        <Box
-          component="a"
-          href="/#work"
-          sx={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 0.75,
-            color: "primary.light",
-            fontFamily: "'Inter', sans-serif",
-            fontSize: 15,
-            fontWeight: 500,
-            textDecoration: "none",
-            transition: "gap 0.3s, color 0.3s",
-            "&:hover": {
-              color: "grey.100",
-              gap: 1.5,
-            },
-            "& svg": { fontSize: 18 },
-          }}
-        >
-          <ArrowBackIcon /> Back to Work
-        </Box>
+        <BackLink variant="bottom" />
       </Box>
     </Box>
   );

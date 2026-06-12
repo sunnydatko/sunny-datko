@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { Box, Chip, Divider, Typography } from "@mui/material";
-import ReadingProgressBar from "../ReadingProgressBar";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ReadingProgressBar from "../../components/ReadingProgressBar";
 import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
@@ -19,6 +18,10 @@ import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
 import BoltOutlinedIcon from "@mui/icons-material/BoltOutlined";
 import NightlightOutlinedIcon from "@mui/icons-material/NightlightOutlined";
 import themeImg from "../../assets/theme.jpg";
+import SectionHeader from "../../components/case-studies/SectionHeader";
+import CaseStudyHero from "../../components/case-studies/CaseStudyHero";
+import StatsBar from "../../components/case-studies/StatsBar";
+import BackLink from "../../components/case-studies/BackLink";
 
 const approachItems = [
   {
@@ -71,6 +74,12 @@ const keyOutcomes = [
   },
 ];
 
+const stats = [
+  { icon: <AccessTimeOutlinedIcon />, label: "Duration", value: "2 Years" },
+  { icon: <PersonOutlinedIcon />, label: "My Role", value: "Lead Frontend Engineer" },
+  { icon: <GroupsOutlinedIcon />, label: "Team", value: "6+ Engineers" },
+];
+
 const tags = [
   "Design Tokens",
   "Theming",
@@ -81,51 +90,6 @@ const tags = [
   "Frontend Leadership",
 ];
 
-const SectionHeader = ({
-  icon,
-  title,
-}: {
-  icon: React.ReactNode;
-  title: string;
-}) => (
-  <Box
-    sx={{
-      display: "flex",
-      alignItems: "center",
-      gap: { xs: 1.5, md: 2 },
-      mb: { xs: 3, md: 4 },
-    }}
-  >
-    <Box
-      sx={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        width: { xs: 40, md: 48 },
-        height: { xs: 40, md: 48 },
-        borderRadius: "50%",
-        backgroundColor: "rgba(167,138,178,0.12)",
-        border: "1px solid rgba(167,138,178,0.25)",
-        color: "primary.light",
-        flexShrink: 0,
-        "& svg": { fontSize: { xs: 18, md: 22 } },
-      }}
-    >
-      {icon}
-    </Box>
-    <Typography
-      variant="h4"
-      sx={{
-        fontSize: { xs: "22px", sm: "26px", md: "32px" },
-        color: "grey.100",
-        m: 0,
-      }}
-    >
-      {title}
-    </Typography>
-  </Box>
-);
-
 const ThemingCaseStudy = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -134,39 +98,7 @@ const ThemingCaseStudy = () => {
   return (
     <Box sx={{ minHeight: "100vh", overflowX: "hidden" }}>
       <ReadingProgressBar />
-      {/* Hero */}
-      <Box
-        sx={{
-          width: "100%",
-          height: { xs: 220, sm: 300, md: 400 },
-          overflow: "hidden",
-          position: "relative",
-          "&:hover img": { transform: "scale(1.08)" },
-        }}
-      >
-        <Box
-          component="img"
-          src={themeImg}
-          alt="Theme-driven platform screenshots"
-          sx={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            objectPosition: "center center",
-            display: "block",
-            transition: "transform 0.6s ease",
-          }}
-        />
-        <Box
-          aria-hidden
-          sx={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "linear-gradient(180deg, rgba(20,18,17,0.5) 0%, rgba(20,18,17,0.0) 35%, rgba(20,18,17,0.7) 65%, rgba(20,18,17,1.0) 100%)",
-          }}
-        />
-      </Box>
+      <CaseStudyHero src={themeImg} alt="Theme-driven platform screenshots" />
 
       <Box
         sx={{
@@ -178,31 +110,8 @@ const ThemingCaseStudy = () => {
           width: "100%",
         }}
       >
-        {/* Back link */}
-        <Box
-          component="a"
-          href="/#work"
-          sx={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 0.75,
-            color: "grey.300",
-            fontFamily: "'Inter', sans-serif",
-            fontSize: 14,
-            fontWeight: 500,
-            letterSpacing: "0.06em",
-            textTransform: "uppercase",
-            mb: 4,
-            transition: "color 0.3s",
-            textDecoration: "none",
-            "&:hover": { color: "grey.100" },
-            "& svg": { fontSize: 16 },
-          }}
-        >
-          <ArrowBackIcon /> Back to Work
-        </Box>
+        <BackLink />
 
-        {/* Overline */}
         <Typography
           component="span"
           sx={{
@@ -219,19 +128,13 @@ const ThemingCaseStudy = () => {
           Case Study
         </Typography>
 
-        {/* Title */}
         <Typography
           variant="h2"
-          sx={{
-            fontSize: { xs: "32px", sm: "42px", md: "52px" },
-            color: "grey.100",
-            mb: 2,
-          }}
+          sx={{ fontSize: { xs: "32px", sm: "42px", md: "52px" }, color: "grey.100", mb: 2 }}
         >
           Building a Theme-Driven Platform
         </Typography>
 
-        {/* Subtitle */}
         <Typography
           sx={{
             fontFamily: "'DM Serif Display', serif",
@@ -244,7 +147,6 @@ const ThemingCaseStudy = () => {
           Enabling white labeling and dark mode at scale with design tokens
         </Typography>
 
-        {/* Intro */}
         <Typography
           sx={{
             color: "grey.200",
@@ -260,66 +162,7 @@ const ThemingCaseStudy = () => {
           light/dark mode from a single foundation.
         </Typography>
 
-        {/* Stats */}
-        <Box
-          className="glass"
-          sx={{
-            display: "flex",
-            flexDirection: { xs: "column", sm: "row" },
-            mb: 6,
-            p: { xs: 2, md: 3 },
-          }}
-        >
-          {[
-            { icon: <AccessTimeOutlinedIcon />, label: "Duration", value: "2 Years" },
-            { icon: <PersonOutlinedIcon />, label: "My Role", value: "Lead Frontend Engineer" },
-            { icon: <GroupsOutlinedIcon />, label: "Team", value: "6+ Engineers" },
-          ].map((stat, i) => (
-            <Box
-              key={stat.label}
-              sx={{
-                flex: { sm: "1 1 0" },
-                display: "flex",
-                alignItems: "flex-start",
-                gap: 1.5,
-                px: { xs: 1, sm: 2, md: 2.5 },
-                py: { xs: 1.5, sm: 1 },
-                borderLeft: { sm: i > 0 ? "1px solid" : "none" },
-                borderTop: { xs: i > 0 ? "1px solid" : "none", sm: "none" },
-                borderColor: "divider",
-              }}
-            >
-              <Box sx={{ color: "secondary.main", pt: "2px", "& svg": { fontSize: 20 } }}>
-                {stat.icon}
-              </Box>
-              <Box>
-                <Typography
-                  sx={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: 11,
-                    fontWeight: 600,
-                    letterSpacing: "0.18em",
-                    textTransform: "uppercase",
-                    color: "grey.400",
-                    mb: 0.25,
-                  }}
-                >
-                  {stat.label}
-                </Typography>
-                <Typography
-                  sx={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: { xs: 14, md: 15 },
-                    fontWeight: 500,
-                    color: "grey.100",
-                  }}
-                >
-                  {stat.value}
-                </Typography>
-              </Box>
-            </Box>
-          ))}
-        </Box>
+        <StatsBar stats={stats} />
 
         <Divider sx={{ mb: 6, borderColor: "divider" }} />
 
@@ -391,7 +234,6 @@ const ThemingCaseStudy = () => {
                 visual decisions from component logic.
               </Typography>
 
-              {/* 4 approach items */}
               <Box
                 sx={{
                   display: "grid",
@@ -402,13 +244,7 @@ const ThemingCaseStudy = () => {
               >
                 {approachItems.map((item) => (
                   <Box key={item.title}>
-                    <Box
-                      sx={{
-                        color: "secondary.main",
-                        mb: 1.25,
-                        "& svg": { fontSize: 22 },
-                      }}
-                    >
+                    <Box sx={{ color: "secondary.main", mb: 1.25, "& svg": { fontSize: 22 } }}>
                       {item.icon}
                     </Box>
                     <Typography
@@ -436,17 +272,11 @@ const ThemingCaseStudy = () => {
                   </Box>
                 ))}
               </Box>
-
             </Box>
           </Box>
 
           {/* Right: Key Outcomes sidebar */}
-          <Box
-            sx={{
-              width: { md: 280 },
-              flexShrink: 0,
-            }}
-          >
+          <Box sx={{ width: { md: 280 }, flexShrink: 0 }}>
             <Typography
               sx={{
                 fontFamily: "'DM Serif Display', serif",
@@ -548,10 +378,7 @@ const ThemingCaseStudy = () => {
                 body: "The same architecture powers other products and new themes.",
               },
             ].map((item) => (
-              <Box
-                key={item.title}
-                sx={{ display: "flex", gap: 2, alignItems: "flex-start" }}
-              >
+              <Box key={item.title} sx={{ display: "flex", gap: 2, alignItems: "flex-start" }}>
                 <Box
                   sx={{
                     color: "secondary.main",
@@ -616,26 +443,7 @@ const ThemingCaseStudy = () => {
 
         <Divider sx={{ mb: 5, borderColor: "divider" }} />
 
-        {/* Back link bottom */}
-        <Box
-          component="a"
-          href="/#work"
-          sx={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 0.75,
-            color: "primary.light",
-            fontFamily: "'Inter', sans-serif",
-            fontSize: 15,
-            fontWeight: 500,
-            textDecoration: "none",
-            transition: "color 0.3s",
-            "&:hover": { color: "grey.100" },
-            "& svg": { fontSize: 18 },
-          }}
-        >
-          <ArrowBackIcon /> Back to Work
-        </Box>
+        <BackLink variant="bottom" />
       </Box>
     </Box>
   );

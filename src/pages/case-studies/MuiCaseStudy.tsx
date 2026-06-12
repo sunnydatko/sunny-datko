@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { Box, Chip, Divider, Grid, Typography } from "@mui/material";
-import ReadingProgressBar from "../ReadingProgressBar";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ReadingProgressBar from "../../components/ReadingProgressBar";
 import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
@@ -19,6 +18,10 @@ import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
 import GridViewOutlinedIcon from "@mui/icons-material/GridViewOutlined";
 import BoltOutlinedIcon from "@mui/icons-material/BoltOutlined";
 import trustImg from "../../assets/trust.jpg";
+import SectionHeader from "../../components/case-studies/SectionHeader";
+import CaseStudyHero from "../../components/case-studies/CaseStudyHero";
+import StatsBar from "../../components/case-studies/StatsBar";
+import BackLink from "../../components/case-studies/BackLink";
 
 const approachSteps = [
   {
@@ -51,6 +54,12 @@ const metrics = [
   { icon: <BoltOutlinedIcon />, stat: "Faster", label: "Feature delivery with less duplication and fewer regressions" },
 ];
 
+const stats = [
+  { icon: <AccessTimeOutlinedIcon />, label: "Duration", value: "2 Years" },
+  { icon: <PersonOutlinedIcon />, label: "My Role", value: "Lead Frontend Engineer" },
+  { icon: <GroupsOutlinedIcon />, label: "Team", value: "6+ Engineers" },
+];
+
 const tags = [
   "Design Systems",
   "Theming",
@@ -60,40 +69,6 @@ const tags = [
   "Frontend Leadership",
 ];
 
-const SectionHeader = ({
-  icon,
-  title,
-}: {
-  icon: React.ReactNode;
-  title: string;
-}) => (
-  <Box sx={{ display: "flex", alignItems: "center", gap: { xs: 1.5, md: 2 }, mb: { xs: 3, md: 4 } }}>
-    <Box
-      sx={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        width: { xs: 40, md: 48 },
-        height: { xs: 40, md: 48 },
-        borderRadius: "50%",
-        backgroundColor: "rgba(167,138,178,0.12)",
-        border: "1px solid rgba(167,138,178,0.25)",
-        color: "primary.light",
-        flexShrink: 0,
-        "& svg": { fontSize: { xs: 18, md: 22 } },
-      }}
-    >
-      {icon}
-    </Box>
-    <Typography
-      variant="h4"
-      sx={{ fontSize: { xs: "22px", sm: "26px", md: "32px" }, color: "grey.100", m: 0 }}
-    >
-      {title}
-    </Typography>
-  </Box>
-);
-
 const MuiCaseStudy = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -102,39 +77,7 @@ const MuiCaseStudy = () => {
   return (
     <Box sx={{ minHeight: "100vh", overflowX: "hidden" }}>
       <ReadingProgressBar />
-      {/* Hero image */}
-      <Box
-        sx={{
-          width: "100%",
-          height: { xs: 220, sm: 300, md: 400 },
-          overflow: "hidden",
-          position: "relative",
-          "&:hover img": { transform: "scale(1.08)" },
-        }}
-      >
-        <Box
-          component="img"
-          src={trustImg}
-          alt="Trust Center design system screenshots"
-          sx={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            objectPosition: "center top",
-            display: "block",
-            transition: "transform 0.6s ease",
-          }}
-        />
-        <Box
-          aria-hidden
-          sx={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "linear-gradient(180deg, rgba(20,18,17,0.5) 0%, rgba(20,18,17,0.0) 35%, rgba(20,18,17,0.7) 65%, rgba(20,18,17,1.0) 100%)",
-          }}
-        />
-      </Box>
+      <CaseStudyHero src={trustImg} alt="Trust Center design system screenshots" objectPosition="center top" />
 
       <Box
         sx={{
@@ -146,31 +89,8 @@ const MuiCaseStudy = () => {
           width: "100%",
         }}
       >
-        {/* Back link */}
-        <Box
-          component="a"
-          href="/#work"
-          sx={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 0.75,
-            color: "grey.300",
-            fontFamily: "'Inter', sans-serif",
-            fontSize: 14,
-            fontWeight: 500,
-            letterSpacing: "0.06em",
-            textTransform: "uppercase",
-            mb: 4,
-            transition: "color 0.3s",
-            textDecoration: "none",
-            "&:hover": { color: "grey.100" },
-            "& svg": { fontSize: 16 },
-          }}
-        >
-          <ArrowBackIcon /> Back to Work
-        </Box>
+        <BackLink />
 
-        {/* Overline */}
         <Typography
           component="span"
           sx={{
@@ -187,19 +107,13 @@ const MuiCaseStudy = () => {
           Case Study
         </Typography>
 
-        {/* Title */}
         <Typography
           variant="h2"
-          sx={{
-            fontSize: { xs: "32px", sm: "42px", md: "52px" },
-            color: "grey.100",
-            mb: 2,
-          }}
+          sx={{ fontSize: { xs: "32px", sm: "42px", md: "52px" }, color: "grey.100", mb: 2 }}
         >
           Modernizing Frontend Architecture
         </Typography>
 
-        {/* Subtitle */}
         <Typography
           sx={{
             fontFamily: "'DM Serif Display', serif",
@@ -212,7 +126,6 @@ const MuiCaseStudy = () => {
           From Bootstrap to a Unified Design System with MUI
         </Typography>
 
-        {/* Intro */}
         <Typography
           sx={{
             color: "grey.200",
@@ -227,67 +140,7 @@ const MuiCaseStudy = () => {
           white-labeling, and faster development across products.
         </Typography>
 
-        {/* Stats */}
-        <Box
-          className="glass"
-          sx={{
-            display: "flex",
-            flexDirection: { xs: "column", sm: "row" },
-            mb: 6,
-            p: { xs: 2, md: 3 },
-            gap: 0,
-          }}
-        >
-          {[
-            { icon: <AccessTimeOutlinedIcon />, label: "Duration", value: "2 Years" },
-            { icon: <PersonOutlinedIcon />, label: "My Role", value: "Lead Frontend Engineer" },
-            { icon: <GroupsOutlinedIcon />, label: "Team", value: "6+ Engineers" },
-          ].map((stat, i) => (
-            <Box
-              key={stat.label}
-              sx={{
-                flex: { sm: "1 1 0" },
-                display: "flex",
-                alignItems: "flex-start",
-                gap: 1.5,
-                px: { xs: 1, sm: 2, md: 2.5 },
-                py: { xs: 1.5, sm: 1 },
-                borderLeft: { sm: i > 0 ? "1px solid" : "none" },
-                borderTop: { xs: i > 0 ? "1px solid" : "none", sm: "none" },
-                borderColor: "divider",
-              }}
-            >
-              <Box sx={{ color: "secondary.main", pt: "2px", "& svg": { fontSize: 20 } }}>
-                {stat.icon}
-              </Box>
-              <Box>
-                <Typography
-                  sx={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: 11,
-                    fontWeight: 600,
-                    letterSpacing: "0.18em",
-                    textTransform: "uppercase",
-                    color: "grey.400",
-                    mb: 0.25,
-                  }}
-                >
-                  {stat.label}
-                </Typography>
-                <Typography
-                  sx={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: { xs: 14, md: 15 },
-                    fontWeight: 500,
-                    color: "grey.100",
-                  }}
-                >
-                  {stat.value}
-                </Typography>
-              </Box>
-            </Box>
-          ))}
-        </Box>
+        <StatsBar stats={stats} />
 
         <Divider sx={{ mb: 6, borderColor: "divider" }} />
 
@@ -337,17 +190,8 @@ const MuiCaseStudy = () => {
           <Grid container spacing={2.5}>
             {approachSteps.map((step) => (
               <Grid size={{ xs: 12, sm: 6 }} key={step.title}>
-                <Box
-                  className="glass"
-                  sx={{ p: { xs: 2.5, md: 3 }, height: "100%" }}
-                >
-                  <Box
-                    sx={{
-                      color: "secondary.main",
-                      mb: 1.5,
-                      "& svg": { fontSize: 24 },
-                    }}
-                  >
+                <Box className="glass" sx={{ p: { xs: 2.5, md: 3 }, height: "100%" }}>
+                  <Box sx={{ color: "secondary.main", mb: 1.5, "& svg": { fontSize: 24 } }}>
                     {step.icon}
                   </Box>
                   <Typography
@@ -398,7 +242,15 @@ const MuiCaseStudy = () => {
               <Grid size={{ xs: 12, sm: 6, md: i >= 3 ? 6 : 4 }} key={m.stat} sx={{ display: "flex" }}>
                 <Box
                   className="glass"
-                  sx={{ p: { xs: 2, md: 2.5 }, textAlign: "center", width: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}
+                  sx={{
+                    p: { xs: 2, md: 2.5 },
+                    textAlign: "center",
+                    width: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
                 >
                   <Box sx={{ color: "secondary.main", mb: 1, "& svg": { fontSize: 28 } }}>
                     {m.icon}
@@ -456,29 +308,7 @@ const MuiCaseStudy = () => {
 
         <Divider sx={{ mb: 5, borderColor: "divider" }} />
 
-        {/* Back link bottom */}
-        <Box
-          component="a"
-          href="/#work"
-          sx={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 0.75,
-            color: "primary.light",
-            fontFamily: "'Inter', sans-serif",
-            fontSize: 15,
-            fontWeight: 500,
-            textDecoration: "none",
-            transition: "gap 0.3s, color 0.3s",
-            "&:hover": {
-              color: "grey.100",
-              gap: 1.5,
-            },
-            "& svg": { fontSize: 18 },
-          }}
-        >
-          <ArrowBackIcon /> Back to Work
-        </Box>
+        <BackLink variant="bottom" />
       </Box>
     </Box>
   );

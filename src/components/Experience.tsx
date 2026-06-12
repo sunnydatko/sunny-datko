@@ -5,7 +5,7 @@ import {
   Typography,
 } from "@mui/material";
 
-import { experience } from "../helpers/config";
+import { experience } from "../helpers/data";
 
 const Experience = () => (
   <Box
