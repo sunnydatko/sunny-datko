@@ -138,7 +138,7 @@ const Testimonials = () => {
                     justifyContent: "center",
                     gap: 0.5,
                     mt: 0.5,
-                    color: "primary.light",
+                    color: "#C9A961",
                   }}
                 >
                   {Array.from({ length: 5 }).map((_, i) => (

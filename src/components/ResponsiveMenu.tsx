@@ -119,7 +119,7 @@ const ResponsiveMenu = (props: ResponsiveMenuProps) => {
               <Button
                 href={url}
                 key={name}
-                sx={{ textTransform: "capitalize" }}
+                sx={{ textTransform: "uppercase" }}
               >
                 {name}
               </Button>

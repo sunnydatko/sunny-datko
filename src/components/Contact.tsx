@@ -157,6 +157,7 @@ const Contact = () => {
               <Button
                 size="large"
                 type="submit"
+                variant="outlined"
                 sx={{
                   alignSelf: "center",
                   marginTop: 1,

@@ -52,7 +52,7 @@ const getTheme = (mode: PaletteMode) =>
       h1: {
         fontSize: "90px",
         fontFamily: "'DM Serif Display', serif",
-        fontWeight: 900,
+        fontWeight: 400,
         lineHeight: "103%",
       },
       h2: {
@@ -109,7 +109,6 @@ const getTheme = (mode: PaletteMode) =>
             fontFamily: "'Inter', sans-serif",
           },
           outlined: ({ theme }) => ({
-            boxShadow: "0 8px 30px rgba(167,138,178,0.35)",
             fontFamily: "'Inter', sans-serif",
             textTransform: "none",
             borderRadius: 10,
@@ -120,7 +119,7 @@ const getTheme = (mode: PaletteMode) =>
             "&:hover": {
               borderColor: theme.palette.primary.light,
               backgroundColor: theme.palette.primary.light,
-              boxShadow: "0 10px 36px rgba(167,138,178,0.5)",
+              boxShadow: "0 10px 36px rgba(167,138,178,0.3)",
             },
           }),
         },
