@@ -122,6 +122,21 @@ const Hero = () => {
       }}
     />
 
+    {/* bottom gradient veil — softens the hero edge into the section below */}
+    <Box
+      aria-hidden
+      sx={{
+        position: "absolute",
+        bottom: 0,
+        left: 0,
+        right: 0,
+        height: 160,
+        background: "linear-gradient(to top, rgba(21,19,19,1) 0%, rgba(21,19,19,0.6) 50%, transparent 100%)",
+        pointerEvents: "none",
+        zIndex: 1,
+      }}
+    />
+
     <Container sx={{ position: "relative", zIndex: 2, py: { xs: 12, md: 10 } }}>
       <Box sx={{ maxWidth: { xs: "100%", md: 620 } }}>
         {/* role */}
