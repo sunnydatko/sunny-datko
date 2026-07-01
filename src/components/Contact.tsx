@@ -54,6 +54,9 @@ const fieldSx = {
   "& .MuiInputLabel-root:not(.Mui-focused):not(.Mui-error)": {
     color: "rgba(185,176,167,0.85)",
   },
+  "& .MuiFormHelperText-root": {
+    marginTop: "8px",
+  },
 };
 
 const Contact = () => {
@@ -110,7 +113,7 @@ const Contact = () => {
     <Box
       component="section"
       id="contact"
-      sx={{ padding: "72px 0", position: "relative" }}
+      sx={{ pt: "72px", pb: "48px", position: "relative" }}
     >
       <Box className="wrap">
         <Container className="reveal" sx={{ maxWidth: "760px !important" }}>
@@ -153,7 +156,7 @@ const Contact = () => {
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                gap: "38px",
+                gap: "28px",
                 margin: "0 auto",
                 width: { xs: "100%", sm: "90%", md: "69%" },
               }}
@@ -200,7 +203,6 @@ const Contact = () => {
                 variant="outlined"
                 sx={{
                   alignSelf: "center",
-                  marginTop: "11px",
                   width: { xs: "100%", md: "440px" },
                   py: "14px",
                 }}
