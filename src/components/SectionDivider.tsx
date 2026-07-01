@@ -6,7 +6,8 @@ const SectionDivider = () => (
     sx={{
       display: "flex",
       alignItems: "center",
-      width: "100%",
+      width: "82%",
+      mx: "auto",
     }}
   >
     <Box
