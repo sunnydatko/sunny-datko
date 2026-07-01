@@ -1,5 +1,6 @@
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
+import Tooltip from "@mui/material/Tooltip";
 import { SiGithub } from "react-icons/si";
 import { FaLinkedinIn, FaTwitter } from "react-icons/fa";
 
@@ -35,6 +36,28 @@ const Footer = () => (
             <Icon size={16} />
           </Box>
         ))}
+
+        <Tooltip
+          title="↑ ↑ ↓ ↓ ← → ← → B A"
+          placement="top"
+          slotProps={{ tooltip: { sx: { fontFamily: "'Inter', sans-serif", letterSpacing: "0.08em", fontSize: "11px" } } }}
+        >
+          <Box
+            component="span"
+            aria-hidden="true"
+            sx={{
+              color: "rgba(167,138,178,0.18)",
+              fontSize: "12px",
+              lineHeight: 1,
+              userSelect: "none",
+              cursor: "default",
+              transition: "color 0.3s",
+              "&:hover": { color: "rgba(167,138,178,0.6)" },
+            }}
+          >
+            ✦
+          </Box>
+        </Tooltip>
       </Container>
     </Box>
   </Box>
