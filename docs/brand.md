@@ -49,7 +49,7 @@ Sub-line: "Connecting product strategy, design systems, and frontend architectur
 - `prefers-reduced-motion` respected — all animations disabled (`App.css`)
 
 ## Iconography
-- Bootstrap Icons (primary, loaded via CDN in `index.html`) + a handful of MUI icons
+- react-icons (primary) + a handful of MUI icons
 - Thin stroke weight, minimal fill
 
 ## Content Voice
@@ -72,4 +72,4 @@ Sub-line: "Connecting product strategy, design systems, and frontend architectur
 - Brand mark component: `src/components/BrandMark.tsx`
 - Section divider: `src/components/SectionDivider.tsx`
 - Ambient background effects: `src/components/Ambient.tsx`
-- Fonts & icon CDN loaded in: `index.html` (Google Fonts + Bootstrap Icons)
+- Fonts loaded in: `index.html` (Google Fonts)
