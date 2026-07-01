@@ -42,7 +42,21 @@ const Footer = () => (
         </Box>
 
         <Typography variant="caption" sx={{ color: "grey.600", opacity: 0.6, fontWeight: 500, marginTop: "20px" }}>
-          Crafted by Sunny Datko
+          Crafted by{" "}
+          <Box
+            component="a"
+            href="https://github.com/sunnydatko"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{
+              color: "inherit",
+              textDecoration: "none",
+              transition: "color 0.2s",
+              "&:hover": { color: "primary.main", textDecoration: "underline" },
+            }}
+          >
+            Sunny Datko
+          </Box>
         </Typography>
       </Container>
     </Box>

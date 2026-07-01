@@ -34,7 +34,18 @@ const validate = (fields: Fields): Errors => {
 
 const EMPTY: Fields = { from_name: "", reply_to: "", message: "" };
 
+const filterTouched = (errors: Errors, touched: Partial<Record<keyof Fields, boolean>>): Errors =>
+  Object.fromEntries(
+    Object.entries(errors).filter(([name]) => touched[name as keyof Fields]),
+  ) as Errors;
+
 const fieldSx = {
+  "& .MuiInputBase-input": {
+    fontSize: "18px",
+  },
+  "& .MuiInputLabel-root": {
+    fontSize: "18px",
+  },
   "& .MuiOutlinedInput-root": {
     "& fieldset": {
       borderColor: "rgba(245,241,236,0.19)",
@@ -50,12 +61,25 @@ const fieldSx = {
     "&.Mui-focused": {
       boxShadow: "0 0 0 1px rgba(167,138,178,0.2), 0 0 18px rgba(167,138,178,0.28)",
     },
+    "&.Mui-error fieldset": {
+      borderColor: "rgba(160,82,31,0.72)",
+    },
+    "&.Mui-error:hover fieldset": {
+      borderColor: "rgba(160,82,31,0.8)",
+    },
   },
   "& .MuiInputLabel-root:not(.Mui-focused):not(.Mui-error)": {
     color: "rgba(185,176,167,0.85)",
   },
+  "& .MuiInputLabel-root.Mui-error": {
+    color: "#A0521F",
+  },
   "& .MuiFormHelperText-root": {
     marginTop: "8px",
+  },
+  "& .MuiFormHelperText-root.Mui-error": {
+    color: "#A0521F",
+    fontSize: "12.5px",
   },
 };
 
@@ -70,14 +94,15 @@ const Contact = () => {
     const updated = { ...fields, [name]: value };
     setFields(updated);
     if (touched[name as keyof Fields]) {
-      setErrors(validate(updated));
+      setErrors(filterTouched(validate(updated), touched));
     }
   };
 
   const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name } = e.target;
-    setTouched((prev) => ({ ...prev, [name]: true }));
-    setErrors(validate(fields));
+    const nextTouched = { ...touched, [name]: true };
+    setTouched(nextTouched);
+    setErrors(filterTouched(validate(fields), nextTouched));
   };
 
   const sendEmail = (e: React.FormEvent) => {
@@ -135,21 +160,9 @@ const Contact = () => {
           <Typography
             align="center"
             variant="h3"
-            sx={{  mt: 2, mb: 1.5 }}
+            sx={{ mt: 2, mb: "20px" }}
           >
             Say hello
-          </Typography>
-          <Typography
-            align="center"
-            sx={{
-              color: "grey.400",
-              fontFamily: "'Inter', sans-serif",
-              maxWidth: 460,
-              mx: "auto",
-              mb: "60px",
-            }}
-          >
-            Have a project in mind? I'd love to hear about it.
           </Typography>
           <form onSubmit={sendEmail} noValidate>
             <Box
