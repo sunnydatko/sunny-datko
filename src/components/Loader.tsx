@@ -12,10 +12,13 @@ const Loader = () => (
       alignItems: "center",
       justifyContent: "center",
       backgroundColor: "#141211",
-      "@keyframes loaderSpin": { to: { transform: "rotate(360deg)" } },
+      "@keyframes loaderFadeIn": {
+        from: { opacity: 0, transform: "scale(0.82)" },
+        to: { opacity: 1, transform: "scale(1)" },
+      },
       "@keyframes loaderPulse": {
-        "0%, 100%": { opacity: 0.35, transform: "scale(0.9)" },
-        "50%": { opacity: 1, transform: "scale(1.12)" },
+        "0%, 100%": { opacity: 0.25, transform: "scale(0.88)" },
+        "50%": { opacity: 1, transform: "scale(1.14)" },
       },
     }}
   >
@@ -33,11 +36,14 @@ const Loader = () => (
           borderRadius: "50%",
           background:
             "radial-gradient(circle, rgba(167,138,178,0.28), rgba(167,138,178,0) 70%)",
-          animation: "loaderPulse 1.8s ease-in-out infinite",
+          animation: "loaderPulse 2.4s ease-in-out infinite",
         },
-        "& svg": { animation: "loaderSpin 6s linear infinite" },
+        "& svg": {
+          animation: "loaderFadeIn 0.9s ease-out forwards",
+          opacity: 0,
+        },
         "@media (prefers-reduced-motion: reduce)": {
-          "&::before, & svg": { animation: "none" },
+          "&::before, & svg": { animation: "none", opacity: 1 },
         },
       }}
     >

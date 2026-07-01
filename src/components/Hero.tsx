@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 import lavender from "../assets/lavender.jpg";
 
 const fadeUp = keyframes`
-  from { opacity: 0; transform: translateY(22px); }
+  from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
 `;
 

@@ -60,7 +60,7 @@ const About = () => {
             }}
           >
             {skills.map(({ label, Icon }) => (
-              <Icon key={label} size={20} color="rgba(255,255,255,0.3)" title={label} />
+              <Icon key={label} size={20} color="rgba(245,241,236,0.3)" title={label} />
             ))}
           </Box>
         </Container>

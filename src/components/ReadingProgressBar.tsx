@@ -31,7 +31,7 @@ const ReadingProgressBar = () => {
         sx={{
           height: "100%",
           width: `${progress}%`,
-          background: "linear-gradient(90deg, #7A5C87 0%, #A78AB2 50%, #98A287 100%)",
+          background: "linear-gradient(90deg, #533B5E 0%, #7A5C87 50%, #A78AB2 100%)",
           transition: "width 0.1s linear",
         }}
       />

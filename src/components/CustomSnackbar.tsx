@@ -9,7 +9,7 @@ import CloseIcon from "@mui/icons-material/Close";
 
 const ACCENT: Record<string, string> = {
   success: "#98A287",
-  error: "#C27B7B",
+  error: "#C8682A",
 };
 
 const ICON: Record<string, React.ElementType> = {
