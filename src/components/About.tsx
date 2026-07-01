@@ -24,7 +24,7 @@ const About = () => {
           className="reveal"
           sx={{
             textAlign: "center",
-            maxWidth: "860px !important",
+            maxWidth: "970px !important",
             ".MuiTypography-body1": {
               fontSize: { xs: "17px", md: "21px" },
             },
@@ -43,12 +43,12 @@ const About = () => {
           >
             About Me
           </Typography>
-          <Typography variant="h3" sx={{ mt: 2, mb: 4 }}>
-            Connecting product strategy with frontend craft
+          <Typography variant="h3" sx={{ mt: "32px", mb: "48px" }}>
+            Building products people love.
           </Typography>
 
-          <Typography paragraph sx={{ color: "grey.200", lineHeight: 1.7, mb: 3 }}>
-            With a background spanning marketing, design, and engineering, I specialize in turning complex product requirements into intuitive frontend systems. I build design systems, platform foundations, and user experiences that help teams move faster while keeping products effortless to use.
+          <Typography paragraph sx={{ color: "grey.200", lineHeight: 1.7, mb: 3, maxWidth: "770px", mx: "auto" }}>
+            I bring together product thinking, design, and engineering through design systems and front-end platforms that help teams deliver faster without sacrificing quality.
           </Typography>
 
           {/* Tech stack icons */}
@@ -61,7 +61,7 @@ const About = () => {
             }}
           >
             {skills.map(({ label, Icon }) => (
-              <Icon key={label} size={20} color="rgba(245,241,236,0.3)" title={label} />
+              <Icon key={label} size={20} color="rgba(245,241,236,0.42)" title={label} />
             ))}
           </Box>
         </Container>
