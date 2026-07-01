@@ -18,6 +18,7 @@ import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
 import GridViewOutlinedIcon from "@mui/icons-material/GridViewOutlined";
 import BoltOutlinedIcon from "@mui/icons-material/BoltOutlined";
 import trustImg from "../../assets/trust.jpg";
+import Seo from "../../components/Seo";
 import SectionHeader from "../../components/case-studies/SectionHeader";
 import CaseStudyHero from "../../components/case-studies/CaseStudyHero";
 import StatsBar from "../../components/case-studies/StatsBar";
@@ -76,6 +77,11 @@ const MuiCaseStudy = () => {
 
   return (
     <Box sx={{ minHeight: "100vh", overflowX: "hidden" }}>
+      <Seo
+        title="From Bootstrap to MUI: Modernizing Frontend Architecture | Sunny Datko"
+        description="How I led the migration from a heavily customized Bootstrap stack to a unified Material UI design system, unlocking theming, white-labeling, and faster development."
+        path="/case-study/mui-design-system"
+      />
       <ReadingProgressBar />
       <CaseStudyHero src={trustImg} alt="Trust Center design system screenshots" objectPosition="center top" />
 

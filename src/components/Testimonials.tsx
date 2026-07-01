@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
+import { BsStarFill, BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 import { testimonials } from "../helpers/data";
 
@@ -26,7 +27,7 @@ const Arrow = styled("div")({
     backgroundColor: "rgba(167,138,178,0.12)",
   },
 
-  i: {
+  svg: {
     fontSize: "1.1em",
     opacity: 0.85,
   },
@@ -144,8 +145,7 @@ const Testimonials = () => {
                   {Array.from({ length: 5 }).map((_, i) => (
                     <Box
                       key={i}
-                      component="i"
-                      className="bi bi-star-fill"
+                      component={BsStarFill}
                       sx={{ fontSize: { xs: 13, sm: 15 } }}
                     />
                   ))}
@@ -202,7 +202,7 @@ const Testimonials = () => {
                 }}
                 sx={{ left: 0, marginLeft: 0.5 }}
               >
-                <i className="bi bi-chevron-left" />
+                <BsChevronLeft />
               </Arrow>
               <Arrow
                 onClick={() => {
@@ -211,7 +211,7 @@ const Testimonials = () => {
                 }}
                 sx={{ right: 0, marginRight: 0.5 }}
               >
-                <i className="bi bi-chevron-right" />
+                <BsChevronRight />
               </Arrow>
             </Box>
           </Box>

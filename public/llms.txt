@@ -1,0 +1,32 @@
+# Sunny Datko
+
+> Staff Frontend Engineer specializing in design systems and React — building scalable UX that connects product strategy, design, and frontend architecture.
+
+Personal portfolio site at https://www.sunnydatko.com/. Note: this is a client-rendered React SPA — a plain HTTP fetch of any URL below returns the same shell HTML; content is rendered by JavaScript. This file exists to give agents the substance directly.
+
+## About
+
+"Building beautiful systems for humans." Sunny bring together product thinking, design, and engineering through design systems and front-end platforms that help teams deliver faster without sacrificing quality. Core skills: React, JavaScript, TypeScript, Material UI, Accessibility.
+
+## Experience
+
+- Staff Software Engineer, Drata (Aug 2025 - Present)
+- Principal / Lead Frontend Engineer, SafeBase (Sep 2023 - Aug 2025)
+- Frontend Software Engineer, Instil (Feb 2022 - Aug 2023)
+- Frontend Engineer, Eastridge Workforce Solutions (Mar 2020 - Jan 2022)
+- Software Engineer, Verogen (Jan 2018 - Dec 2019)
+- Software Engineer, InnovaSystems International, LLC (Jun 2016 - Jan 2018)
+- Software Engineer, Integrated Default Solutions (Jan 2014 - Jun 2016)
+- B.S., California State University San Marcos (2014 - 2016)
+
+## Case Studies
+
+- [Modernizing Frontend Architecture](https://www.sunnydatko.com/case-study/mui-design-system): Migrating from Bootstrap to a shared MUI design system supporting white-labeling and dark mode.
+- [One Component System, Many Experiences](https://www.sunnydatko.com/case-study/theming-platform): Designing a theme-aware component system for internal tools and customer-facing experiences.
+- [Building the Bridge Between Design and Engineering](https://www.sunnydatko.com/case-study/component-system): Creating a shared component system that transformed design decisions into scalable frontend architecture.
+
+## Contact
+
+- Site: https://www.sunnydatko.com/
+- LinkedIn: https://www.linkedin.com/in/sunnydatko/
+- Contact form: https://www.sunnydatko.com/#contact

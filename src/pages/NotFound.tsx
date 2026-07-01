@@ -4,8 +4,8 @@ import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { Link as RouterLink } from "react-router-dom";
-import { Helmet } from "react-helmet";
 
+import Seo from "../components/Seo";
 import sun from "../assets/sun.png";
 import botanical from "../assets/botanical-bg.jpg";
 
@@ -65,7 +65,12 @@ const NotFound = () => {
         overflow: "hidden",
       }}
     >
-      <Helmet title="Page Not Found" />
+      <Seo
+        title="Page Not Found | Sunny Datko"
+        description="The page you're looking for doesn't exist, or may have moved elsewhere."
+        path="/404"
+        noIndex
+      />
 
       <Box
         ref={bgRef}

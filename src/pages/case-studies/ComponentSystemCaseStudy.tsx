@@ -16,6 +16,7 @@ import SectionHeader from "../../components/case-studies/SectionHeader";
 import CaseStudyHero from "../../components/case-studies/CaseStudyHero";
 import StatsBar from "../../components/case-studies/StatsBar";
 import BackLink from "../../components/case-studies/BackLink";
+import Seo from "../../components/Seo";
 
 const sections = [
   {
@@ -91,6 +92,11 @@ const ComponentSystemCaseStudy = () => {
 
   return (
     <Box sx={{ minHeight: "100vh", overflowX: "hidden" }}>
+      <Seo
+        title="Building the Bridge Between Design and Engineering | Sunny Datko"
+        description="How a shared component system replaced 30+ divergent button implementations, connecting design intent with engineering implementation across light mode, dark mode, and customer branding."
+        path="/case-study/component-system"
+      />
       <ReadingProgressBar />
       <CaseStudyHero src={uiBg} alt="Component system UI" backgroundColor="#1a1826" />
 

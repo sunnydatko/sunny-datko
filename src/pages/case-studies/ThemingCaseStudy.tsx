@@ -22,6 +22,7 @@ import SectionHeader from "../../components/case-studies/SectionHeader";
 import CaseStudyHero from "../../components/case-studies/CaseStudyHero";
 import StatsBar from "../../components/case-studies/StatsBar";
 import BackLink from "../../components/case-studies/BackLink";
+import Seo from "../../components/Seo";
 
 const approachItems = [
   {
@@ -97,6 +98,11 @@ const ThemingCaseStudy = () => {
 
   return (
     <Box sx={{ minHeight: "100vh", overflowX: "hidden" }}>
+      <Seo
+        title="Building a Theme-Driven Platform | Sunny Datko"
+        description="How I built a token-based, theme-aware component architecture supporting light mode, dark mode, and customer-specific branding from a single source of truth."
+        path="/case-study/theming-platform"
+      />
       <ReadingProgressBar />
       <CaseStudyHero src={themeImg} alt="Theme-driven platform screenshots" />
 
