@@ -14,6 +14,7 @@ const Arrow = styled(IconButton)({
   width: "44px",
   padding: 0,
   boxSizing: "border-box",
+  fontSize: "16px",
   position: "absolute",
   top: "50%",
   transform: "translateY(-50%)",
@@ -43,7 +44,9 @@ const Arrow = styled(IconButton)({
 const Testimonials = () => {
   const [active, setActive] = useState(0);
   const [current, setCurrent] = useState(testimonials[0]);
-  const [intervalId, setIntervalId] = useState<number>(0);
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useState(false);
+  const paused = hovered || focused;
 
   const showNextTestimonial = () => {
     setActive((prevCount) =>
@@ -57,30 +60,25 @@ const Testimonials = () => {
     );
   };
 
-  const handleClick = () => {
-    if (intervalId) {
-      clearInterval(intervalId);
-      setIntervalId(0);
-    }
-
-    const newIntervalId = setInterval(() => {
-      showNextTestimonial();
-    }, 15000) as unknown as number;
-    setIntervalId(newIntervalId);
-  };
-
   useEffect(() => {
     setCurrent(testimonials[active]);
   }, [active]);
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      showNextTestimonial();
-    }, 15000) as unknown as number;
-    setIntervalId(intervalId);
+    if (paused) return;
 
-    return () => clearInterval(intervalId);
-  }, []);
+    const id = setInterval(() => {
+      showNextTestimonial();
+    }, 15000);
+
+    return () => clearInterval(id);
+  }, [active, paused]);
+
+  const handleBlur = (e: React.FocusEvent<HTMLDivElement>) => {
+    if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+      setFocused(false);
+    }
+  };
 
   return (
     <Box
@@ -111,6 +109,10 @@ const Testimonials = () => {
           <Box
             className="reviews reveal"
             sx={{ minHeight: { xs: "440px", sm: "470px", md: "400px" } }}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+            onFocus={() => setFocused(true)}
+            onBlur={handleBlur}
           >
             <div className="review dflex-center" aria-live="polite" aria-atomic="true">
               <div className="quote">
@@ -206,20 +208,14 @@ const Testimonials = () => {
             <Box>
               <Arrow
                 aria-label="Previous testimonial"
-                onClick={() => {
-                  showPreviousTestimonial();
-                  handleClick();
-                }}
+                onClick={showPreviousTestimonial}
                 sx={{ left: 0, marginLeft: 0.5 }}
               >
                 <BsChevronLeft />
               </Arrow>
               <Arrow
                 aria-label="Next testimonial"
-                onClick={() => {
-                  showNextTestimonial();
-                  handleClick();
-                }}
+                onClick={showNextTestimonial}
                 sx={{ right: 0, marginRight: 0.5 }}
               >
                 <BsChevronRight />
