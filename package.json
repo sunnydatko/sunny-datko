@@ -6,14 +6,16 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "test": "vitest run"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@mui/icons-material": "^7.3.11",
     "@mui/material": "^7.3.11",
-    "emailjs-com": "^3.2.0",
     "notistack": "^3.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -32,13 +34,16 @@
     "@typescript-eslint/eslint-plugin": "^6.14.0",
     "@typescript-eslint/parser": "^6.14.0",
     "@vitejs/plugin-react": "^4.0.4",
+    "@vitest/coverage-v8": "^4.1.9",
     "eslint": "^8.55.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "jsdom": "^29.1.1",
     "sass": "^1.69.7",
     "sharp": "^0.35.1",
     "typescript": "^5.2.2",
     "vite": "^4.4.9",
-    "vite-plugin-image-optimizer": "^1.1.9"
+    "vite-plugin-image-optimizer": "^1.1.9",
+    "vitest": "^4.1.9"
   }
 }
