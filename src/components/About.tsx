@@ -1,13 +1,14 @@
 import { Box, Container, Typography } from "@mui/material";
-import { SiReact, SiJavascript, SiTypescript, SiMui, SiFigma } from "react-icons/si";
+import { SiReact, SiJavascript, SiTypescript, SiMui } from "react-icons/si";
+import { FaUniversalAccess } from "react-icons/fa";
 import type { IconType } from "react-icons/lib";
 
 const skills: { label: string; Icon: IconType }[] = [
-  { label: "React",        Icon: SiReact        },
-  { label: "JavaScript",  Icon: SiJavascript   },
-  { label: "TypeScript",  Icon: SiTypescript   },
-  { label: "Material UI", Icon: SiMui          },
-  { label: "Figma",       Icon: SiFigma        },
+  { label: "React",           Icon: SiReact            },
+  { label: "JavaScript",     Icon: SiJavascript       },
+  { label: "TypeScript",     Icon: SiTypescript       },
+  { label: "Material UI",    Icon: SiMui              },
+  { label: "Accessibility",  Icon: FaUniversalAccess  },
 ];
 
 const About = () => {

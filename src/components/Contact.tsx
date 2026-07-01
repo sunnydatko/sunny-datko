@@ -34,6 +34,28 @@ const validate = (fields: Fields): Errors => {
 
 const EMPTY: Fields = { from_name: "", reply_to: "", message: "" };
 
+const fieldSx = {
+  "& .MuiOutlinedInput-root": {
+    "& fieldset": {
+      borderColor: "rgba(245,241,236,0.19)",
+      transition: "border-color 0.3s, box-shadow 0.3s",
+    },
+    "&:hover fieldset": {
+      borderColor: "rgba(245,241,236,0.27)",
+    },
+    "&.Mui-focused fieldset": {
+      borderColor: "#A78AB2",
+      borderWidth: "1px",
+    },
+    "&.Mui-focused": {
+      boxShadow: "0 0 0 1px rgba(167,138,178,0.2), 0 0 18px rgba(167,138,178,0.28)",
+    },
+  },
+  "& .MuiInputLabel-root:not(.Mui-focused):not(.Mui-error)": {
+    color: "rgba(185,176,167,0.85)",
+  },
+};
+
 const Contact = () => {
   const { enqueueSnackbar } = useSnackbar();
   const [fields, setFields] = useState<Fields>(EMPTY);
@@ -110,21 +132,34 @@ const Contact = () => {
           <Typography
             align="center"
             variant="h3"
-            sx={{  mt: 2, mb: 4 }}
+            sx={{  mt: 2, mb: 1.5 }}
           >
-            Contact
+            Say hello
+          </Typography>
+          <Typography
+            align="center"
+            sx={{
+              color: "grey.400",
+              fontFamily: "'Inter', sans-serif",
+              maxWidth: 460,
+              mx: "auto",
+              mb: "60px",
+            }}
+          >
+            Have a project in mind? I'd love to hear about it.
           </Typography>
           <form onSubmit={sendEmail} noValidate>
             <Box
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                gap: 3,
+                gap: "38px",
                 margin: "0 auto",
-                width: { xs: "100%", sm: "90%", md: "70%" },
+                width: { xs: "100%", sm: "90%", md: "69%" },
               }}
             >
               <TextField
+                variant="outlined"
                 label="Name"
                 name="from_name"
                 value={fields.from_name}
@@ -132,8 +167,10 @@ const Contact = () => {
                 onBlur={handleBlur}
                 error={!!errors.from_name}
                 helperText={errors.from_name}
+                sx={fieldSx}
               />
               <TextField
+                variant="outlined"
                 label="Email"
                 name="reply_to"
                 type="email"
@@ -142,17 +179,20 @@ const Contact = () => {
                 onBlur={handleBlur}
                 error={!!errors.reply_to}
                 helperText={errors.reply_to}
+                sx={fieldSx}
               />
               <TextField
+                variant="outlined"
                 label="Message"
                 name="message"
                 multiline
-                rows={3}
+                rows={5}
                 value={fields.message}
                 onChange={handleChange}
                 onBlur={handleBlur}
                 error={!!errors.message}
                 helperText={errors.message}
+                sx={fieldSx}
               />
               <Button
                 size="large"
@@ -160,12 +200,12 @@ const Contact = () => {
                 variant="outlined"
                 sx={{
                   alignSelf: "center",
-                  marginTop: 1,
-                  width: { xs: "100%", md: "300px" },
-                  py: 1.4,
+                  marginTop: "11px",
+                  width: { xs: "100%", md: "440px" },
+                  py: "14px",
                 }}
               >
-                Send Email
+                Send Message
               </Button>
             </Box>
           </form>

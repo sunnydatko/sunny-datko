@@ -23,7 +23,7 @@ const experience = [
     company: "SafeBase",
     url: "https://safebase.io/",
     title: "Principal / Lead Frontend Engineer",
-    dates: "September 2023 - February 2025",
+    dates: "September 2023 - August 2025",
     points: [
       "Drove frontend architecture and design system initiatives across the Trust Center platform, creating shared foundations that improved consistency, accessibility, and engineering velocity",
     ],
