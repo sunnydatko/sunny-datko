@@ -4,6 +4,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import { SnackbarProvider } from "notistack";
 import Router from "./components/Router";
 import Loader from "./components/Loader";
+import KonamiEgg from "./components/KonamiEgg";
 import getTheme from "./helpers/theme";
 import CustomSnackbar from "./components/CustomSnackbar";
 
@@ -39,6 +40,7 @@ const App = () => {
           Components={{ success: CustomSnackbar, error: CustomSnackbar }}
         >
         <Router />
+        <KonamiEgg />
       </SnackbarProvider>
     </ThemeProvider>
   );
