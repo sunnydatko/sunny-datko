@@ -107,6 +107,8 @@ const Work = () => (
                   className="cs-img"
                   src={cs.image}
                   alt={cs.title}
+                  loading="lazy"
+                  decoding="async"
                   sx={{
                     width: "100%",
                     height: "100%",

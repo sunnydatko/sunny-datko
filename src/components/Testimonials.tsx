@@ -1,16 +1,19 @@
 import { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
+import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
 import { BsStarFill, BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 import { testimonials } from "../helpers/data";
 
-const Arrow = styled("div")({
+const Arrow = styled(IconButton)({
   cursor: "pointer",
   height: "44px",
   width: "44px",
+  padding: 0,
+  boxSizing: "border-box",
   position: "absolute",
   top: "50%",
   transform: "translateY(-50%)",
@@ -25,6 +28,10 @@ const Arrow = styled("div")({
   "&:hover": {
     borderColor: "#A78AB2",
     backgroundColor: "rgba(167,138,178,0.12)",
+  },
+  "&:focus-visible": {
+    outline: "2px solid #A78AB2",
+    outlineOffset: "2px",
   },
 
   svg: {
@@ -105,7 +112,7 @@ const Testimonials = () => {
             className="reviews reveal"
             sx={{ minHeight: { xs: "440px", sm: "470px", md: "400px" } }}
           >
-            <div className="review dflex-center">
+            <div className="review dflex-center" aria-live="polite" aria-atomic="true">
               <div className="quote">
                 <Box
                   aria-hidden
@@ -160,7 +167,9 @@ const Testimonials = () => {
                   }}
                 >
                   <Box
-                    className="bg-img bg-lazy"
+                    className="bg-img"
+                    role="img"
+                    aria-label={current.name}
                     sx={{
                       backgroundImage: `url(${current.image})`,
                       borderRadius: "100%",
@@ -196,6 +205,7 @@ const Testimonials = () => {
             </div>
             <Box>
               <Arrow
+                aria-label="Previous testimonial"
                 onClick={() => {
                   showPreviousTestimonial();
                   handleClick();
@@ -205,6 +215,7 @@ const Testimonials = () => {
                 <BsChevronLeft />
               </Arrow>
               <Arrow
+                aria-label="Next testimonial"
                 onClick={() => {
                   showNextTestimonial();
                   handleClick();
