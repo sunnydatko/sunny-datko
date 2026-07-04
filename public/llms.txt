@@ -2,7 +2,7 @@
 
 > Staff Frontend Engineer specializing in design systems and React — building scalable UX that connects product strategy, design, and frontend architecture.
 
-Personal portfolio site at https://www.sunnydatko.com/. Note: this is a client-rendered React SPA — a plain HTTP fetch of any URL below returns the same shell HTML; content is rendered by JavaScript. This file exists to give agents the substance directly.
+Personal portfolio site at https://sunnydatko.com/. Note: this is a client-rendered React SPA — a plain HTTP fetch of any URL below returns the same shell HTML; content is rendered by JavaScript. This file exists to give agents the substance directly.
 
 ## About
 
@@ -21,12 +21,12 @@ Personal portfolio site at https://www.sunnydatko.com/. Note: this is a client-r
 
 ## Case Studies
 
-- [Modernizing Frontend Architecture](https://www.sunnydatko.com/case-study/mui-design-system): Migrating from Bootstrap to a shared MUI design system supporting white-labeling and dark mode.
-- [One Component System, Many Experiences](https://www.sunnydatko.com/case-study/theming-platform): Designing a theme-aware component system for internal tools and customer-facing experiences.
-- [Building the Bridge Between Design and Engineering](https://www.sunnydatko.com/case-study/component-system): Creating a shared component system that transformed design decisions into scalable frontend architecture.
+- [Modernizing Frontend Architecture](https://sunnydatko.com/case-study/mui-design-system): Migrating from Bootstrap to a shared MUI design system supporting white-labeling and dark mode.
+- [One Component System, Many Experiences](https://sunnydatko.com/case-study/theming-platform): Designing a theme-aware component system for internal tools and customer-facing experiences.
+- [Building the Bridge Between Design and Engineering](https://sunnydatko.com/case-study/component-system): Creating a shared component system that transformed design decisions into scalable frontend architecture.
 
 ## Contact
 
-- Site: https://www.sunnydatko.com/
+- Site: https://sunnydatko.com/
 - LinkedIn: https://www.linkedin.com/in/sunnydatko/
-- Contact form: https://www.sunnydatko.com/#contact
+- Contact form: https://sunnydatko.com/#contact

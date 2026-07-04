@@ -1,6 +1,6 @@
 # sunny-datko
 
-My personal portfolio — built with React, Vite, TypeScript, and Material UI. Check it out live at [sunnydatko.com](https://www.sunnydatko.com).
+My personal portfolio — built with React, Vite, TypeScript, and Material UI. Check it out live at [sunnydatko.com](https://sunnydatko.com).
 
 ## Running locally
 

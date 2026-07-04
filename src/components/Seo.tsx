@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 
-const SITE_URL = "https://www.sunnydatko.com";
+const SITE_URL = "https://sunnydatko.com";
 const DEFAULT_IMAGE = `${SITE_URL}/og.png`;
 
 interface SeoProps {
