@@ -22,8 +22,35 @@ const Hero = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
   const mouseOverlayRef = useRef<HTMLDivElement>(null);
-
   const NEUTRAL = "radial-gradient(ellipse 70% 80% at 50% 50%, transparent 0%, rgba(21,19,19,0.38) 100%)";
+
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const revealBg = () => {
+      const el = bgRef.current;
+      if (!el) return;
+      if (prefersReducedMotion) {
+        el.style.opacity = "1";
+        return;
+      }
+      el.style.transition = "opacity 0.8s ease-out";
+      el.style.opacity = "1";
+      // drop the transition once the fade-in finishes so scroll-driven
+      // opacity updates (see handleScroll below) stay instant, not laggy
+      window.setTimeout(() => {
+        if (el) el.style.transition = "";
+      }, 850);
+    };
+
+    const img = new Image();
+    img.src = lavender;
+    if (img.complete) {
+      revealBg();
+    } else {
+      img.onload = revealBg;
+    }
+  }, []);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!mouseOverlayRef.current || !sectionRef.current) return;
@@ -78,6 +105,8 @@ const Hero = () => {
         backgroundPosition: { xs: "center", md: "right center" },
         willChange: "transform, opacity",
         transformOrigin: "center center",
+        opacity: 0,
+        "@media (prefers-reduced-motion: reduce)": { opacity: 1 },
       }}
     />
     {/* gradient: solid charcoal on the left fading to the photo on the right
