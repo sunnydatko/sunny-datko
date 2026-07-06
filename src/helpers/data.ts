@@ -25,7 +25,7 @@ const experience = [
     title: "Principal / Lead Frontend Engineer",
     dates: "September 2023 - August 2025",
     points: [
-      "Drove frontend architecture and design system initiatives across the Trust Center platform, creating shared foundations that improved consistency, accessibility, and engineering velocity",
+      "Established design system foundations from the ground up on the Trust Center platform, setting the accessibility and UI conventions the team builds on today",
     ],
   },
   {

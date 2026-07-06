@@ -129,7 +129,7 @@ const Contact = () => {
         },
         (err) => {
           console.error("EmailJS error:", err);
-          enqueueSnackbar("An error occured.", { variant: "error" });
+          enqueueSnackbar("An error occurred.", { variant: "error" });
         },
       );
   };

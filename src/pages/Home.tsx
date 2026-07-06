@@ -11,7 +11,7 @@ const Home = () => (
   <>
     <Seo
       title="Sunny Datko | Staff Frontend Engineer & Design Systems"
-      description="Staff Frontend Engineer specializing in design systems and React—building scalable UX that connects product strategy, design, and frontend architecture."
+      description="Staff Frontend Engineer specializing in design systems and React, building scalable UX that connects product strategy, design, and frontend architecture."
       path="/"
     />
     <Hero />

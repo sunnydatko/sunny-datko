@@ -48,7 +48,7 @@ const About = () => {
           </Typography>
 
           <Typography paragraph sx={{ color: "grey.200", lineHeight: 1.7, mb: 3, maxWidth: "770px", mx: "auto" }}>
-            I bring together product thinking, design, and engineering through design systems and front-end platforms that help teams deliver faster without sacrificing quality.
+            I turn fragmented interfaces into shared systems — reusable components, accessible patterns, and tokens that let teams ship consistent product experiences without rebuilding the basics every time.
           </Typography>
 
           {/* Tech stack icons */}
