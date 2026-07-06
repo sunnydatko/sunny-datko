@@ -30,6 +30,23 @@ try {
       () => document.body.innerText.trim().length > 200,
       { timeout: 15000 }
     );
+    // Emotion (MUI's styling engine) inserts rules straight into the live
+    // CSSOM in production ("speedy" mode) instead of writing them as text
+    // into the <style> tag, so page.content() alone captures empty <style>
+    // elements. Without their rules, unstyled elements (e.g. bare <svg>
+    // icons) flash at browser-default sizing until JS hydrates. Inline the
+    // live cssRules back into each <style> tag's text so the static HTML
+    // is styled from first paint.
+    await page.evaluate(() => {
+      for (const styleEl of document.querySelectorAll("style")) {
+        const sheet = styleEl.sheet;
+        if (!sheet) continue;
+        const cssText = Array.from(sheet.cssRules)
+          .map((rule) => rule.cssText)
+          .join("\n");
+        if (cssText) styleEl.textContent = cssText;
+      }
+    });
     const html = await page.content();
 
     const outPath = path.resolve("dist", out);
