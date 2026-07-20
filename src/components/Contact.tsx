@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
@@ -6,6 +6,7 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import emailjs from "@emailjs/browser";
 import { useSnackbar } from "notistack";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -88,6 +89,14 @@ const Contact = () => {
   const [fields, setFields] = useState<Fields>(EMPTY);
   const [errors, setErrors] = useState<Errors>({});
   const [touched, setTouched] = useState<Partial<Record<keyof Fields, boolean>>>({});
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+  const [captchaError, setCaptchaError] = useState<string | null>(null);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
+
+  const handleCaptchaChange = (token: string | null) => {
+    setCaptchaToken(token);
+    if (token) setCaptchaError(null);
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -111,7 +120,10 @@ const Contact = () => {
     setTouched(allTouched);
     const validationErrors = validate(fields);
     setErrors(validationErrors);
-    if (Object.keys(validationErrors).length > 0) return;
+    if (!captchaToken) {
+      setCaptchaError("Please complete the captcha.");
+    }
+    if (Object.keys(validationErrors).length > 0 || !captchaToken) return;
 
     emailjs
       .send(
@@ -210,6 +222,26 @@ const Contact = () => {
                 helperText={errors.message}
                 sx={fieldSx}
               />
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: "8px",
+                }}
+              >
+                <ReCAPTCHA
+                  ref={recaptchaRef}
+                  sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+                  onChange={handleCaptchaChange}
+                  theme="dark"
+                />
+                {captchaError && (
+                  <Typography sx={{ color: "#A0521F", fontSize: "12.5px" }}>
+                    {captchaError}
+                  </Typography>
+                )}
+              </Box>
               <Button
                 size="large"
                 type="submit"
