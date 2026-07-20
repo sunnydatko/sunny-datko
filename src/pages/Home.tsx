@@ -1,5 +1,6 @@
 import About from "../components/About";
 import Contact from "../components/Contact";
+import Education from "../components/Education";
 import Experience from "../components/Experience";
 import Hero from "../components/Hero";
 import SectionDivider from "../components/SectionDivider";
@@ -19,6 +20,7 @@ const Home = () => (
     <About />
     <SectionDivider />
     <Experience />
+    <Education />
     <SectionDivider />
     <Work />
     <SectionDivider />

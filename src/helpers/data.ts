@@ -77,9 +77,19 @@ const experience = [
 
 const education = [
   {
-    company: "California State University San Marcos",
+    institution: "California State University San Marcos",
+    url: "https://www.csusm.edu/",
     dates: "2014 - 2016",
-    experience: ["Bachelor of Science in Business Administration - Cum Laude"],
+    credential: "Bachelor of Science in Business Administration - Cum Laude",
+  },
+];
+
+const certifications = [
+  {
+    name: "Claude Code in Action",
+    issuer: "Anthropic Academy",
+    date: "July 2026",
+    url: "http://verify.skilljar.com/c/vtdd6ineurkq",
   },
 ];
 
@@ -159,4 +169,4 @@ const testimonials = [
   },
 ];
 
-export { education, experience, testimonials };
+export { certifications, education, experience, testimonials };
