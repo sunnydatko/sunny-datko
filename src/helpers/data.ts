@@ -91,6 +91,12 @@ const certifications = [
     date: "July 2026",
     url: "http://verify.skilljar.com/c/vtdd6ineurkq",
   },
+  {
+    name: "Claude Code 101",
+    issuer: "Anthropic Academy",
+    date: "July 2026",
+    url: "https://verify.skilljar.com/c/jc5w67753a9q",
+  },
 ];
 
 const testimonials = [
