@@ -108,12 +108,14 @@ describe("Contact", () => {
           from_name: "Ada Lovelace",
           reply_to: "ada@example.com",
           message: "Hello, let's talk!",
+          "g-recaptcha-response": "test-token",
         },
         "NdM8NyR0F77gTL9mL",
       ),
     );
     expect(await screen.findByText("Your message was sent.")).toBeInTheDocument();
     expect(screen.getByLabelText(/name/i)).toHaveValue("");
+    expect(mockReset).toHaveBeenCalledTimes(1);
   });
 
   it("shows an error message when sending fails", async () => {
@@ -128,5 +130,6 @@ describe("Contact", () => {
     await submit(user);
 
     expect(await screen.findByText("An error occurred.")).toBeInTheDocument();
+    expect(mockReset).toHaveBeenCalledTimes(1);
   });
 });

@@ -129,7 +129,12 @@ const Contact = () => {
       .send(
         "service_u9cedck",
         "template_h9f3cqa",
-        { from_name: fields.from_name, reply_to: fields.reply_to, message: fields.message },
+        {
+          from_name: fields.from_name,
+          reply_to: fields.reply_to,
+          message: fields.message,
+          "g-recaptcha-response": captchaToken,
+        },
         "NdM8NyR0F77gTL9mL",
       )
       .then(
@@ -138,10 +143,14 @@ const Contact = () => {
           setFields(EMPTY);
           setErrors({});
           setTouched({});
+          setCaptchaToken(null);
+          recaptchaRef.current?.reset();
         },
         (err) => {
           console.error("EmailJS error:", err);
           enqueueSnackbar("An error occurred.", { variant: "error" });
+          setCaptchaToken(null);
+          recaptchaRef.current?.reset();
         },
       );
   };
