@@ -9,6 +9,7 @@ import { useSnackbar } from "notistack";
 import ReCAPTCHA from "react-google-recaptcha";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
 
 type Fields = { from_name: string; reply_to: string; message: string };
 type Errors = Partial<Record<keyof Fields, string>>;
@@ -239,12 +240,14 @@ const Contact = () => {
                   gap: "8px",
                 }}
               >
-                <ReCAPTCHA
-                  ref={recaptchaRef}
-                  sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
-                  onChange={handleCaptchaChange}
-                  theme="dark"
-                />
+                {RECAPTCHA_SITE_KEY && (
+                  <ReCAPTCHA
+                    ref={recaptchaRef}
+                    sitekey={RECAPTCHA_SITE_KEY}
+                    onChange={handleCaptchaChange}
+                    theme="dark"
+                  />
+                )}
                 {captchaError && (
                   <Typography sx={{ color: "#A0521F", fontSize: "12.5px" }}>
                     {captchaError}
