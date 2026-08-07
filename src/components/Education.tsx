@@ -40,50 +40,96 @@ const datesSx = {
   letterSpacing: "0.04em",
 } as const;
 
-const Education = () => (
-  <Box
-    component="section"
-    className="el-title"
-    id="education"
-    sx={{ position: "relative" }}
-  >
-    <div className="wrap" style={{ paddingTop: 0 }}>
-      <Container sx={{ maxWidth: "880px !important" }}>
-        <Box sx={{ textAlign: "center", mb: 6 }} className="reveal">
-          <Typography component="span" sx={overlineSx}>
-            Background
-          </Typography>
-          <Typography variant="h3" sx={{ mt: 2 }}>
-            Education & Certifications
-          </Typography>
-        </Box>
+const courseRowSx = {
+  display: "flex",
+  alignItems: "baseline",
+  justifyContent: "space-between",
+  gap: 2,
+  mt: 1.5,
+} as const;
 
-        {certifications.map((cert) => (
-          <Box key={cert.name} className="reveal" sx={entrySx}>
-            <Typography variant="h4" sx={titleSx}>
-              <Link href={cert.url} target="_blank" rel="noopener">
-                {cert.name}
-              </Link>
-            </Typography>
-            <Typography sx={subtitleSx}>{cert.issuer}</Typography>
-            <Typography sx={datesSx}>{cert.date}</Typography>
-          </Box>
-        ))}
+const courseNameSx = {
+  fontFamily: "'Inter', sans-serif",
+  fontWeight: 600,
+  fontSize: { xs: 14, md: 15 },
+} as const;
 
-        {education.map((item) => (
-          <Box key={item.institution} className="reveal" sx={entrySx}>
-            <Typography variant="h4" sx={titleSx}>
-              <Link href={item.url} target="_blank" rel="noopener">
-                {item.institution}
-              </Link>
+const courseDateSx = {
+  color: "secondary.main",
+  fontFamily: "'Inter', sans-serif",
+  fontSize: { xs: 12, md: 13 },
+  letterSpacing: "0.04em",
+  whiteSpace: "nowrap",
+} as const;
+
+const groupCertificationsByIssuer = (items: typeof certifications) =>
+  items.reduce<{ issuer: string; courses: typeof certifications }[]>(
+    (groups, cert) => {
+      const group = groups.find((g) => g.issuer === cert.issuer);
+      if (group) {
+        group.courses.push(cert);
+      } else {
+        groups.push({ issuer: cert.issuer, courses: [cert] });
+      }
+      return groups;
+    },
+    []
+  );
+
+const Education = () => {
+  const certificationGroups = groupCertificationsByIssuer(certifications);
+
+  return (
+    <Box
+      component="section"
+      className="el-title"
+      id="education"
+      sx={{ position: "relative" }}
+    >
+      <div className="wrap" style={{ paddingTop: 0 }}>
+        <Container sx={{ maxWidth: "880px !important" }}>
+          <Box sx={{ textAlign: "center", mb: 6 }} className="reveal">
+            <Typography component="span" sx={overlineSx}>
+              Background
             </Typography>
-            <Typography sx={subtitleSx}>{item.credential}</Typography>
-            <Typography sx={datesSx}>{item.dates}</Typography>
+            <Typography variant="h3" sx={{ mt: 2 }}>
+              Education & Certifications
+            </Typography>
           </Box>
-        ))}
-      </Container>
-    </div>
-  </Box>
-);
+
+          {certificationGroups.map((group) => (
+            <Box key={group.issuer} className="reveal" sx={entrySx}>
+              <Typography variant="h4" sx={titleSx}>
+                {group.issuer}
+              </Typography>
+              {group.courses.map((cert) => (
+                <Box key={cert.name} sx={courseRowSx}>
+                  <Typography sx={courseNameSx}>
+                    <Link href={cert.url} target="_blank" rel="noopener">
+                      {cert.name}
+                    </Link>
+                  </Typography>
+                  <Typography sx={courseDateSx}>{cert.date}</Typography>
+                </Box>
+              ))}
+            </Box>
+          ))}
+
+          {education.map((item) => (
+            <Box key={item.institution} className="reveal" sx={entrySx}>
+              <Typography variant="h4" sx={titleSx}>
+                <Link href={item.url} target="_blank" rel="noopener">
+                  {item.institution}
+                </Link>
+              </Typography>
+              <Typography sx={subtitleSx}>{item.credential}</Typography>
+              <Typography sx={datesSx}>{item.dates}</Typography>
+            </Box>
+          ))}
+        </Container>
+      </div>
+    </Box>
+  );
+};
 
 export default Education;

@@ -87,15 +87,21 @@ const education = [
 const certifications = [
   {
     name: "Claude Code in Action",
-    issuer: "Anthropic Academy",
+    issuer: "Anthropic Education",
     date: "July 2026",
     url: "http://verify.skilljar.com/c/vtdd6ineurkq",
   },
   {
     name: "Claude Code 101",
-    issuer: "Anthropic Academy",
+    issuer: "Anthropic Education",
     date: "July 2026",
     url: "https://verify.skilljar.com/c/jc5w67753a9q",
+  },
+  {
+    name: "Introduction to Model Context Protocol",
+    issuer: "Anthropic Education",
+    date: "August 2026",
+    url: "https://verify.skilljar.com/c/5tszimgoxbd4",
   },
 ];
 
