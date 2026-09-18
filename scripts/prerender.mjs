@@ -8,6 +8,7 @@ const routes = [
   { route: "/case-study/mui-design-system", out: "case-study/mui-design-system/index.html" },
   { route: "/case-study/theming-platform", out: "case-study/theming-platform/index.html" },
   { route: "/case-study/component-system", out: "case-study/component-system/index.html" },
+  { route: "/privacy", out: "privacy/index.html" },
 ];
 
 const server = await preview({ preview: { port: 4173, strictPort: false } });

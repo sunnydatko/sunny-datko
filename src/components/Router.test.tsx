@@ -58,6 +58,14 @@ describe("Router", () => {
     ).toBeInTheDocument();
   });
 
+  it("renders the privacy policy page", async () => {
+    renderAt("/privacy");
+
+    expect(
+      await screen.findByRole("heading", { name: /privacy policy/i }),
+    ).toBeInTheDocument();
+  });
+
   it("renders the not found page for an unknown route", async () => {
     renderAt("/this-route-does-not-exist");
 

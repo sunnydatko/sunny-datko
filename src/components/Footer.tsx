@@ -1,6 +1,7 @@
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
+import { Link as RouterLink } from "react-router-dom";
 import { SiGithub } from "react-icons/si";
 import { FaLinkedinIn, FaTwitter } from "react-icons/fa";
 
@@ -58,6 +59,24 @@ const Footer = () => (
             Sunny Datko
           </Box>
         </Typography>
+
+        <Box
+          component={RouterLink}
+          to="/privacy"
+          sx={{
+            color: "grey.600",
+            opacity: 0.6,
+            fontFamily: "'Inter', sans-serif",
+            fontSize: "12px",
+            fontWeight: 500,
+            textDecoration: "none",
+            marginTop: "8px",
+            transition: "color 0.2s, opacity 0.2s",
+            "&:hover": { color: "primary.main", opacity: 1 },
+          }}
+        >
+          Privacy Policy
+        </Box>
       </Container>
     </Box>
   </Box>

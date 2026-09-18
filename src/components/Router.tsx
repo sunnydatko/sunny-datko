@@ -7,6 +7,7 @@ const Home = lazy(() => import("../pages/Home"));
 const MuiCaseStudy = lazy(() => import("../pages/case-studies/MuiCaseStudy"));
 const ThemingCaseStudy = lazy(() => import("../pages/case-studies/ThemingCaseStudy"));
 const ComponentSystemCaseStudy = lazy(() => import("../pages/case-studies/ComponentSystemCaseStudy"));
+const Privacy = lazy(() => import("../pages/Privacy"));
 const NotFound = lazy(() => import("../pages/NotFound"));
 
 const Router = () => (
@@ -18,6 +19,7 @@ const Router = () => (
           <Route element={<MuiCaseStudy />} path="/case-study/mui-design-system" />
           <Route element={<ThemingCaseStudy />} path="/case-study/theming-platform" />
           <Route element={<ComponentSystemCaseStudy />} path="/case-study/component-system" />
+          <Route element={<Privacy />} path="/privacy" />
           <Route element={<NotFound />} path="*" />
         </Routes>
       </Suspense>

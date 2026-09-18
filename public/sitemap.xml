@@ -16,4 +16,8 @@
     <loc>https://sunnydatko.com/case-study/component-system</loc>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://sunnydatko.com/privacy</loc>
+    <priority>0.3</priority>
+  </url>
 </urlset>
