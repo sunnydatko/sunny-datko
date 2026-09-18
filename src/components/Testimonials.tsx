@@ -4,7 +4,7 @@ import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
-import { BsStarFill, BsChevronLeft, BsChevronRight } from "react-icons/bs";
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 import { testimonials } from "../helpers/data";
 
@@ -108,7 +108,7 @@ const Testimonials = () => {
           </Box>
           <Box
             className="reviews reveal"
-            sx={{ minHeight: { xs: "440px", sm: "470px", md: "400px" } }}
+            sx={{ minHeight: { xs: "400px", sm: "430px", md: "370px" } }}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
             onFocus={() => setFocused(true)}
@@ -141,24 +141,6 @@ const Testimonials = () => {
                 >
                   {current.displayText}
                 </Typography>
-                <Box
-                  aria-label="5 out of 5 stars"
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    gap: 0.5,
-                    mt: 0.5,
-                    color: "#C9A961",
-                  }}
-                >
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Box
-                      key={i}
-                      component={BsStarFill}
-                      sx={{ fontSize: { xs: 13, sm: 15 } }}
-                    />
-                  ))}
-                </Box>
                 <Box
                   sx={{
                     display: "flex",

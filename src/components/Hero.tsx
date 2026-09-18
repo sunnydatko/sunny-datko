@@ -87,7 +87,7 @@ const Hero = () => {
       position: "relative",
       display: "flex",
       alignItems: "center",
-      minHeight: { xs: "100svh", md: "100vh" },
+      minHeight: { xs: "auto", md: "100vh" },
       overflow: "hidden",
       backgroundColor: "#151313",
       mt: { xs: 0, md: -8 },
