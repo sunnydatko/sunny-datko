@@ -132,6 +132,7 @@ const ComponentSystemCaseStudy = () => {
 
           <Typography
             variant="h2"
+            component="h1"
             sx={{
               fontSize: { xs: "28px", sm: "38px", md: "52px" },
               color: "grey.100",

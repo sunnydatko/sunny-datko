@@ -32,6 +32,8 @@ const KonamiEgg = () => {
   const [seqProgress, setSeqProgress] = useState(0);
   const progressRef = useRef(0);
   const resetTimer = useRef<ReturnType<typeof setTimeout>>();
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const lastFocused = useRef<HTMLElement | null>(null);
 
   const handleKey = useCallback((e: KeyboardEvent) => {
     if (active) return;
@@ -63,12 +65,18 @@ const KonamiEgg = () => {
 
   useEffect(() => {
     if (!active) return;
+    // move focus into the dialog so screen reader / keyboard users land on it,
+    // and hand focus back to whatever triggered it when the dialog closes
+    lastFocused.current = document.activeElement as HTMLElement | null;
+    dialogRef.current?.focus();
+
     const timer = setTimeout(() => setActive(false), 8000);
     const onEsc = (e: KeyboardEvent) => { if (e.key === "Escape") setActive(false); };
     window.addEventListener("keydown", onEsc);
     return () => {
       clearTimeout(timer);
       window.removeEventListener("keydown", onEsc);
+      lastFocused.current?.focus();
     };
   }, [active]);
 
@@ -122,10 +130,15 @@ const KonamiEgg = () => {
       {/* Main overlay */}
       {active && (
         <Box
+          ref={dialogRef}
           role="dialog"
           aria-modal="true"
           aria-label="Easter egg unlocked"
+          tabIndex={-1}
           onClick={() => setActive(false)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") setActive(false);
+          }}
           sx={{
             position: "fixed",
             inset: 0,
@@ -137,6 +150,7 @@ const KonamiEgg = () => {
             backdropFilter: "blur(14px)",
             WebkitBackdropFilter: "blur(14px)",
             cursor: "pointer",
+            outline: "none",
 
             "@keyframes kFadeIn": { from: { opacity: 0 }, to: { opacity: 1 } },
             "@keyframes kFloat": {

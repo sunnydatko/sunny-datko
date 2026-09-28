@@ -4,9 +4,14 @@ import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
-import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
+import { BsChevronLeft, BsChevronRight, BsPause, BsPlay } from "react-icons/bs";
 
 import { testimonials } from "../helpers/data";
+
+const prefersReducedMotion = () =>
+  typeof window !== "undefined" &&
+  typeof window.matchMedia === "function" &&
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const Arrow = styled(IconButton)({
   cursor: "pointer",
@@ -41,12 +46,26 @@ const Arrow = styled(IconButton)({
   },
 });
 
+// centred along the bottom edge of the card, clear of the left/right arrows
+const PauseToggle = styled(Arrow)({
+  position: "absolute",
+  top: "auto",
+  bottom: "12px",
+  left: "50%",
+  transform: "translateX(-50%)",
+  height: "36px",
+  width: "36px",
+});
+
 const Testimonials = () => {
   const [active, setActive] = useState(0);
   const [current, setCurrent] = useState(testimonials[0]);
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
-  const paused = hovered || focused;
+  // WCAG 2.2.2: auto-rotating content needs an explicit, persistent way to stop
+  // it — hover/focus alone doesn't help someone who never hovers.
+  const [userPaused, setUserPaused] = useState(prefersReducedMotion);
+  const paused = hovered || focused || userPaused;
 
   const showNextTestimonial = () => {
     setActive((prevCount) =>
@@ -102,12 +121,15 @@ const Testimonials = () => {
             >
               Kind Words
             </Typography>
-            <Typography variant="h3" sx={{ mt: 2 }}>
+            <Typography variant="h3" component="h2" sx={{ mt: 2 }}>
               Recommendations
             </Typography>
           </Box>
           <Box
             className="reviews reveal"
+            role="group"
+            aria-roledescription="carousel"
+            aria-label="Recommendations"
             sx={{ minHeight: { xs: "400px", sm: "430px", md: "370px" } }}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
@@ -116,6 +138,9 @@ const Testimonials = () => {
           >
             <div className="review dflex-center" aria-live="polite" aria-atomic="true">
               <div className="quote">
+                <span className="visually-hidden">
+                  Recommendation {active + 1} of {testimonials.length}
+                </span>
                 <Box
                   aria-hidden
                   sx={{
@@ -152,8 +177,8 @@ const Testimonials = () => {
                 >
                   <Box
                     className="bg-img"
-                    role="img"
-                    aria-label={current.name}
+                    /* the name and title sit right next to it as text */
+                    aria-hidden="true"
                     sx={{
                       backgroundImage: `url(${current.image})`,
                       borderRadius: "100%",
@@ -193,15 +218,26 @@ const Testimonials = () => {
                 onClick={showPreviousTestimonial}
                 sx={{ left: 0, marginLeft: 0.5 }}
               >
-                <BsChevronLeft />
+                <BsChevronLeft aria-hidden="true" />
               </Arrow>
               <Arrow
                 aria-label="Next testimonial"
                 onClick={showNextTestimonial}
                 sx={{ right: 0, marginRight: 0.5 }}
               >
-                <BsChevronRight />
+                <BsChevronRight aria-hidden="true" />
               </Arrow>
+              <PauseToggle
+                aria-label={
+                  userPaused
+                    ? "Start automatic testimonial rotation"
+                    : "Stop automatic testimonial rotation"
+                }
+                aria-pressed={userPaused}
+                onClick={() => setUserPaused((wasPaused) => !wasPaused)}
+              >
+                {userPaused ? <BsPlay aria-hidden="true" /> : <BsPause aria-hidden="true" />}
+              </PauseToggle>
             </Box>
           </Box>
         </Container>

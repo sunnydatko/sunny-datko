@@ -150,6 +150,7 @@ const NotFound = () => {
 
             <Typography
               variant="h4"
+              component="h2"
               sx={{
                 fontSize: { xs: "26px", sm: "32px", md: "40px" },
                 mt: { xs: 1, md: 2 },

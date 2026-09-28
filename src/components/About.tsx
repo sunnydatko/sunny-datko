@@ -43,7 +43,7 @@ const About = () => {
           >
             About Me
           </Typography>
-          <Typography variant="h3" sx={{ mt: "32px", mb: "48px" }}>
+          <Typography variant="h3" component="h2" sx={{ mt: "32px", mb: "48px" }}>
             Building products people love.
           </Typography>
 
@@ -51,17 +51,31 @@ const About = () => {
             I turn fragmented interfaces into shared systems — reusable components, accessible patterns, and tokens that let teams ship consistent product experiences without rebuilding the basics every time.
           </Typography>
 
-          {/* Tech stack icons */}
+          {/* Tech stack icons — the only place these skills are named, so each
+              glyph carries its own accessible name rather than being decorative */}
           <Box
+            component="ul"
+            aria-label="Core skills"
             sx={{
               display: "flex",
               flexWrap: "wrap",
               gap: { xs: 2, md: 2.5 },
               justifyContent: "center",
+              listStyle: "none",
+              m: 0,
+              p: 0,
             }}
           >
             {skills.map(({ label, Icon }) => (
-              <Icon key={label} size={20} color="rgba(245,241,236,0.42)" title={label} />
+              <Box component="li" key={label} sx={{ display: "flex" }}>
+                <Icon
+                  size={20}
+                  color="rgba(245,241,236,0.42)"
+                  role="img"
+                  aria-label={label}
+                  title={label}
+                />
+              </Box>
             ))}
           </Box>
         </Container>

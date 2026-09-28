@@ -136,6 +136,7 @@ const ThemingCaseStudy = () => {
 
         <Typography
           variant="h2"
+          component="h1"
           sx={{ fontSize: { xs: "32px", sm: "42px", md: "52px" }, color: "grey.100", mb: 2 }}
         >
           Building a Theme-Driven Platform

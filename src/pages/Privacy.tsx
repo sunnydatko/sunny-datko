@@ -22,6 +22,7 @@ const headingSx = {
   color: "grey.100",
   mb: 2,
 };
+const inlineLinkSx = { textDecoration: "underline" } as const;
 const listSx = {
   m: 0,
   pl: 2.5,
@@ -81,7 +82,7 @@ const Privacy = () => {
           <ArrowBackIcon /> Back Home
         </Box>
 
-        <Typography variant="h2" sx={{ fontSize: { xs: "32px", sm: "42px", md: "52px" }, color: "grey.100", mb: 2 }}>
+        <Typography variant="h2" component="h1" sx={{ fontSize: { xs: "32px", sm: "42px", md: "52px" }, color: "grey.100", mb: 2 }}>
           Privacy Policy
         </Typography>
 
@@ -100,7 +101,7 @@ const Privacy = () => {
         </Box>
 
         <Box sx={sectionSx}>
-          <Typography sx={headingSx}>Information Collected</Typography>
+          <Typography component="h2" sx={headingSx}>Information Collected</Typography>
           <Typography sx={bodySx}>
             <strong>Contact form.</strong> If you use the contact form, the name, email address,
             and message you submit are sent via EmailJS directly to my inbox so I can reply. This
@@ -120,7 +121,7 @@ const Privacy = () => {
         </Box>
 
         <Box sx={sectionSx}>
-          <Typography sx={headingSx}>How Information Is Used</Typography>
+          <Typography component="h2" sx={headingSx}>How Information Is Used</Typography>
           <Box component="ul" sx={listSx}>
             <li>To respond to messages sent through the contact form</li>
             <li>To understand how visitors use the site and improve it</li>
@@ -129,26 +130,26 @@ const Privacy = () => {
         </Box>
 
         <Box sx={sectionSx}>
-          <Typography sx={headingSx}>Third-Party Services</Typography>
+          <Typography component="h2" sx={headingSx}>Third-Party Services</Typography>
           <Typography sx={bodySx}>
             This site relies on the following third-party services, each governed by its own
             privacy policy:
           </Typography>
           <Box component="ul" sx={listSx}>
             <li>
-              <Link href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
+              <Link href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" sx={inlineLinkSx}>
                 Google Analytics
               </Link>{" "}
               — site traffic and usage analytics
             </li>
             <li>
-              <Link href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
+              <Link href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" sx={inlineLinkSx}>
                 Google reCAPTCHA
               </Link>{" "}
               — spam and abuse prevention on the contact form
             </li>
             <li>
-              <Link href="https://www.emailjs.com/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">
+              <Link href="https://www.emailjs.com/legal/privacy-policy/" target="_blank" rel="noopener noreferrer" sx={inlineLinkSx}>
                 EmailJS
               </Link>{" "}
               — delivers contact form submissions by email
@@ -157,7 +158,7 @@ const Privacy = () => {
         </Box>
 
         <Box sx={sectionSx}>
-          <Typography sx={headingSx}>Cookies</Typography>
+          <Typography component="h2" sx={headingSx}>Cookies</Typography>
           <Typography sx={bodySx}>
             Google Analytics and reCAPTCHA set cookies in your browser. You can block or delete
             cookies through your browser settings; doing so may affect reCAPTCHA's ability to
@@ -166,13 +167,14 @@ const Privacy = () => {
         </Box>
 
         <Box sx={sectionSx}>
-          <Typography sx={headingSx}>Your Choices</Typography>
+          <Typography component="h2" sx={headingSx}>Your Choices</Typography>
           <Typography sx={bodySx}>
             You can opt out of Google Analytics tracking using the{" "}
             <Link
               href="https://tools.google.com/dlpage/gaoptout"
               target="_blank"
               rel="noopener noreferrer"
+              sx={inlineLinkSx}
             >
               Google Analytics Opt-out Browser Add-on
             </Link>
@@ -183,7 +185,7 @@ const Privacy = () => {
         </Box>
 
         <Box sx={sectionSx}>
-          <Typography sx={headingSx}>Children's Privacy</Typography>
+          <Typography component="h2" sx={headingSx}>Children's Privacy</Typography>
           <Typography sx={bodySx}>
             This site isn't directed at children under 13, and doesn't knowingly collect
             information from them.
@@ -191,7 +193,7 @@ const Privacy = () => {
         </Box>
 
         <Box sx={sectionSx}>
-          <Typography sx={headingSx}>Changes to This Policy</Typography>
+          <Typography component="h2" sx={headingSx}>Changes to This Policy</Typography>
           <Typography sx={bodySx}>
             This policy may be updated occasionally to reflect changes to the site or applicable
             law. The date at the top reflects the most recent revision.
@@ -199,10 +201,10 @@ const Privacy = () => {
         </Box>
 
         <Box sx={sectionSx}>
-          <Typography sx={headingSx}>Contact</Typography>
+          <Typography component="h2" sx={headingSx}>Contact</Typography>
           <Typography sx={bodySx}>
             Questions about this policy can be sent to{" "}
-            <Link href="mailto:sunnydatko@gmail.com">sunnydatko@gmail.com</Link>.
+            <Link href="mailto:sunnydatko@gmail.com" sx={inlineLinkSx}>sunnydatko@gmail.com</Link>.
           </Typography>
         </Box>
       </Box>

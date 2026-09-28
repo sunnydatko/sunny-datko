@@ -49,12 +49,15 @@ const fieldSx = {
     fontSize: "18px",
   },
   "& .MuiOutlinedInput-root": {
+    // default border raised to rgba(...,0.4) — the previous 0.19 sits at ~1.7:1
+    // against the page background, well under the 3:1 WCAG 1.4.11 needs for a
+    // form field's resting boundary.
     "& fieldset": {
-      borderColor: "rgba(245,241,236,0.19)",
+      borderColor: "rgba(245,241,236,0.4)",
       transition: "border-color 0.3s, box-shadow 0.3s",
     },
     "&:hover fieldset": {
-      borderColor: "rgba(245,241,236,0.27)",
+      borderColor: "rgba(245,241,236,0.5)",
     },
     "&.Mui-focused fieldset": {
       borderColor: "#A78AB2",
@@ -63,24 +66,28 @@ const fieldSx = {
     "&.Mui-focused": {
       boxShadow: "0 0 0 1px rgba(167,138,178,0.2), 0 0 18px rgba(167,138,178,0.28)",
     },
+    // full-opacity error.main — the previous translucent burnt-orange measured
+    // ~2.3:1 against the page background
     "&.Mui-error fieldset": {
-      borderColor: "rgba(160,82,31,0.72)",
+      borderColor: "#C8682A",
     },
     "&.Mui-error:hover fieldset": {
-      borderColor: "rgba(160,82,31,0.8)",
+      borderColor: "#D9845A",
     },
   },
   "& .MuiInputLabel-root:not(.Mui-focused):not(.Mui-error)": {
     color: "rgba(185,176,167,0.85)",
   },
   "& .MuiInputLabel-root.Mui-error": {
-    color: "#A0521F",
+    color: "#D9845A",
   },
   "& .MuiFormHelperText-root": {
     marginTop: "8px",
   },
+  // error.light (#D9845A) rather than error.dark — the dark shade is ~3.3:1
+  // against the page background, short of the 4.5:1 body-text minimum
   "& .MuiFormHelperText-root.Mui-error": {
-    color: "#A0521F",
+    color: "#D9845A",
     fontSize: "12.5px",
   },
 };
@@ -93,6 +100,15 @@ const Contact = () => {
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const [captchaError, setCaptchaError] = useState<string | null>(null);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const inputRefs = useRef<Partial<Record<keyof Fields, HTMLInputElement | HTMLTextAreaElement>>>({});
+
+  // On a failed submit, send focus to the first field that needs attention so
+  // keyboard and screen-reader users land on the error instead of hunting for it.
+  const focusFirstError = (validationErrors: Errors) => {
+    const order: (keyof Fields)[] = ["from_name", "reply_to", "message"];
+    const firstInvalid = order.find((name) => validationErrors[name]);
+    if (firstInvalid) inputRefs.current[firstInvalid]?.focus();
+  };
 
   const handleCaptchaChange = (token: string | null) => {
     setCaptchaToken(token);
@@ -124,7 +140,11 @@ const Contact = () => {
     if (!captchaToken) {
       setCaptchaError("Please complete the captcha.");
     }
-    if (Object.keys(validationErrors).length > 0 || !captchaToken) return;
+    if (Object.keys(validationErrors).length > 0) {
+      focusFirstError(validationErrors);
+      return;
+    }
+    if (!captchaToken) return;
 
     emailjs
       .send(
@@ -182,6 +202,8 @@ const Contact = () => {
           <Typography
             align="center"
             variant="h3"
+            component="h2"
+            id="contact-heading"
             sx={{ mt: 2, mb: "20px" }}
           >
             Say hello
@@ -200,6 +222,9 @@ const Contact = () => {
                 variant="outlined"
                 label="Name"
                 name="from_name"
+                required
+                autoComplete="name"
+                inputRef={(el) => { inputRefs.current.from_name = el; }}
                 value={fields.from_name}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -212,6 +237,9 @@ const Contact = () => {
                 label="Email"
                 name="reply_to"
                 type="email"
+                required
+                autoComplete="email"
+                inputRef={(el) => { inputRefs.current.reply_to = el; }}
                 value={fields.reply_to}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -223,8 +251,10 @@ const Contact = () => {
                 variant="outlined"
                 label="Message"
                 name="message"
+                required
                 multiline
                 rows={5}
+                inputRef={(el) => { inputRefs.current.message = el; }}
                 value={fields.message}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -249,7 +279,10 @@ const Contact = () => {
                   />
                 )}
                 {captchaError && (
-                  <Typography sx={{ color: "#A0521F", fontSize: "12.5px" }}>
+                  <Typography
+                    role="alert"
+                    sx={{ color: "#D9845A", fontSize: "12.5px" }}
+                  >
                     {captchaError}
                   </Typography>
                 )}

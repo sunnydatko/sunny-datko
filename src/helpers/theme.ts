@@ -115,7 +115,11 @@ const getTheme = (mode: PaletteMode) =>
             borderColor: mode === "dark" ? "rgba(167,138,178,0.5)" : undefined,
             color: mode === "dark" ? grey[100] : "#FFF",
             fontWeight: 500,
-            transition: "0.3s",
+            // scoped to the properties that actually animate on hover — a
+            // blanket `transition: 0.3s` (all properties) was also easing the
+            // focus-visible outline in, so a fast Tab press briefly rendered
+            // a dim, partial ring before it settled
+            transition: "border-color 0.3s, background-color 0.3s, box-shadow 0.3s",
             "&:hover": {
               borderColor: theme.palette.primary.light,
               backgroundColor: theme.palette.primary.light,

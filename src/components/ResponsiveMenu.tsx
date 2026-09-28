@@ -68,15 +68,17 @@ const ResponsiveMenu = (props: ResponsiveMenuProps) => {
         <BrandMark starSize={20} fontSize={15} />
       </Box>
       <Divider />
-      <List>
-        {navItems.map((item) => (
-          <ListItem key={item.name} disablePadding>
-            <ListItemButton href={item.url} sx={{ textAlign: "center" }}>
-              <ListItemText primary={item.name} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
+      <Box component="nav" aria-label="Mobile">
+        <List>
+          {navItems.map((item) => (
+            <ListItem key={item.name} disablePadding>
+              <ListItemButton href={item.url} sx={{ textAlign: "center" }}>
+                <ListItemText primary={item.name} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+      </Box>
     </Box>
   );
 
@@ -87,6 +89,7 @@ const ResponsiveMenu = (props: ResponsiveMenuProps) => {
     <Box sx={{ display: "flex" }}>
       <AppBar
         component="nav"
+        aria-label="Main"
         elevation={0}
         position="fixed"
         sx={{
@@ -102,7 +105,9 @@ const ResponsiveMenu = (props: ResponsiveMenuProps) => {
       >
         <Toolbar>
           <IconButton
-            aria-label="open drawer"
+            aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-navigation"
             edge="start"
             onClick={handleDrawerToggle}
             sx={{ color: "common.white", mr: 2, display: { sm: "none" } }}
@@ -127,8 +132,9 @@ const ResponsiveMenu = (props: ResponsiveMenuProps) => {
           </Box>
         </Toolbar>
       </AppBar>
-      <Box component="nav">
+      <Box>
         <Drawer
+          id="mobile-navigation"
           container={container}
           variant="temporary"
           open={mobileOpen}

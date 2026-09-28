@@ -58,7 +58,7 @@ const Work = () => (
           >
             Portfolio
           </Typography>
-          <Typography variant="h3" sx={{ mt: 2 }}>
+          <Typography variant="h3" component="h2" sx={{ mt: 2 }}>
             Work
           </Typography>
         </Box>
@@ -106,7 +106,8 @@ const Work = () => (
                   component="img"
                   className="cs-img"
                   src={cs.image}
-                  alt={cs.title}
+                  /* the card's heading already names the case study */
+                  alt=""
                   loading="lazy"
                   decoding="async"
                   sx={{
@@ -146,7 +147,10 @@ const Work = () => (
               >
                 {/* Index + overline row */}
                 <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 1.5 }}>
+                  {/* decorative index — deliberately low-contrast, so it is
+                      hidden from assistive tech rather than read out */}
                   <Typography
+                    aria-hidden="true"
                     sx={{
                       fontFamily: "'DM Serif Display', serif",
                       fontSize: { xs: 28, md: 36 },
@@ -173,6 +177,7 @@ const Work = () => (
                 </Box>
 
                 <Typography
+                  component="h3"
                   sx={{
                     fontFamily: "'DM Serif Display', serif",
                     fontSize: { xs: "22px", sm: "26px", md: "30px" },

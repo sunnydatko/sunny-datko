@@ -92,14 +92,14 @@ const Education = () => {
             <Typography component="span" sx={overlineSx}>
               Background
             </Typography>
-            <Typography variant="h3" sx={{ mt: 2 }}>
+            <Typography variant="h3" component="h2" sx={{ mt: 2 }}>
               Education & Certifications
             </Typography>
           </Box>
 
           {certificationGroups.map((group) => (
             <Box key={group.issuer} className="reveal" sx={entrySx}>
-              <Typography variant="h4" sx={titleSx}>
+              <Typography variant="h4" component="h3" sx={titleSx}>
                 {group.issuer}
               </Typography>
               {group.courses.map((cert) => (
@@ -117,8 +117,8 @@ const Education = () => {
 
           {education.map((item) => (
             <Box key={item.institution} className="reveal" sx={entrySx}>
-              <Typography variant="h4" sx={titleSx}>
-                <Link href={item.url} target="_blank" rel="noopener">
+              <Typography variant="h4" component="h3" sx={titleSx}>
+                <Link href={item.url} target="_blank" rel="noopener noreferrer">
                   {item.institution}
                 </Link>
               </Typography>

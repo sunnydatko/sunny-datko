@@ -22,6 +22,7 @@ const SectionHeader = ({ icon, title }: { icon: React.ReactNode; title: string }
     </Box>
     <Typography
       variant="h4"
+      component="h2"
       sx={{ fontSize: { xs: "22px", sm: "26px", md: "32px" }, color: "grey.100", m: 0 }}
     >
       {title}

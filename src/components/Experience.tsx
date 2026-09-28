@@ -30,7 +30,7 @@ const Experience = () => (
           >
             Career
           </Typography>
-          <Typography variant="h3" sx={{ mt: 2 }}>
+          <Typography variant="h3" component="h2" sx={{ mt: 2 }}>
             Experience
           </Typography>
         </Box>
@@ -50,11 +50,12 @@ const Experience = () => (
           >
             <Typography
               variant="h4"
+              component="h3"
               sx={{
                 fontSize: { xs: "24px", md: "30px" },
               }}
             >
-              <Link href={company.url} target="_blank">
+              <Link href={company.url} target="_blank" rel="noopener noreferrer">
                 {company.company}
               </Link>
               {"note" in company && company.note && (

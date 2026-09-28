@@ -31,18 +31,19 @@ const Footer = () => (
               rel="noopener noreferrer"
               aria-label={label}
               sx={{
-                color: "grey.500",
+                color: "grey.300",
                 display: "flex",
                 transition: "color 0.2s, transform 0.2s",
                 "&:hover": { color: "primary.main", transform: "scale(1.15)" },
               }}
             >
-              <Icon size={28} />
+              {/* the link carries the accessible name — the glyph is decorative */}
+              <Icon size={28} role="presentation" aria-hidden="true" focusable="false" />
             </Box>
           ))}
         </Box>
 
-        <Typography variant="caption" sx={{ color: "grey.600", opacity: 0.6, fontWeight: 500, marginTop: "20px" }}>
+        <Typography variant="caption" sx={{ color: "grey.400", fontWeight: 500, marginTop: "20px" }}>
           Crafted by{" "}
           <Box
             component="a"
@@ -50,10 +51,10 @@ const Footer = () => (
             target="_blank"
             rel="noopener noreferrer"
             sx={{
-              color: "inherit",
-              textDecoration: "none",
+              color: "grey.300",
+              textDecoration: "underline",
               transition: "color 0.2s",
-              "&:hover": { color: "primary.main", textDecoration: "underline" },
+              "&:hover": { color: "primary.main" },
             }}
           >
             Sunny Datko
@@ -64,15 +65,14 @@ const Footer = () => (
           component={RouterLink}
           to="/privacy"
           sx={{
-            color: "grey.600",
-            opacity: 0.6,
+            color: "grey.300",
             fontFamily: "'Inter', sans-serif",
             fontSize: "12px",
             fontWeight: 500,
-            textDecoration: "none",
+            textDecoration: "underline",
             marginTop: "8px",
-            transition: "color 0.2s, opacity 0.2s",
-            "&:hover": { color: "primary.main", opacity: 1 },
+            transition: "color 0.2s",
+            "&:hover": { color: "primary.main" },
           }}
         >
           Privacy Policy
