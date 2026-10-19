@@ -1,110 +1,19 @@
-import { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import { styled } from "@mui/material/styles";
-import { BsChevronLeft, BsChevronRight, BsPause, BsPlay } from "react-icons/bs";
 
 import { testimonials } from "../helpers/data";
 
-const prefersReducedMotion = () =>
-  typeof window !== "undefined" &&
-  typeof window.matchMedia === "function" &&
-  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-const Arrow = styled(IconButton)({
-  cursor: "pointer",
-  height: "44px",
-  width: "44px",
-  padding: 0,
-  boxSizing: "border-box",
-  fontSize: "16px",
-  position: "absolute",
-  top: "50%",
-  transform: "translateY(-50%)",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  border: "1px solid rgba(167,138,178,0.5)",
-  borderRadius: "50%",
-  color: "#F5F1EC",
-  transition: "border-color .3s, background-color .3s",
-  zIndex: 2,
-  "&:hover": {
-    borderColor: "#A78AB2",
-    backgroundColor: "rgba(167,138,178,0.12)",
-  },
-  "&:focus-visible": {
-    outline: "2px solid #A78AB2",
-    outlineOffset: "2px",
-  },
-
-  svg: {
-    fontSize: "1.1em",
-    opacity: 0.85,
-  },
-});
-
-// centred along the bottom edge of the card, clear of the left/right arrows
-const PauseToggle = styled(Arrow)({
-  position: "absolute",
-  top: "auto",
-  bottom: "12px",
-  left: "50%",
-  transform: "translateX(-50%)",
-  height: "36px",
-  width: "36px",
-});
+// Leads each card with its first sentence; the rest sits behind a native
+// <details> disclosure so the grid doesn't read as a wall of text.
+const splitExcerpt = (text: string) => {
+  const match = text.match(/^(.+?[.!?])\s+(.+)$/s);
+  return match ? { excerpt: match[1], rest: match[2] } : { excerpt: text, rest: "" };
+};
 
 const Testimonials = () => {
-  const [active, setActive] = useState(0);
-  const [current, setCurrent] = useState(testimonials[0]);
-  const [hovered, setHovered] = useState(false);
-  const [focused, setFocused] = useState(false);
-  // WCAG 2.2.2: auto-rotating content needs an explicit, persistent way to stop
-  // it — hover/focus alone doesn't help someone who never hovers.
-  const [userPaused, setUserPaused] = useState(prefersReducedMotion);
-  const paused = hovered || focused || userPaused;
-
-  const showNextTestimonial = () => {
-    setActive((prevCount) =>
-      prevCount === testimonials.length - 1 ? 0 : prevCount + 1
-    );
-  };
-
-  const showPreviousTestimonial = () => {
-    setActive((prevCount) =>
-      prevCount === 0 ? testimonials.length - 1 : prevCount - 1
-    );
-  };
-
-  useEffect(() => {
-    setCurrent(testimonials[active]);
-  }, [active]);
-
-  useEffect(() => {
-    if (paused) return;
-
-    const id = setInterval(() => {
-      showNextTestimonial();
-    }, 15000);
-
-    return () => clearInterval(id);
-  }, [active, paused]);
-
-  const handleBlur = (e: React.FocusEvent<HTMLDivElement>) => {
-    if (!e.currentTarget.contains(e.relatedTarget as Node)) {
-      setFocused(false);
-    }
-  };
-
   return (
-    <Box
-      component="section"
-      className="el-reviews"
-      sx={{ position: "relative" }}
-    >
+    <Box component="section" className="el-reviews" sx={{ position: "relative" }}>
       <Box className="wrap">
         <Container>
           <Box sx={{ textAlign: "center", mb: { xs: 3, md: 4 } }} className="reveal">
@@ -126,119 +35,140 @@ const Testimonials = () => {
             </Typography>
           </Box>
           <Box
-            className="reviews reveal"
-            role="group"
-            aria-roledescription="carousel"
-            aria-label="Recommendations"
-            sx={{ minHeight: { xs: "400px", sm: "430px", md: "370px" } }}
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
-            onFocus={() => setFocused(true)}
-            onBlur={handleBlur}
+            component="ul"
+            sx={{
+              listStyle: "none",
+              m: 0,
+              p: 0,
+              display: "grid",
+              gridTemplateColumns: {
+                xs: "1fr",
+                sm: "repeat(2, 1fr)",
+                md: "repeat(3, 1fr)",
+              },
+              gap: { xs: 2.5, md: 3 },
+            }}
           >
-            <div className="review dflex-center" aria-live="polite" aria-atomic="true">
-              <div className="quote">
-                <span className="visually-hidden">
-                  Recommendation {active + 1} of {testimonials.length}
-                </span>
+            {testimonials.map((testimonial) => {
+              const { excerpt, rest } = splitExcerpt(testimonial.displayText);
+              return (
                 <Box
-                  aria-hidden
+                  component="li"
+                  key={testimonial.name}
+                  className="review-card reveal"
                   sx={{
-                    fontFamily: "'DM Serif Display', serif",
-                    color: "primary.main",
-                    opacity: 0.45,
-                    fontSize: { xs: 52, sm: 68 },
-                    lineHeight: 0.5,
-                    height: { xs: 24, sm: 32 },
-                  }}
-                >
-                  &ldquo;
-                </Box>
-                <Typography
-                  align="center"
-                  className="dtext"
-                  sx={{
-                    color: "grey.200",
-                    fontSize: { xs: 15, sm: 18 },
-                    fontWeight: { xs: 300, sm: 400 },
-                    lineHeight: { xs: "24px", sm: "30px" },
-                  }}
-                >
-                  {current.displayText}
-                </Typography>
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    pt: 2.5,
-                    gap: 1.5,
+                    borderRadius: "18px",
+                    background: "rgba(245, 241, 236, 0.035)",
+                    border: "1px solid rgba(245, 241, 236, 0.08)",
+                    backdropFilter: "blur(10px)",
+                    WebkitBackdropFilter: "blur(10px)",
+                    boxShadow:
+                      "0 24px 60px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(245, 241, 236, 0.05)",
+                    p: { xs: 3, md: 3.5 },
                   }}
                 >
                   <Box
-                    className="bg-img"
-                    /* the name and title sit right next to it as text */
-                    aria-hidden="true"
-                    sx={{
-                      backgroundImage: `url(${current.image})`,
-                      borderRadius: "100%",
-                      boxShadow: "0 0 10px rgb(0 0 0 / 10%)",
-                      height: "54px",
-                      width: "54px",
-                      flexShrink: 0,
-                    }}
-                  />
-                  <Box sx={{ textAlign: "left" }}>
-                    <Typography
+                    component="figure"
+                    sx={{ m: 0, display: "flex", flexDirection: "column", height: "100%" }}
+                  >
+                    <Box sx={{ flexGrow: 1 }}>
+                      <Box
+                        aria-hidden
+                        sx={{
+                          fontFamily: "'DM Serif Display', serif",
+                          color: "primary.main",
+                          opacity: 0.45,
+                          fontSize: { xs: 44, md: 52 },
+                          lineHeight: 0.5,
+                          height: { xs: 22, md: 26 },
+                        }}
+                      >
+                        &ldquo;
+                      </Box>
+                      <Typography
+                        component="blockquote"
+                        sx={{
+                          m: 0,
+                          color: "grey.200",
+                          fontSize: { xs: 15, md: 15.5 },
+                          fontWeight: { xs: 300, md: 400 },
+                          lineHeight: { xs: "24px", md: "26px" },
+                        }}
+                      >
+                        {excerpt}
+                      </Typography>
+                      {rest && (
+                        <details className="testimonial-more">
+                          <summary>
+                            <span className="testimonial-more__closed">
+                              Read full testimonial
+                            </span>
+                            <span className="testimonial-more__open">Show less</span>
+                          </summary>
+                          <Typography
+                            component="p"
+                            sx={{
+                              mt: 1.25,
+                              mb: 0,
+                              color: "grey.200",
+                              fontSize: { xs: 15, md: 15.5 },
+                              fontWeight: { xs: 300, md: 400 },
+                              lineHeight: { xs: "24px", md: "26px" },
+                            }}
+                          >
+                            {rest}
+                          </Typography>
+                        </details>
+                      )}
+                    </Box>
+                    <Box
+                      component="figcaption"
                       sx={{
-                        color: "text.primary",
-                        fontSize: "15px",
-                        fontWeight: 700,
-                        lineHeight: 1.3,
+                        display: "flex",
+                        alignItems: "center",
+                        mt: "auto",
+                        pt: 2.5,
+                        gap: 1.5,
                       }}
                     >
-                      {current.name}
-                    </Typography>
-                    <Typography
-                      sx={{
-                        color: "text.secondary",
-                        fontSize: "13.5px",
-                        lineHeight: 1.3,
-                      }}
-                    >
-                      {current.title} · {current.company}
-                    </Typography>
+                      <Box
+                        className="bg-img"
+                        aria-hidden="true"
+                        sx={{
+                          backgroundImage: `url(${testimonial.image})`,
+                          borderRadius: "100%",
+                          boxShadow: "0 0 10px rgb(0 0 0 / 10%)",
+                          height: "48px",
+                          width: "48px",
+                          flexShrink: 0,
+                        }}
+                      />
+                      <Box sx={{ textAlign: "left" }}>
+                        <Typography
+                          sx={{
+                            color: "text.primary",
+                            fontSize: "14.5px",
+                            fontWeight: 700,
+                            lineHeight: 1.3,
+                          }}
+                        >
+                          {testimonial.name}
+                        </Typography>
+                        <Typography
+                          sx={{
+                            color: "text.secondary",
+                            fontSize: "13px",
+                            lineHeight: 1.3,
+                          }}
+                        >
+                          {testimonial.title} · {testimonial.company}
+                        </Typography>
+                      </Box>
+                    </Box>
                   </Box>
                 </Box>
-              </div>
-            </div>
-            <Box>
-              <Arrow
-                aria-label="Previous testimonial"
-                onClick={showPreviousTestimonial}
-                sx={{ left: 0, marginLeft: 0.5 }}
-              >
-                <BsChevronLeft aria-hidden="true" />
-              </Arrow>
-              <Arrow
-                aria-label="Next testimonial"
-                onClick={showNextTestimonial}
-                sx={{ right: 0, marginRight: 0.5 }}
-              >
-                <BsChevronRight aria-hidden="true" />
-              </Arrow>
-              <PauseToggle
-                aria-label={
-                  userPaused
-                    ? "Start automatic testimonial rotation"
-                    : "Stop automatic testimonial rotation"
-                }
-                aria-pressed={userPaused}
-                onClick={() => setUserPaused((wasPaused) => !wasPaused)}
-              >
-                {userPaused ? <BsPlay aria-hidden="true" /> : <BsPause aria-hidden="true" />}
-              </PauseToggle>
-            </Box>
+              );
+            })}
           </Box>
         </Container>
       </Box>
