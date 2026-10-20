@@ -116,42 +116,6 @@ summary:focus-visible,
   background-repeat: no-repeat;
 }
 
-/* testimonial "read more" disclosure */
-.testimonial-more {
-  margin-top: 4px;
-}
-
-.testimonial-more summary {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
-  list-style: none;
-  color: #a78ab2;
-  font-family: "Inter", sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.testimonial-more summary::-webkit-details-marker {
-  display: none;
-}
-
-.testimonial-more summary::before {
-  content: "+";
-  font-size: 15px;
-  line-height: 1;
-}
-
-.testimonial-more[open] summary::before {
-  content: "\2212";
-}
-
-.testimonial-more[open] summary .testimonial-more__closed,
-.testimonial-more:not([open]) summary .testimonial-more__open {
-  display: none;
-}
-
 @media only screen and (max-width: 994px) {
   .el-title .wrap,
   .el-reviews .wrap {

@@ -1,11 +1,8 @@
 import arpita from "../assets/arpita.jpeg";
-import camden from "../assets/camden.jpg";
 import ed from "../assets/ed.jpg";
 import emily from "../assets/emily.jpeg";
-import jon from "../assets/jon.jpg";
 import fahey from "../assets/fahey.png";
 import spencer from "../assets/spencer.jpg";
-import orel from "../assets/orel.jpg";
 import adar from "../assets/adar.png";
 
 const experience = [
@@ -112,40 +109,19 @@ const testimonials = [
     company: "SafeBase",
     displayText:
       "Sunny is the kind of engineer who elevates everyone around her. As our lead frontend engineer, she prove better practices and conventions across the team, dramatically improved our Ux, and built the foundation that enabled the rest of engineering to ship with high velocity. She combines strong technical judgment with a real eye for user experience — a rare and valuable combination.",
+    highlight:
+      "She combines strong technical judgment with a real eye for user experience — a rare and valuable combination.",
     image: adar,
   },
-  {
-    name: "Orel Regev",
-    title: "Technical Product Lead",
-    company: "SafeBase",
-    displayText:
-      "Working with Sunny has been a wonderful experience, and her leadership and ownership skills significantly contribute to our team's success. She effectively identifies areas for improvement and fearlessly leads necessary changes, addressing even the most challenging tech and design debts. Sunny's clear communication fosters a collaborative atmosphere, making our work together a pleasure. I value her dedication and the genuine impact she brings to our team.",
-    image: orel,
-  },
-
   {
     name: "Spencer Carney",
     title: "Engineering Manager",
     company: "Instil",
     displayText:
       "Dependable, eager, and always willing to learn and grow; that's how I would describe Sunny Datko. Collaborating with her has been an immense pleasure. She is an excellent sounding board when deliberating over decisions. Watching her take on new challenges without any hesitancy, and then succeed at them, has been one of the recent highlights of my career. Any team that needs a hard-hitting front-end engineer would be remiss to pass up on bringing her onboard.",
+    highlight:
+      "Any team that needs a hard-hitting front-end engineer would be remiss to pass up on bringing her onboard.",
     image: spencer,
-  },
-  {
-    name: "Camden Lee",
-    title: "Senior Software Engineer",
-    company: "Instil",
-    displayText:
-      "I had the privilege to work closely alongside Sunny at Instil. She showed the ability to dive into challenges and find solutions, driving our team towards success. One of Sunny's standout qualities is her self-motivation and proactive nature when it comes to working within a team and solving technical problems. I would jump at the opportunity to work with Sunny again and any organization would be lucky to have her.",
-    image: camden,
-  },
-  {
-    name: "Jon Jandoc",
-    title: "Software Engineer",
-    company: "Instil",
-    displayText:
-      "Sunny has the chops to take on whatever frontend challenges you throw at her. What makes her special is her ability to identify a technical challenge, collaborate on a direction forward, and then dive in with an upbeat and infectious enthusiasm. Every interaction was always a joy and I'd eagerly jump at an opportunity to work with her again in the future.",
-    image: jon,
   },
   {
     name: "Edward Kim",
@@ -153,6 +129,8 @@ const testimonials = [
     company: "Instil",
     displayText:
       "Sunny has been a great collaborator and a pleasure to work with. I've worked with her as her squad lead, and she has continued to impress me with strong communication, adaptability to changing requirements and strong ownership over both feature implementation and tech debt. Sunny's contributions have been strongly positive both technically and also culturally as a strong collaborator. I'd love to work with Sunny again!",
+    highlight:
+      "She has continued to impress me with strong communication, adaptability to changing requirements and strong ownership over both feature implementation and tech debt.",
     image: ed,
   },
   {
@@ -161,6 +139,8 @@ const testimonials = [
     company: "InnovaSolutions",
     displayText:
       "As Sunny's direct manager, Sunny made my job easy. Sunny has outstanding communication skills and a strong passion for technology, particularly front-end web development. During the time she reported to me, I watched Sunny grow her skills tremendously to the point where she was working on some of the most complex parts of our application. I would be more than happy to work with her on a team again if given the chance.",
+    highlight:
+      "I watched Sunny grow her skills tremendously to the point where she was working on some of the most complex parts of our application.",
     image: fahey,
   },
   {
@@ -169,6 +149,8 @@ const testimonials = [
     company: "InnovaSolutions",
     displayText:
       "Sunny and I worked together in different teams. I found Sunny extremely charming and pleasant, tackling all project work with dedication and smile. Her interpersonal skills were exemplary and appreciated by everyone who worked with her. Besides bringing positive energy to team, Sunny is a take-charge person who can present creative ideas and communicate it effectively. She would be an excellent addition to any team and I wish her best for her future projects.",
+    highlight:
+      "Sunny is a take-charge person who can present creative ideas and communicate it effectively.",
     image: arpita,
   },
   {
@@ -177,6 +159,8 @@ const testimonials = [
     company: "ServiceNow",
     displayText:
       "I had the pleasure of working with Sunny on numerous occasions. Sunny is a talented front-end developer and a skilled presenter who can command a room. I was personally able to attend one of her talks on CSS and learned some interesting new things about developing web applications from her presentation. Beyond her technical abilities, one of Sunny’s best qualities is her warm and positive personality. Any company looking for an engineer would be lucky to have Sunny on their team.",
+    highlight:
+      "Sunny is a talented front-end developer and a skilled presenter who can command a room.",
     image: emily,
   },
 ];
