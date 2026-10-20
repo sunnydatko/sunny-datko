@@ -25,6 +25,7 @@ const navItems = [
   { name: "WORK", url: "/#work" },
   { name: "CONTACT", url: "/#contact" },
 ];
+const sectionIds = navItems.map((item) => item.url.split("#")[1]);
 
 type ResponsiveMenuProps = {
   /**
@@ -40,6 +41,7 @@ const ResponsiveMenu = (props: ResponsiveMenuProps) => {
   const { pathname } = useLocation();
   const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
 
   useEffect(() => {
     if (!isHome) {
@@ -50,6 +52,49 @@ const ResponsiveMenu = (props: ResponsiveMenuProps) => {
     onScroll();
     globalThis.addEventListener("scroll", onScroll, { passive: true });
     return () => globalThis.removeEventListener("scroll", onScroll);
+  }, [isHome]);
+
+  // Highlights the nav item for the section currently in view. Home is
+  // lazy-loaded, so a MutationObserver keeps watch for sections that mount
+  // after this component does (mirrors the .reveal scan in Ambient.tsx).
+  useEffect(() => {
+    if (!isHome) {
+      setActiveSection(null);
+      return;
+    }
+    if (typeof IntersectionObserver === "undefined") return;
+
+    const intersecting = new Map<string, boolean>();
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          intersecting.set(entry.target.id, entry.isIntersecting);
+        });
+        const current = sectionIds.find((id) => intersecting.get(id));
+        if (current) setActiveSection(current);
+      },
+      { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+    );
+
+    const seen = new Set<Element>();
+    const scan = () => {
+      sectionIds.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el && !seen.has(el)) {
+          seen.add(el);
+          io.observe(el);
+        }
+      });
+    };
+
+    scan();
+    const mo = new MutationObserver(scan);
+    mo.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      io.disconnect();
+      mo.disconnect();
+    };
   }, [isHome]);
 
   const transparent = isHome && !scrolled;
@@ -70,13 +115,29 @@ const ResponsiveMenu = (props: ResponsiveMenuProps) => {
       <Divider />
       <Box component="nav" aria-label="Mobile">
         <List>
-          {navItems.map((item) => (
-            <ListItem key={item.name} disablePadding>
-              <ListItemButton href={item.url} sx={{ textAlign: "center" }}>
-                <ListItemText primary={item.name} />
-              </ListItemButton>
-            </ListItem>
-          ))}
+          {navItems.map((item) => {
+            const id = item.url.split("#")[1];
+            const isActive = activeSection === id;
+            return (
+              <ListItem key={item.name} disablePadding>
+                <ListItemButton
+                  href={item.url}
+                  aria-current={isActive ? "true" : undefined}
+                  sx={{
+                    textAlign: "center",
+                    color: isActive ? "primary.light" : undefined,
+                  }}
+                >
+                  <ListItemText
+                    primary={item.name}
+                    primaryTypographyProps={{
+                      fontWeight: isActive ? 700 : 400,
+                    }}
+                  />
+                </ListItemButton>
+              </ListItem>
+            );
+          })}
         </List>
       </Box>
     </Box>
@@ -120,15 +181,40 @@ const ResponsiveMenu = (props: ResponsiveMenuProps) => {
             </Link>
           </Box>
           <Box sx={{ display: { xs: "none", sm: "block" }, ml: "auto" }}>
-            {navItems.map(({ name, url }) => (
-              <Button
-                href={url}
-                key={name}
-                sx={{ textTransform: "uppercase" }}
-              >
-                {name}
-              </Button>
-            ))}
+            {navItems.map(({ name, url }) => {
+              const id = url.split("#")[1];
+              const isActive = activeSection === id;
+              return (
+                <Button
+                  href={url}
+                  key={name}
+                  aria-current={isActive ? "true" : undefined}
+                  sx={{
+                    textTransform: "uppercase",
+                    color: isActive ? "primary.light" : undefined,
+                    fontWeight: isActive ? 700 : 400,
+                    position: "relative",
+                    "&::after": {
+                      content: '""',
+                      position: "absolute",
+                      left: "50%",
+                      bottom: 6,
+                      transform: isActive
+                        ? "translateX(-50%) scaleX(1)"
+                        : "translateX(-50%) scaleX(0)",
+                      transformOrigin: "center",
+                      width: "16px",
+                      height: "2px",
+                      borderRadius: "2px",
+                      backgroundColor: "primary.light",
+                      transition: "transform 0.25s ease",
+                    },
+                  }}
+                >
+                  {name}
+                </Button>
+              );
+            })}
           </Box>
         </Toolbar>
       </AppBar>
